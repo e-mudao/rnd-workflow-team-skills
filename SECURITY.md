@@ -2,7 +2,7 @@
 
 ## Scope
 
-rnd-workflow-team is a collection of skill documents, a read-only Python checker and bundled evidence. It does not run a service, does not execute target code and does not hold credentials.
+rnd-workflow-team-skills is a collection of skill documents, a read-only Python checker and bundled evidence. It does not run a service, does not execute target code and does not hold credentials.
 
 The realistic security surface is therefore small:
 

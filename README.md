@@ -1,4 +1,4 @@
-# rnd-workflow-team — Collaborative R&D Skills for Multi-Person Teams
+# rnd-workflow-team-skills — Collaborative R&D Skills for Multi-Person Teams
 
 A set of R&D skills for **multiple people, each working with their own agent (Codex, DSH, Claude Code, …), developing one shared project together**. It ships **11 `rnd-team-*` skills** coversing the full path from discoversy to release: discovers, spec, plan, build, review, verify, release, plus architecture, design and security when needed.
 
@@ -24,7 +24,7 @@ This project turns those steps into skills: each skill maps to one R&D responsib
 ## Repository layout
 
 ```
-rnd-workflow-team/
+rnd-workflow-team-skills/
 ├── README.md                    This file: project overview and entry point
 ├── README.zh.md                 Chinese version of this file
 ├── guide.md                     Usage guide: workflow, copyable prompts, complete example (Chinese)

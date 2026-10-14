@@ -1,6 +1,6 @@
 # Changelog
 
-Notable changes to rnd-workflow-team. Dates are date of the team-edition batch.
+Notable changes to rnd-workflow-team-skills. Dates are date of the team-edition batch.
 
 ## 2026-10-14
 

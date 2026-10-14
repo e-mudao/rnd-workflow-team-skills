@@ -1,10 +1,15 @@
-# rnd-workflow-team — 多人协作版研发技能集合
+# rnd-workflow-team-skills — 多人协作版研发技能集合
 
 一组供 **多个人各自使用 Agent（Codex、DSH、Claude Code 等）共同开发同一个项目** 的研发技能。共 **11 个 `rnd-team-*` 技能**，覆盖从需求发现到发布的全流程：发现、规格、计划、实现、审查、核验、发布，以及按需进入的架构、设计、安全。
 
 每个成员从入口技能 `rnd-team-lead` 接手分配给自己的任务；协调负责人维护共享分工，集成负责人接收各任务并核验最终版本。这些职责可由同一人兼任，不要求团队真有 11 个成员。
 
 - 📖 详细团队协作步骤、11 个技能的可复制 Prompt 和完整示例：[guide.md](guide.md)
+- ✅ 当前交付与维护状态、验证范围：[review.md](review.md) · [README.md](README.md) English
+- 🧪 完整性检查器：[scripts/check_delivery.py](scripts/check_delivery.py)
+- 🖫 参与与报告：[CONTRIBUTING.md](CONTRIBUTING.md) · [SECURITY.md](SECURITY.md) · [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+
+> 本仓库只维护 `rnd-team-*` **团队版**。
 
 ---
 
@@ -19,8 +24,8 @@
 ## 仓库结构
 
 ```
-rnd-workflow-team/
-├── README.zh.md                    本文件：项目说明与入口
+rnd-workflow-team-skills/
+├── README.zh.md                    本文件：中文版
 ├── README.md                    英文版 / English version
 ├── guide.md                     使用指南：协作流程、可复制 Prompt、完整示例
 ├── review.md                    当前交付与维护状态、验证范围
@@ -102,6 +107,26 @@ python3 scripts/check_delivery.py    # 只读；通过退出 0，失败退出 1
 
 已有分工就直接引用。只有本地旧记录时不假定团队已经接受认领；外部消息和写入使用已有授权。
 
+## 验证与证据
+
+包内提供 [完整性检查器](scripts/check_delivery.py)，仅使用 Python 3.9+ 标准库，只读、不需要相邻目录。它检查：
+
+- 11 个技能名称与必要文件；
+- 维护文档的本地链接目标；
+- 11 份 `references/workflow.md` 共同约定一致性；
+- `sources.json` 中随包摘录/许可摘要，以及独立于来源记录的预期清单（拒绝来源记录清空、部分删除、重复替换和错误集合类型）。
+
+回归测试：`python3 -B -m unittest discover -s scripts -p 'test_*.py' -v`。
+
+**验证范围与限制**：静态检查通过只证明结构、本地链接、共同规则一致性与随包来源摘要成立，**不**证明远程来源真实性、模型行为、真人并发、真实服务隔离、三端原生加载或生产发布。摘要匹配仅证明随包内容与记录一致。相关证据、快照与核验报告见 [evidence/](evidence) 与 [evals/results/](evals/results)。
+
+## 当前状态（2026-10-14）
+
+- 本轮完成团队版审查提出的两项 P2 修复：11 份 `workflow.md` 增加运行前端口、测试数据库、输出目录及可变测试数据的隔离与归属核对要求；检查器增加独立的预期来源清单；新增回归测试（7 项通过，修复前有 4 项预期失败，证明能捕获原缺陷）。
+- 本工作区只维护 `rnd-team-*` 团队版；当前 95 个技能文件与保存的团队版清单一致。
+- 本仓库使用 Git 管理，提交历史见提交日志；归属与变化另用摘要差异核对。
+
+完整状态、逐项处置与历史批次说明见 [review.md](review.md)、[maintenance/](maintenance) 与 [该批核验报告](evals/results/2026-10-10-sync/report.md)。
 
 ## 许可
 
@@ -112,7 +137,7 @@ python3 scripts/check_delivery.py    # 只读；通过退出 0，失败退出 1
 本项目参考、借鉴并适配了多项既有开源工作。下列方法被重新使用，并保留固定的上游摘录；每个技能在 `references/upstream/` 与 `references/sources.json` 中记录其来源、固定提交与 MIT 许可。
 
 | 上游来源 | 对应技能 | 固定提交 | 许可 |
-|---|---|---|---|---|
+|---|---|---|---|
 | agent-skills | architecture、release | `2686b620` | MIT |
 | superpowers | build、plan、review、verify | `8ca22dba` | MIT |
 | HumanLayer | design | `ca7c8088` | MIT |
@@ -123,6 +148,11 @@ python3 scripts/check_delivery.py    # 只读；通过退出 0，失败退出 1
 
 上游摘录、固定提交与许可保留在 `references/upstream/` 下。本团队版新增的任务归属、成员受托范围、共享制品维护人、隔离工作树、交接事实与集成版本核验，均属集合综合适配，非上游工作。完整来源与许可摘要见各 `references/sources.json`，可审计。
 
+Matt Pocock 的启发仅来自用户提供的摘要，未导入或独立核验其上游原文。
+
+## 安全
+
+安全相关报告请遵循 [SECURITY.md](SECURITY.md)，不要开公开 Issue。
 
 ## 贡献（详见 [CONTRIBUTING.md](CONTRIBUTING.md)）
 
@@ -132,3 +162,8 @@ python3 scripts/check_delivery.py    # 只读；通过退出 0，失败退出 1
 - 修改技能正文、来源记录或共同约定后，运行检查器并附带证据。
 - 保留上游原文与其许可；如需调整来源，须一并审查检查器中的预期清单。
 
+## 这不是什么
+
+- 不是一套自动同步机制：技能不会自动同步成员会话，也不提供排他任务认领、写锁或授权服务。
+- 不代替人做决定：最终完成结论依据真实集成版本及其验收证据，不能把各分支分别通过写成整体通过。
+- 不承诺行为收益：静态检查与行为评估不代表真人协作、并发性能或生产效率已被验证。

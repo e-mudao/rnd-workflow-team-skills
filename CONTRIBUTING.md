@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for improving rnd-workflow-team. This is a collection of `rnd-team-*` skills; the team-edition rules below keep it consistent.
+Thanks for improving rnd-workflow-team-skills. This is a collection of `rnd-team-*` skills; the team-edition rules below keep it consistent.
 
 ## Ground rules
 

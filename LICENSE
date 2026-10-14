@@ -20,7 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Scope of this file: the MIT License above applies to the rnd-workflow-team
+Scope of this file: the MIT License above applies to the rnd-workflow-team-skills
 package as a whole. Each bundled skill also carries its own copy at
 skills/rnd-team-*/LICENSE, and third-party notices at
 skills/rnd-team-*/THIRD_PARTY_NOTICES.md. Texts retained under

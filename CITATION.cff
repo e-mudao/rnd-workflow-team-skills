@@ -1,16 +1,16 @@
 cff-version: 1.2.0
 
-# This CITATION.cff was created for rnd-workflow-team. It desccribes how to cite
+# This CITATION.cff was created for rnd-workflow-team-skills. It desccribes how to cite
 # this software. Replace the placholder values below with the real repository
 # owner and URL before publishing.
 
-title: rnd-workflow-team
+title: rnd-workflow-team-skills
 type: software
 abstract: >-
   A collection of 11 collaborative R&D skills (rnd-team-*) for multiple people
   each working with their own agent on one shared project.
 message: >-
-  If you use rnd-workflow-team in work that leads to a publication, please cite
+  If you use rnd-workflow-team-skills in work that leads to a publication, please cite
   the repository version you used.
 authors:
   - family-names: "rnd-workflow" # Dummy name
