@@ -7,6 +7,6 @@ test_standalone_payload_passes (test_check_delivery.DeliveryTests.test_standalon
 test_wrong_source_collection_type_rejected (test_check_delivery.DeliveryTests.test_wrong_source_collection_type_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 7 tests in 0.260s
+Ran 7 tests in 0.277s
 
 OK

@@ -100,11 +100,11 @@
     {
       "id": "F12",
       "severity": "claim-mismatch",
-      "status": "open",
+      "status": "fixed-locally",
       "title": "Published LICENSE is detected as NOASSERTION, not MIT",
-      "evidence": "GET /repos/e-mudao/rnd-workflow-team-skills and .../license both report license.spdx_id = NOASSERTION, key 'other', for the 1567-byte root LICENSE, while README.md and CITATION.cff claim MIT.",
+      "evidence": "license-detection-fix.json",
       "why_it_matters": "GitHub shows the repository as 'Other' rather than MIT, so the license claim made to users is not what the platform reports. The local LICENSE has the same structure, so this persists after any push.",
-      "disposition": "Open: recommended fix is to keep LICENSE verbatim MIT and move the appended 'Scope of this file' paragraph (which also contains the typo 'relavant') into a separate notice or the readme. The cause is a hypothesis; the detection result is observed."
+      "disposition": "Fixed in the checkout: the root LICENSE is now verbatim MIT, byte-identical to the 11 per-skill copies, and the appended paragraph (with its 'relavant' typo) moved to NOTICE. The cause remains a hypothesis because licensee could not be installed (rubygems.org unreachable); the published tree still reports NOASSERTION until this is pushed."
     }
   ],
   "excluded_after_investigation": [
@@ -141,5 +141,6 @@
     "checker": "static-after.json",
     "tests": "tests-after.txt",
     "config_schemas": "github-config-validation.json"
-  }
+  },
+  "findings_updated": "F12 fixed locally; F11 remains open (reconciliation is the maintainer's decision)."
 }

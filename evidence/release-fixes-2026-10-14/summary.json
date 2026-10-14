@@ -51,7 +51,7 @@
         "\"The team edition s own additions\" (missing apostrophe)",
         "`license` written as `licensee` in 7 places"
       ],
-      "after": "corrected in the release commit; local-link count unchanged at 143",
+      "after": "corrected in the release commit; the proofreading itself left the local-link count at 143 (a later NOTICE link took it to 145)",
       "check": "see the release commit diff for README.md"
     }
   ],
@@ -71,5 +71,12 @@
     ],
     "note": "Adversarial re-review of the release-prep fixes. F1 was resolved once the maintainer supplied the repository URL; F11 (divergent published history) and F12 (published LICENSE detected as NOASSERTION) were opened by that same check.",
     "remediation": "Fixes for F3-F8 applied in the supplemental commit; F1 remains open."
-  }
+  },
+  "session_history": [
+    "004f04f release prep: original four blockers fixed",
+    "b5bd9e7 verification evidence",
+    "ba00a43 self-review corrections F3-F10",
+    "0afd156 F1 resolved: repository URL verified, citation identity aligned to e-mudao",
+    "F12 fixed locally: LICENSE verbatim MIT, NOTICE added"
+  ]
 }

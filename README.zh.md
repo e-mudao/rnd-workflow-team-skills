@@ -93,7 +93,7 @@ rnd-workflow-team-skills/
 
 ## 许可
 
-本包及其技能按 **MIT 许可** 提供（见根目录 [LICENSE](LICENSE) 与各 `skills/rnd-team-*/LICENSE`、`THIRD_PARTY_NOTICES.md`）。`references/upstream/` 中保留的上游原文按其自身许可携带并注明来源；新增团队约定标记为集合综合适配。转载或再分发时请保留相应的版权与许可声明。
+本包及其技能按 **MIT 许可** 提供（见根目录 [LICENSE](LICENSE)、[NOTICE](NOTICE) 与各 `skills/rnd-team-*/LICENSE`、`THIRD_PARTY_NOTICES.md`）。`references/upstream/` 中保留的上游原文按其自身许可携带并注明来源；新增团队约定标记为集合综合适配。转载或再分发时请保留相应的版权与许可声明。
 
 ## 致谢与来源
 

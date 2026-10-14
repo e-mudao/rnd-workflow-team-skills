@@ -26,11 +26,12 @@ Notable changes to rnd-workflow-team-skills. Dates are date of the team-edition 
 - `CITATION.cff` replaced its placeholder author and invalid `cont-act` key with the identity of the account that owns the repository (`e-mudao`) and the CFF 1.2.0 `contact` field. `cffconvert --validate` accepts it under schema 1.2.0, and the declared repository URL is confirmed publicly reachable (HTTP 200).
 - English readme proofread: a truncated word ("were reus"), a five-column separator on a four-column table, `gsd-core` feeding `leed` instead of `lead`, a missing apostrophe, and `license` written as `licensee`.
 - Self-review of the release-prep commit: `.gitattributes` now uses Linguist's documented `-linguist-detectable` instead of the no-op `-linguist`; the workflow runs with `permissions: contents: read` and both actions pinned by commit; and CI covers the 3.9 floor the checker claims, not only 3.11.
+- Root `LICENSE` is now verbatim MIT, byte-identical to the 11 per-skill copies. Its explanatory "Scope of this file" paragraph moved to the new `NOTICE` file with the `relavant` typo fixed, so that GitHub can identify the license.
 
 ### Notes
 - Stated deviations, not silent ones. The release-prep commit deliberately carries four concerns in one commit (the pending readme edits, the four blocker fixes, same-class typo fixes and review evidence) although CONTRIBUTING asks for one concern per PR; and `evidence/final-review-2026-10-14/reprod.py` is committed byte-for-byte as the reviewer produced it, typos included, so the review record stays authentic rather than edited.
 - This checkout shares no common ancestor with the published `e-mudao/rnd-workflow-team-skills` history. The published tree is still the pre-fix state: `.gitthub/` with `.md` issue templates, a dummy `CITATION.cff` carrying an `<owner>` placeholder, and the pre-rename name `rnd-workflow-team`. Publishing these fixes therefore needs the two histories reconciled; a plain `git push` will not fast-forward.
-- The published root `LICENSE` is detected by GitHub as `NOASSERTION` ("Other") rather than MIT, although the readme and `CITATION.cff` both claim MIT.
+- The published root `LICENSE` is detected by GitHub as `NOASSERTION` ("Other") rather than MIT, although the readme and `CITATION.cff` both claim MIT. The local fix makes `LICENSE` verbatim MIT and moves the explanatory paragraph to `NOTICE`; confirming the new detection requires a push.
 
 ## 2026-10-10
 

@@ -1,0 +1,12 @@
+rnd-workflow-team-skills is distributed under the MIT License (see LICENSE).
+
+Scope of the license: the MIT License applies to the package as a whole. Each
+bundled skill also carries its own copy at skills/rnd-team-*/LICENSE, and
+third-party notices at skills/rnd-team-*/THIRD_PARTY_NOTICES.md. Texts retained
+under references/upstream/ are carried under their own licenses, with sources
+and digests recorded in the corresponding references/sources.json. Keep the
+relevant copyright and license notices when republishing or redistributing.
+
+This statement is explanatory and is not itself a license term. It was moved
+here out of the root LICENSE so that LICENSE stays verbatim MIT and GitHub can
+identify the license.

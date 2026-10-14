@@ -93,7 +93,7 @@ If a split already exists, reference it directly. A local old record alone does 
 
 ## License
 
-This package and its skills are provided under the **MIT License** (see the root [LICENSE](LICENSE) and each `skills/rnd-team-*/LICENSE` and `THIRD_PARTY_NOTICES.md`). Retained upstream texts under `references/upstream/` are carried under their own licenses with sources noted; new team agreements are marked as collection-synthesized adaptation. Keep the relevant copyright and license notices when republishing or redistributing.
+This package and its skills are provided under the **MIT License** (see the root [LICENSE](LICENSE) and [NOTICE](NOTICE), and each `skills/rnd-team-*/LICENSE` and `THIRD_PARTY_NOTICES.md`). Retained upstream texts under `references/upstream/` are carried under their own licenses with sources noted; new team agreements are marked as collection-synthesized adaptation. Keep the relevant copyright and license notices when republishing or redistributing.
 
 ## Sources and acknowledgements
 

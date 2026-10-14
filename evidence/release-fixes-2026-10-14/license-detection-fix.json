@@ -1,0 +1,25 @@
+{
+  "finding": "F12",
+  "symptom_observed": {
+    "scope": "the published repository e-mudao/rnd-workflow-team-skills, whose tree still carries the pre-fix LICENSE",
+    "detected_spdx_id": "NOASSERTION",
+    "detected_key": "other",
+    "endpoints": [
+      "GET /repos/e-mudao/rnd-workflow-team-skills -> license.spdx_id = NOASSERTION",
+      "GET /repos/e-mudao/rnd-workflow-team-skills/license -> license.spdx_id = NOASSERTION, key 'other', size 1567"
+    ],
+    "contradicts": "README.md, README.zh.md and CITATION.cff all claim MIT"
+  },
+  "root_cause_candidate": {
+    "observation": "The root LICENSE was the only file of its kind carrying extra text: its first 21 lines were byte-identical to the 11 skills/rnd-team-*/LICENSE copies and the sole difference was the trailing 'Scope of this file' paragraph.",
+    "hypothesis": "That appended paragraph pushed the MIT matcher below its threshold.",
+    "status": "Hypothesis, not proven. licensee could not be installed locally: rubygems.org returned repeated connection resets ('too many connection resets'), so GitHub's matcher behaviour was not reproduced."
+  },
+  "fix": {
+    "license": "Root LICENSE replaced with the verbatim MIT text, byte-identical to all 11 per-skill copies (sha256 f1a8330b6f78922b753b48cdf25dbfaf36f45d099c13a8b29227afa007ef5c33, 1082 bytes).",
+    "notice": "The explanatory paragraph moved to NOTICE (719 bytes), with 'relavant' corrected to 'relevant' and an explicit note that the statement is not itself a license term.",
+    "readmes": "The license sections of README.md and README.zh.md now link NOTICE."
+  },
+  "effect_on_checked_metric": "The checker's local_links count rose from 143 to 145 because each readme gained one NOTICE link; skills (11), source digests (32) and the pass verdict are unchanged.",
+  "confirmation_boundary": "GitHub's detection of the new LICENSE is only observable after this commit is pushed; it cannot be confirmed from the local checkout."
+}
