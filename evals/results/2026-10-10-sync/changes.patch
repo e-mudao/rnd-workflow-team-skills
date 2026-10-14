@@ -1,0 +1,1247 @@
+--- a/README.md
++++ b/README.md
+@@ -53,3 +53,11 @@
+ 职责与单人版对应，多人版增加具体成员归属、共享维护、交接与集成核验。架构、设计和安全仍按需要进入。上游原文、固定来源和 MIT 许可保留，新增团队约定标记为集合综合适配。
+ 
+ 技能不会自动同步成员会话，也不提供排他任务认领、写锁或授权服务。最终完成结论依据真实集成版本及其验收证据，不能把各分支分别通过写成整体通过。
++
++## 2026-10-10：按实际风险推进并保持证据连续
++
++明确低风险的本人受托任务可直接从请求与现有事实实施、核验，不补造简报、规格、AC ID 或计划。小 diff 不等于低风险；先读相关事实，只问实质未知项，信息足够即推进。已有适用计划、项目强制要求及指定文档仍有效；调查消除复杂性后，由计划维护人在原处缩减未执行安排。
++
++当前状态原位更新并回读，人工验收绑定实际运行候选及轮次；关键反例优先，拒绝与合法恢复成对核对，区分接口编译失败与旧缺陷行为失败。完整行为参数只在权威规格维护，其他制品引用。原生桌面检查按需读取设计技能参考。
++
++维持 11 个角色、现行维护权、事项决定权、独立工作目录、完整交接和集成版本证据；角色切换及小改动不授予他人制品权限。共享更新未被整合时保留未同步状态。详见 [同步计划](maintenance/sync-plan.md) 与 [本轮核验](evals/results/2026-10-10-sync/report.md)。
+--- a/guide.md
++++ b/guide.md
+@@ -185,11 +185,11 @@
+ 
+ ### 3.5 恢复任务与控制上下文
+ 
+-沿用本人任务记录保留一处当前索引：任务/依据、分配与停止点、当前源码和候选、证据、开放问题、接收人和下一动作。共享索引由其维护人整合，不把本地草稿当同步完成。
++需要恢复或交接时，沿用本人任务记录保留一处当前索引，不为一次性小修新建索引；本次影响的既有状态入口仍须更新并回读：任务/依据、分配与停止点、当前源码和候选、证据、开放问题、接收人和下一动作。共享索引由其维护人整合，不把本地草稿当同步完成。
+ 
+ 有检查点时补记待答建议及版本/范围、实际确认的版本/子集、决定人及答复依据。恢复先读索引和当前文件：未答仍未答；只确认 CSV 就只做 CSV，不做邮件；已确认事项不再询问。旧“下一动作：实现全部”不能覆盖真实答复。
+ 
+-先读索引/入口再读本次相关材料，当前会话已经读取且未变的共同约定和来源直接复用。完整输出放在证据文件。每批或问题关闭后更新索引，下一批上下文不同或恢复困难时准备简短交接并建议换会话；技能不会自动新建会话，也不按臆测的剩余 token 数停工。
++先读索引/入口再读本次相关材料，当前会话已经读取且未变的共同约定和来源直接复用。完整输出放在证据文件。需要恢复/交接时维护现有索引，修改或关闭问题时同步受影响的既有入口，下一批上下文不同或恢复困难时准备简短交接并建议换会话；技能不会自动新建会话，也不按臆测的剩余 token 数停工。
+ 
+ ## 4. 11 个技能怎样分工
+ 
+@@ -633,7 +633,7 @@
+ ```text
+ $rnd-team-build
+ 我是 <姓名>，实施 <任务 ID>。
+-计划与验收见 <位置及版本>；修改范围为 <模块/文件>。
++依据为 <明确请求或已有适用计划/验收的位置及版本>；修改范围为 <模块/文件>。
+ 当前独立目录/分支是 <位置>，依赖版本为 <版本>。
+ 项目检查命令见 <scripts/CI/项目指引位置>。
+ 
+@@ -872,3 +872,11 @@
+ ```
+ 
+ 如本轮还要发布，研发核验后由指定人员使用第 12.8 节的发布准备或执行 Prompt，再由 verify 核对对应完成层级。
++
++## 2026-10-10：按实际风险推进并保持证据连续
++
++明确低风险的本人受托任务可直接从请求与现有事实实施、核验，不补造简报、规格、AC ID 或计划。小 diff 不等于低风险；先读相关事实，只问实质未知项，信息足够即推进。已有适用计划、项目强制要求及指定文档仍有效；调查消除复杂性后，由计划维护人在原处缩减未执行安排。
++
++当前状态原位更新并回读，人工验收绑定实际运行候选及轮次；关键反例优先，拒绝与合法恢复成对核对，区分接口编译失败与旧缺陷行为失败。完整行为参数只在权威规格维护，其他制品引用。原生桌面检查按需读取设计技能参考。
++
++维持 11 个角色、现行维护权、事项决定权、独立工作目录、完整交接和集成版本证据；角色切换及小改动不授予他人制品权限。共享更新未被整合时保留未同步状态。详见 [同步计划](maintenance/sync-plan.md) 与 [本轮核验](evals/results/2026-10-10-sync/report.md)。
+--- a/maintenance/sync-plan.md
++++ b/maintenance/sync-plan.md
+@@ -0,0 +1,10 @@
++# 团队版两轮同步计划
++
++范围已经用户确认，2026-10-10。
++
++1. 保存团队原始快照与摘要，在隔离副本修改。
++2. 同步状态、候选、关键反例、恢复、证据分类与三项轻量修正，保留团队维护权、交接和集成边界。
++3. 检查 11 份共同约定、固定来源和内部链接；独立执行合成行为案例及差异审查。
++4. 核对目标未并发变化，仅写回差异，再检查交付。
++
++release/security 正文不变；不增加角色、运行时、流程档位或审批。行为评估不代表真人协作或性能收益。
+--- a/review.md
++++ b/review.md
+@@ -1,6 +1,10 @@
+ # 当前集合复核
+ 
+-## 2026-10-08 定向修复
++## 2026-10-10 两轮规则同步
++
++当前修改范围、行为产物、基线限制、独立审查与保留项详见 [本轮报告](evals/results/2026-10-10-sync/report.md)。本轮同步九个相关角色和11份协作约定，保留11角色与团队证据/权限边界；release/security正文及固定来源不变。下方“本次”均指历史日期，不能用历史结果替代本轮证据。
++
++## 历史：2026-10-08 定向修复
+ 
+ 本次修复独立交付缺失验证入口、未提交改动交接信息不足、指南保留旧目录名三项问题。
+ 
+--- a/skills/rnd-team-architecture/SKILL.md
++++ b/skills/rnd-team-architecture/SKILL.md
+@@ -13,6 +13,10 @@
+ 
+ [接手、分工与交接字段](references/workflow.md) 使用项目现有记录；只有本地草稿时不声称已通知或同步给其他成员。
+ 
++## 本次范围与证据
++
++新需求或运行条件改变时，先检查被推翻的假设，安排能否定方案的最小真实探针，再进入依赖实现、推广或大量重复稳定性测试。保留既定重复次数门槛，探针通过不替代它；新支持范围不倒推为原始遗漏。探针与决定由受托维护人完成或接收，不因架构角色接管他人实现。
++
+ ## 方法
+ 
+ 1. 明确问题和上下文，检查真实模块、数据流、边界、依赖及已有 ADR。
+--- a/skills/rnd-team-architecture/THIRD_PARTY_NOTICES.md
++++ b/skills/rnd-team-architecture/THIRD_PARTY_NOTICES.md
+@@ -16,3 +16,7 @@
+ ## Team review corrections synthesis (2026-10-06)
+ 
+ Collection synthesis clarifying evidence-based withdrawal of false review findings by the current review-record maintainer, with version/reason/counterevidence and repair-assignment removal; genuine or disputed other-owner defects remain open. Checkpoints depend on actual unknowns, impact, recovery cost, verification dependencies and batch-delivery needs; multiple files/functions alone are insufficient. Clear local reversible migrations verifiable in one batch continue under existing task authorization. Existing stops and major decisions remain effective; no new runtime or authority is added.
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-architecture/references/methods.md
++++ b/skills/rnd-team-architecture/references/methods.md
+@@ -17,3 +17,7 @@
+ ## 2026-10-06 终审修正（synthesis）
+ 
+ TW-REC-2（当前原始反证确立误报时，由审查记录维护人撤销并保留历史/撤销修复安排）与 TW-CKP-2（按实际未知项、影响、恢复成本及验证依赖判断检查点；明确、局部可逆且可一批验证的迁移直接接续），见 sources.json 的 review_fixes_adaptation。真实/争议缺陷及已有停止点继续有效；保留此前来源与适配记录。
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-architecture/references/sources.json
++++ b/skills/rnd-team-architecture/references/sources.json
+@@ -69,5 +69,15 @@
+     ],
+     "changes": "Clarify reproducible handoff: retrievable commit or baseline plus complete staged/unstaged changes, required new and binary files, retrieval location and manifest/snapshot identity; recipient reconstructs and checks in isolation before integration. No upstream bytes changed.",
+     "upstream_bytes_changed": false
++  },
++  "reliability_proportional_sync": {
++    "mode": "synthesis",
++    "date": "2026-10-10",
++    "usage": [
++      "references/workflow.md",
++      "SKILL.md"
++    ],
++    "changes": "Adapt reviewed rnd-workflow reliability and proportional-workflow rules to actual maintainers, assigned scope, complete handoffs and integrated evidence. Matt Pocock inspiration is user-provided summary, not imported or independently verified upstream text. Preserve existing team rules and fixed upstream bytes.",
++    "upstream_bytes_changed": false
+   }
+ }
+--- a/skills/rnd-team-architecture/references/workflow.md
++++ b/skills/rnd-team-architecture/references/workflow.md
+@@ -4,7 +4,9 @@
+ 
+ ## 按目标选择工作
+ 
+-先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确小修不强制完整 PRD/计划，文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确且低风险的本人受托工作可直接依据请求与相关现有事实实施，不为满足角色输入补造简报、规格、验收编号或计划；小 diff 不等于低风险。已有适用计划、项目强制要求、用户指定文档、授权与证据规则仍有效。文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++
++先读相关代码、文档和既有决定，只澄清会改变行为、成功标准或授权范围的未知项；信息充分即接续实施。调查消除复杂性时，由现行计划维护人在原处缩减未执行安排，保留必要决定、依赖和检查；其他成员提交具体建议，不宣称共享计划已改变。
+ 
+ ## 接手与阶段接续
+ 
+@@ -13,7 +15,7 @@
+ | 接手信息 | 需要说明什么 |
+ |---|---|
+ | 任务与负责人 | 任务 ID/范围、本人实际负责人；协调、规格和集成负责人引用当前分工 |
+-| 依据 | 当前需求/规格的版本或章节、验收 ID、相关接口 |
++| 依据 | 当前需求/规格的版本或章节、已有验收 ID（如有）、相关接口 |
+ | 工作范围 | 可改文件/模块/章节、独立分支及 checkout/工作树、共享或重叠点 |
+ | 依赖与状态 | 前置任务、合同是否确定、实际状态及阻塞原因 |
+ | 交接结果 | 接收人、可取得的准确提交或完整未提交交接包、真实检查、剩余项与下一动作 |
+@@ -32,6 +34,14 @@
+ - 确认绑定说明的任务、版本、内容与范围；部分确认仅推进子集，其余待答。Agent 提议实质改变已确认决定时再取得必要决定。用户明确调整按实际指令落实，含糊处澄清，普通排版不重批。
+ 
+ 恢复时先读本人现有任务索引，核对当前源码/候选、权威依据、授权/停止点、证据、开放问题及下一动作。涉及检查点另记待答建议及版本/范围、实际确认版本/子集、有权决定者及答复依据（消息位置或忠实简短原意）。待答仍待答，部分确认只做子集，已确认不重问；旧下一动作不构成授权。缺依据先查现有记录，仍不明再集中澄清。共享索引只由现行维护人整合；成员的本地恢复记录标明实际同步状态。
++
++## 当前状态与人工验收轮次
++
++需要恢复或交接时维护已有状态入口；本次影响的既有摘要和问题项仍须更新，不因任务小遗留过期结论。不为无需恢复的一次性小修新建索引。本人维护的唯一当前摘要/问题表原位更新；旧“当前、待答、未关闭”入口改为当前引用或明确历史，写后回读确认。共享记录由现行维护人整合，其他成员提交具体修改建议，记录仍未同步，不把本地完成当共享完成。
++
++人工验收每轮绑定任务、实际运行候选身份、应用、样本、窗口模式和动作，分别列出源码、新构建、成员/集成候选与实际运行实例。短答“成功”仅适用于已绑定轮次，不推广到新构建、其他应用或集成版本；缺绑定先核对，不猜测。待答轮次的新构建可能覆盖候选时，由有权维护该候选的人保存并核对可恢复产物及读取位置；不得擅自替换其他成员正在验收的实例。成员只能在受托范围操作，越界时交维护人，继续独立工作。
++
++完整行为和参数只保留在现行权威规格；计划引用验收并安排实现及证明，核验记录证据与结论，lead 维护状态入口。没有正式规格的低风险工作以明确请求及现有事实作为依据，不为此补造文档。修正由各制品实际维护人完成，不靠切换角色越权。
+ 
+ ## 并行工作与共享变更
+ 
+@@ -77,11 +87,11 @@
+ 
+ 记录准确版本/相关文件和未提交修改、命令、cwd、退出码、完整输出/截图位置、影响结果的工具版本/配置/数据/目标环境；未知项直说，不记录秘密。文档合并引用具体章节，精确核对时用现有工具计算字节摘要，不编造值。
+ 
+-核验先绑定当前任务和权威验收；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
++核验先绑定当前任务和权威验收，明确低风险且无正式验收时逐请求要求核对，不补造 AC ID；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
+ 
+ ## 分批与上下文
+ 
+-按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。每批、变化或问题关闭更新本人索引；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
++按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。需要恢复/交接时更新本人现有索引，本次影响的既有状态和问题入口同步修正；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
+ 
+ ## 发布与授权
+ 
+--- a/skills/rnd-team-build/SKILL.md
++++ b/skills/rnd-team-build/SKILL.md
+@@ -1,11 +1,11 @@
+ ---
+ name: rnd-team-build
+-description: Use when implementing or debugging an assigned task in a multi-person software project against its current shared plan and acceptance criteria.
++description: Use when implementing or debugging an assigned task in a multi-person software project against current requirements or an applicable shared plan.
+ ---
+ 
+-# 按计划实现
++# 实现与根因修复
+ 
+-读取当前计划、规格、验收和适用专项。负责代码、测试与真实执行证据；在用户已授权范围持续执行。
++读取当前要求、相关代码、已有适用计划/规格/验收和专项；已有计划按计划实施，明确且低风险的受托任务可直接依据请求及现有事实实施，不因缺计划阻断或补造计划。负责代码、测试与真实执行证据；在用户已授权范围持续执行。
+ 
+ ## 多人任务边界
+ 
+@@ -19,6 +19,12 @@
+ 
+ 调研实现实验脚本、配置和执行事实；按已确认方法/指标执行，区分进程成功与目标达成，不改数据或阈值迎合结论。方法/覆盖问题交方法维护人及 plan，分析问题交分析维护人及 discover。本人修复保留原输出并补受影响检查。
+ 
++## 本次范围与证据
++
++关键反例探针先于依赖实施。区分新接口缺类型/函数的编译 RED 与捕获旧缺陷的行为 RED；旧缺陷尽可能在旧实现取得行为失败，再对修复版同测。外部系统保留最小真实复现，不能自动化的部分注明真机复验缺口；测试数量不证明覆盖。
++
++准备人工验收按协作约定绑定实际运行候选、应用、样本、窗口模式及动作，分列源码、新构建和运行实例。待答候选可能被覆盖时，由有权维护它的人保存并核对可恢复产物；不擅自替换其他成员正在验收的实例。短答成功不能移用到新候选。
++
+ ## 方法
+ 
+ 1. 按依赖顺序实施。新增行为先写失败断言，运行并确认失败原因，再最小实现并确认通过；测试实际行为，避免只复述实现或验证 mock。
+--- a/skills/rnd-team-build/THIRD_PARTY_NOTICES.md
++++ b/skills/rnd-team-build/THIRD_PARTY_NOTICES.md
+@@ -26,3 +26,7 @@
+ ## Team review corrections synthesis (2026-10-06)
+ 
+ Collection synthesis clarifying evidence-based withdrawal of false review findings by the current review-record maintainer, with version/reason/counterevidence and repair-assignment removal; genuine or disputed other-owner defects remain open. Checkpoints depend on actual unknowns, impact, recovery cost, verification dependencies and batch-delivery needs; multiple files/functions alone are insufficient. Clear local reversible migrations verifiable in one batch continue under existing task authorization. Existing stops and major decisions remain effective; no new runtime or authority is added.
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-build/references/methods.md
++++ b/skills/rnd-team-build/references/methods.md
+@@ -19,3 +19,7 @@
+ ## 2026-10-06 终审修正（synthesis）
+ 
+ TW-REC-2（当前原始反证确立误报时，由审查记录维护人撤销并保留历史/撤销修复安排）与 TW-CKP-2（按实际未知项、影响、恢复成本及验证依赖判断检查点；明确、局部可逆且可一批验证的迁移直接接续），见 sources.json 的 review_fixes_adaptation。真实/争议缺陷及已有停止点继续有效；保留此前来源与适配记录。
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-build/references/sources.json
++++ b/skills/rnd-team-build/references/sources.json
+@@ -107,5 +107,15 @@
+     ],
+     "changes": "Clarify reproducible handoff: retrievable commit or baseline plus complete staged/unstaged changes, required new and binary files, retrieval location and manifest/snapshot identity; recipient reconstructs and checks in isolation before integration. No upstream bytes changed.",
+     "upstream_bytes_changed": false
++  },
++  "reliability_proportional_sync": {
++    "mode": "synthesis",
++    "date": "2026-10-10",
++    "usage": [
++      "references/workflow.md",
++      "SKILL.md"
++    ],
++    "changes": "Adapt reviewed rnd-workflow reliability and proportional-workflow rules to actual maintainers, assigned scope, complete handoffs and integrated evidence. Matt Pocock inspiration is user-provided summary, not imported or independently verified upstream text. Preserve existing team rules and fixed upstream bytes.",
++    "upstream_bytes_changed": false
+   }
+ }
+--- a/skills/rnd-team-build/references/workflow.md
++++ b/skills/rnd-team-build/references/workflow.md
+@@ -4,7 +4,9 @@
+ 
+ ## 按目标选择工作
+ 
+-先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确小修不强制完整 PRD/计划，文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确且低风险的本人受托工作可直接依据请求与相关现有事实实施，不为满足角色输入补造简报、规格、验收编号或计划；小 diff 不等于低风险。已有适用计划、项目强制要求、用户指定文档、授权与证据规则仍有效。文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++
++先读相关代码、文档和既有决定，只澄清会改变行为、成功标准或授权范围的未知项；信息充分即接续实施。调查消除复杂性时，由现行计划维护人在原处缩减未执行安排，保留必要决定、依赖和检查；其他成员提交具体建议，不宣称共享计划已改变。
+ 
+ ## 接手与阶段接续
+ 
+@@ -13,7 +15,7 @@
+ | 接手信息 | 需要说明什么 |
+ |---|---|
+ | 任务与负责人 | 任务 ID/范围、本人实际负责人；协调、规格和集成负责人引用当前分工 |
+-| 依据 | 当前需求/规格的版本或章节、验收 ID、相关接口 |
++| 依据 | 当前需求/规格的版本或章节、已有验收 ID（如有）、相关接口 |
+ | 工作范围 | 可改文件/模块/章节、独立分支及 checkout/工作树、共享或重叠点 |
+ | 依赖与状态 | 前置任务、合同是否确定、实际状态及阻塞原因 |
+ | 交接结果 | 接收人、可取得的准确提交或完整未提交交接包、真实检查、剩余项与下一动作 |
+@@ -32,6 +34,14 @@
+ - 确认绑定说明的任务、版本、内容与范围；部分确认仅推进子集，其余待答。Agent 提议实质改变已确认决定时再取得必要决定。用户明确调整按实际指令落实，含糊处澄清，普通排版不重批。
+ 
+ 恢复时先读本人现有任务索引，核对当前源码/候选、权威依据、授权/停止点、证据、开放问题及下一动作。涉及检查点另记待答建议及版本/范围、实际确认版本/子集、有权决定者及答复依据（消息位置或忠实简短原意）。待答仍待答，部分确认只做子集，已确认不重问；旧下一动作不构成授权。缺依据先查现有记录，仍不明再集中澄清。共享索引只由现行维护人整合；成员的本地恢复记录标明实际同步状态。
++
++## 当前状态与人工验收轮次
++
++需要恢复或交接时维护已有状态入口；本次影响的既有摘要和问题项仍须更新，不因任务小遗留过期结论。不为无需恢复的一次性小修新建索引。本人维护的唯一当前摘要/问题表原位更新；旧“当前、待答、未关闭”入口改为当前引用或明确历史，写后回读确认。共享记录由现行维护人整合，其他成员提交具体修改建议，记录仍未同步，不把本地完成当共享完成。
++
++人工验收每轮绑定任务、实际运行候选身份、应用、样本、窗口模式和动作，分别列出源码、新构建、成员/集成候选与实际运行实例。短答“成功”仅适用于已绑定轮次，不推广到新构建、其他应用或集成版本；缺绑定先核对，不猜测。待答轮次的新构建可能覆盖候选时，由有权维护该候选的人保存并核对可恢复产物及读取位置；不得擅自替换其他成员正在验收的实例。成员只能在受托范围操作，越界时交维护人，继续独立工作。
++
++完整行为和参数只保留在现行权威规格；计划引用验收并安排实现及证明，核验记录证据与结论，lead 维护状态入口。没有正式规格的低风险工作以明确请求及现有事实作为依据，不为此补造文档。修正由各制品实际维护人完成，不靠切换角色越权。
+ 
+ ## 并行工作与共享变更
+ 
+@@ -77,11 +87,11 @@
+ 
+ 记录准确版本/相关文件和未提交修改、命令、cwd、退出码、完整输出/截图位置、影响结果的工具版本/配置/数据/目标环境；未知项直说，不记录秘密。文档合并引用具体章节，精确核对时用现有工具计算字节摘要，不编造值。
+ 
+-核验先绑定当前任务和权威验收；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
++核验先绑定当前任务和权威验收，明确低风险且无正式验收时逐请求要求核对，不补造 AC ID；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
+ 
+ ## 分批与上下文
+ 
+-按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。每批、变化或问题关闭更新本人索引；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
++按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。需要恢复/交接时更新本人现有索引，本次影响的既有状态和问题入口同步修正；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
+ 
+ ## 发布与授权
+ 
+--- a/skills/rnd-team-design/SKILL.md
++++ b/skills/rnd-team-design/SKILL.md
+@@ -13,6 +13,12 @@
+ 
+ [接手、分工与交接字段](references/workflow.md) 使用项目现有记录；只有本地草稿时不声称已通知或同步给其他成员。
+ 
++## 本次范围与证据
++
++原生窗口、浮条、面板或跨应用交互按需读取 [原生桌面检查](references/native-desktop.md)。先看用户任务能否完成，再查几何；普通、铺满、原生全屏、小窗口及适用多屏分别核验。真实渲染/操作与材料推断分开，其他隐藏原因保持已证实/排除/未核分类。
++
++建议、推断与已确认决定分别记录，隐藏、关联和恢复交互未经必要确认不能变为验收。设计正文由现行维护人修改，规格由规格维护人整合，角色切换不授予跨范围修改权。
++
+ ## 方法
+ 
+ 1. 先查看实际页面或设计材料，明确用户任务、路径、状态和当前问题，沿用已选视觉与组件约定。
+--- a/skills/rnd-team-design/THIRD_PARTY_NOTICES.md
++++ b/skills/rnd-team-design/THIRD_PARTY_NOTICES.md
+@@ -16,3 +16,7 @@
+ ## Team review corrections synthesis (2026-10-06)
+ 
+ Collection synthesis clarifying evidence-based withdrawal of false review findings by the current review-record maintainer, with version/reason/counterevidence and repair-assignment removal; genuine or disputed other-owner defects remain open. Checkpoints depend on actual unknowns, impact, recovery cost, verification dependencies and batch-delivery needs; multiple files/functions alone are insufficient. Clear local reversible migrations verifiable in one batch continue under existing task authorization. Existing stops and major decisions remain effective; no new runtime or authority is added.
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-design/references/methods.md
++++ b/skills/rnd-team-design/references/methods.md
+@@ -17,3 +17,7 @@
+ ## 2026-10-06 终审修正（synthesis）
+ 
+ TW-REC-2（当前原始反证确立误报时，由审查记录维护人撤销并保留历史/撤销修复安排）与 TW-CKP-2（按实际未知项、影响、恢复成本及验证依赖判断检查点；明确、局部可逆且可一批验证的迁移直接接续），见 sources.json 的 review_fixes_adaptation。真实/争议缺陷及已有停止点继续有效；保留此前来源与适配记录。
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-design/references/native-desktop.md
++++ b/skills/rnd-team-design/references/native-desktop.md
+@@ -0,0 +1,23 @@
++# 原生桌面界面：任务、几何与恢复
++
++只在本次涉及原生窗口、浮条、面板或跨应用交互时读取。沿用已有需求和平台工具；以下是检查方法，不自动改变产品支持范围或覆盖策略。
++
++## 推广前的最小覆盖
++
++从实际支持场景选择普通窗口、铺满可用区域、原生全屏、小窗口；原生全屏与铺满普通窗口分别检查。多屏/跨屏在具备设备时验证，缺设备保留未验证。支持范围新增时先复查原布局假设，不把新场景倒推为最初遗漏。
++
++对每个典型场景先问：控件可见、可操作，用户能否完成主要任务，是否保留编辑焦点？再检查坐标、裁剪、尺寸、层级和遮挡。外侧空间为零而算法正确返回隐藏，仍可能说明主要场景不可用；将冲突交实际规格/设计维护人及 rnd-team-spec/rnd-team-design 决定可接受的备用位置或行为，不能直接宣布验收通过或擅自改成覆盖内容。
++
++记录影响结果的窗口/屏幕可用区域、坐标系与缩放、模式及候选身份。材料或几何推断只证明计算范围；可见性、点击、键盘输入、焦点保持须有适用的实际渲染与操作证据。缺工具时明确哪些结论尚未验证。
++
++## 隐藏原因与恢复
++
++诊断按真实条件区分：无几何空间、非前台、模态、未知焦点、最小化/不可见、权限或扫描失败；未知根因仍记未知，不能把所有“消失”归因于布局。
++
++观察记录包含三项：任务是否可完成；隐藏原因的已证实/排除/未核范围；证据来自材料推断还是真实操作。例如几何材料只能确认外侧无空间时，记录“几何隐藏已证实；非前台、模态、未知焦点等原因未核”，并安排相应诊断，不将后续所有消失都归到几何。
++
++每个相关隐藏或禁用路径检查进入、解除及恢复：例如模态取消后，在同一运行实例重新核验对象与焦点，恢复合法操作并重复一次。按风险选择对象销毁、进程退出、最小化恢复及移动缩放；保留身份与安全限制，不以重启清状态替代原地恢复。
++
++不接管他人实例；相关制品由实际维护人整合，建议未被接收时保留未同步状态。
++
++人工步骤按 workflow.md 绑定候选、应用、样本、模式和动作；布局推广到其他应用时不外推先前应用的成功。先交付能推翻方案的最小场景，再安排既定稳定性次数与更广覆盖。
+--- a/skills/rnd-team-design/references/sources.json
++++ b/skills/rnd-team-design/references/sources.json
+@@ -69,5 +69,16 @@
+     ],
+     "changes": "Clarify reproducible handoff: retrievable commit or baseline plus complete staged/unstaged changes, required new and binary files, retrieval location and manifest/snapshot identity; recipient reconstructs and checks in isolation before integration. No upstream bytes changed.",
+     "upstream_bytes_changed": false
++  },
++  "reliability_proportional_sync": {
++    "mode": "synthesis",
++    "date": "2026-10-10",
++    "usage": [
++      "references/workflow.md",
++      "SKILL.md",
++      "references/native-desktop.md"
++    ],
++    "changes": "Adapt reviewed rnd-workflow reliability and proportional-workflow rules to actual maintainers, assigned scope, complete handoffs and integrated evidence. Matt Pocock inspiration is user-provided summary, not imported or independently verified upstream text. Preserve existing team rules and fixed upstream bytes.",
++    "upstream_bytes_changed": false
+   }
+ }
+--- a/skills/rnd-team-design/references/workflow.md
++++ b/skills/rnd-team-design/references/workflow.md
+@@ -4,7 +4,9 @@
+ 
+ ## 按目标选择工作
+ 
+-先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确小修不强制完整 PRD/计划，文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确且低风险的本人受托工作可直接依据请求与相关现有事实实施，不为满足角色输入补造简报、规格、验收编号或计划；小 diff 不等于低风险。已有适用计划、项目强制要求、用户指定文档、授权与证据规则仍有效。文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++
++先读相关代码、文档和既有决定，只澄清会改变行为、成功标准或授权范围的未知项；信息充分即接续实施。调查消除复杂性时，由现行计划维护人在原处缩减未执行安排，保留必要决定、依赖和检查；其他成员提交具体建议，不宣称共享计划已改变。
+ 
+ ## 接手与阶段接续
+ 
+@@ -13,7 +15,7 @@
+ | 接手信息 | 需要说明什么 |
+ |---|---|
+ | 任务与负责人 | 任务 ID/范围、本人实际负责人；协调、规格和集成负责人引用当前分工 |
+-| 依据 | 当前需求/规格的版本或章节、验收 ID、相关接口 |
++| 依据 | 当前需求/规格的版本或章节、已有验收 ID（如有）、相关接口 |
+ | 工作范围 | 可改文件/模块/章节、独立分支及 checkout/工作树、共享或重叠点 |
+ | 依赖与状态 | 前置任务、合同是否确定、实际状态及阻塞原因 |
+ | 交接结果 | 接收人、可取得的准确提交或完整未提交交接包、真实检查、剩余项与下一动作 |
+@@ -32,6 +34,14 @@
+ - 确认绑定说明的任务、版本、内容与范围；部分确认仅推进子集，其余待答。Agent 提议实质改变已确认决定时再取得必要决定。用户明确调整按实际指令落实，含糊处澄清，普通排版不重批。
+ 
+ 恢复时先读本人现有任务索引，核对当前源码/候选、权威依据、授权/停止点、证据、开放问题及下一动作。涉及检查点另记待答建议及版本/范围、实际确认版本/子集、有权决定者及答复依据（消息位置或忠实简短原意）。待答仍待答，部分确认只做子集，已确认不重问；旧下一动作不构成授权。缺依据先查现有记录，仍不明再集中澄清。共享索引只由现行维护人整合；成员的本地恢复记录标明实际同步状态。
++
++## 当前状态与人工验收轮次
++
++需要恢复或交接时维护已有状态入口；本次影响的既有摘要和问题项仍须更新，不因任务小遗留过期结论。不为无需恢复的一次性小修新建索引。本人维护的唯一当前摘要/问题表原位更新；旧“当前、待答、未关闭”入口改为当前引用或明确历史，写后回读确认。共享记录由现行维护人整合，其他成员提交具体修改建议，记录仍未同步，不把本地完成当共享完成。
++
++人工验收每轮绑定任务、实际运行候选身份、应用、样本、窗口模式和动作，分别列出源码、新构建、成员/集成候选与实际运行实例。短答“成功”仅适用于已绑定轮次，不推广到新构建、其他应用或集成版本；缺绑定先核对，不猜测。待答轮次的新构建可能覆盖候选时，由有权维护该候选的人保存并核对可恢复产物及读取位置；不得擅自替换其他成员正在验收的实例。成员只能在受托范围操作，越界时交维护人，继续独立工作。
++
++完整行为和参数只保留在现行权威规格；计划引用验收并安排实现及证明，核验记录证据与结论，lead 维护状态入口。没有正式规格的低风险工作以明确请求及现有事实作为依据，不为此补造文档。修正由各制品实际维护人完成，不靠切换角色越权。
+ 
+ ## 并行工作与共享变更
+ 
+@@ -77,11 +87,11 @@
+ 
+ 记录准确版本/相关文件和未提交修改、命令、cwd、退出码、完整输出/截图位置、影响结果的工具版本/配置/数据/目标环境；未知项直说，不记录秘密。文档合并引用具体章节，精确核对时用现有工具计算字节摘要，不编造值。
+ 
+-核验先绑定当前任务和权威验收；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
++核验先绑定当前任务和权威验收，明确低风险且无正式验收时逐请求要求核对，不补造 AC ID；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
+ 
+ ## 分批与上下文
+ 
+-按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。每批、变化或问题关闭更新本人索引；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
++按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。需要恢复/交接时更新本人现有索引，本次影响的既有状态和问题入口同步修正；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
+ 
+ ## 发布与授权
+ 
+--- a/skills/rnd-team-discover/SKILL.md
++++ b/skills/rnd-team-discover/SKILL.md
+@@ -15,14 +15,18 @@
+ 
+ ## 项目与研究适配
+ 
+-小任务复用现行简报；先读索引及相关实现，不强制通读整个项目。迁移/重开发区分旧事实、来源确定性与保留/改造/舍弃决定；行为重构明确既有基线。调研维护问题、假设、范围及结果分析，结论限定在实际证据内，负面结果也可完成研究请求。样本/对照交实际方法维护人及 plan，脚本/输出交执行维护人及 build；不代改他人内容。
++小任务复用现有事实或简报，不强制新建简报；先读索引及相关实现，不强制通读整个项目。迁移/重开发区分旧事实、来源确定性与保留/改造/舍弃决定；行为重构明确既有基线。调研维护问题、假设、范围及结果分析，结论限定在实际证据内，负面结果也可完成研究请求。样本/对照交实际方法维护人及 plan，脚本/输出交执行维护人及 build；不代改他人内容。
++
++## 本次范围与证据
++
++先读相关代码、文档和既有决定再提问，只问阻碍推进的实质未知项；信息已足够即返回后续工作，无需完成问卷或另写简报。明确低风险请求可直接作为输入，已有适用依据继续有效。新增关键需求或运行条件变化时，指出受影响假设并交对应维护人及 plan 安排最小真实反例探针，先于依赖实现与推广；新增范围不倒推为原需求遗漏。
+ 
+ ## 方法
+ 
+ 1. 完整阅读需求和已有实现，归纳用户、当前解决方式、痛点、希望改变的结果、范围与不做事项。未知信息如实保留。
+ 2. 对会改变方案的关键假设，检查价值、可用性、可行性和可持续性；新产品再按需要考虑伦理、市场进入、战略和团队风险。记录依据、信心和验证方法。
+ 3. 只有缺失信息会改变行为或成功标准时才集中澄清。明确的小需求直接写简短结论，不强制访谈模板或完整 PRD。
+-4. 在现有文档或任务记录中写简报，注明实际需求来源，区分用户事实与推断。确认范围后交规格作者。
++4. 需要澄清结果供后续恢复或交接时，在现有文档或任务记录中写简报，注明实际需求来源，区分用户事实与推断。确认范围后交规格作者。
+ 
+ ## 核验与返回
+ 
+--- a/skills/rnd-team-discover/THIRD_PARTY_NOTICES.md
++++ b/skills/rnd-team-discover/THIRD_PARTY_NOTICES.md
+@@ -21,3 +21,7 @@
+ ## Team review corrections synthesis (2026-10-06)
+ 
+ Collection synthesis clarifying evidence-based withdrawal of false review findings by the current review-record maintainer, with version/reason/counterevidence and repair-assignment removal; genuine or disputed other-owner defects remain open. Checkpoints depend on actual unknowns, impact, recovery cost, verification dependencies and batch-delivery needs; multiple files/functions alone are insufficient. Clear local reversible migrations verifiable in one batch continue under existing task authorization. Existing stops and major decisions remain effective; no new runtime or authority is added.
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-discover/references/methods.md
++++ b/skills/rnd-team-discover/references/methods.md
+@@ -18,3 +18,7 @@
+ ## 2026-10-06 终审修正（synthesis）
+ 
+ TW-REC-2（当前原始反证确立误报时，由审查记录维护人撤销并保留历史/撤销修复安排）与 TW-CKP-2（按实际未知项、影响、恢复成本及验证依赖判断检查点；明确、局部可逆且可一批验证的迁移直接接续），见 sources.json 的 review_fixes_adaptation。真实/争议缺陷及已有停止点继续有效；保留此前来源与适配记录。
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-discover/references/sources.json
++++ b/skills/rnd-team-discover/references/sources.json
+@@ -88,5 +88,15 @@
+     ],
+     "changes": "Clarify reproducible handoff: retrievable commit or baseline plus complete staged/unstaged changes, required new and binary files, retrieval location and manifest/snapshot identity; recipient reconstructs and checks in isolation before integration. No upstream bytes changed.",
+     "upstream_bytes_changed": false
++  },
++  "reliability_proportional_sync": {
++    "mode": "synthesis",
++    "date": "2026-10-10",
++    "usage": [
++      "references/workflow.md",
++      "SKILL.md"
++    ],
++    "changes": "Adapt reviewed rnd-workflow reliability and proportional-workflow rules to actual maintainers, assigned scope, complete handoffs and integrated evidence. Matt Pocock inspiration is user-provided summary, not imported or independently verified upstream text. Preserve existing team rules and fixed upstream bytes.",
++    "upstream_bytes_changed": false
+   }
+ }
+--- a/skills/rnd-team-discover/references/workflow.md
++++ b/skills/rnd-team-discover/references/workflow.md
+@@ -4,7 +4,9 @@
+ 
+ ## 按目标选择工作
+ 
+-先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确小修不强制完整 PRD/计划，文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确且低风险的本人受托工作可直接依据请求与相关现有事实实施，不为满足角色输入补造简报、规格、验收编号或计划；小 diff 不等于低风险。已有适用计划、项目强制要求、用户指定文档、授权与证据规则仍有效。文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++
++先读相关代码、文档和既有决定，只澄清会改变行为、成功标准或授权范围的未知项；信息充分即接续实施。调查消除复杂性时，由现行计划维护人在原处缩减未执行安排，保留必要决定、依赖和检查；其他成员提交具体建议，不宣称共享计划已改变。
+ 
+ ## 接手与阶段接续
+ 
+@@ -13,7 +15,7 @@
+ | 接手信息 | 需要说明什么 |
+ |---|---|
+ | 任务与负责人 | 任务 ID/范围、本人实际负责人；协调、规格和集成负责人引用当前分工 |
+-| 依据 | 当前需求/规格的版本或章节、验收 ID、相关接口 |
++| 依据 | 当前需求/规格的版本或章节、已有验收 ID（如有）、相关接口 |
+ | 工作范围 | 可改文件/模块/章节、独立分支及 checkout/工作树、共享或重叠点 |
+ | 依赖与状态 | 前置任务、合同是否确定、实际状态及阻塞原因 |
+ | 交接结果 | 接收人、可取得的准确提交或完整未提交交接包、真实检查、剩余项与下一动作 |
+@@ -32,6 +34,14 @@
+ - 确认绑定说明的任务、版本、内容与范围；部分确认仅推进子集，其余待答。Agent 提议实质改变已确认决定时再取得必要决定。用户明确调整按实际指令落实，含糊处澄清，普通排版不重批。
+ 
+ 恢复时先读本人现有任务索引，核对当前源码/候选、权威依据、授权/停止点、证据、开放问题及下一动作。涉及检查点另记待答建议及版本/范围、实际确认版本/子集、有权决定者及答复依据（消息位置或忠实简短原意）。待答仍待答，部分确认只做子集，已确认不重问；旧下一动作不构成授权。缺依据先查现有记录，仍不明再集中澄清。共享索引只由现行维护人整合；成员的本地恢复记录标明实际同步状态。
++
++## 当前状态与人工验收轮次
++
++需要恢复或交接时维护已有状态入口；本次影响的既有摘要和问题项仍须更新，不因任务小遗留过期结论。不为无需恢复的一次性小修新建索引。本人维护的唯一当前摘要/问题表原位更新；旧“当前、待答、未关闭”入口改为当前引用或明确历史，写后回读确认。共享记录由现行维护人整合，其他成员提交具体修改建议，记录仍未同步，不把本地完成当共享完成。
++
++人工验收每轮绑定任务、实际运行候选身份、应用、样本、窗口模式和动作，分别列出源码、新构建、成员/集成候选与实际运行实例。短答“成功”仅适用于已绑定轮次，不推广到新构建、其他应用或集成版本；缺绑定先核对，不猜测。待答轮次的新构建可能覆盖候选时，由有权维护该候选的人保存并核对可恢复产物及读取位置；不得擅自替换其他成员正在验收的实例。成员只能在受托范围操作，越界时交维护人，继续独立工作。
++
++完整行为和参数只保留在现行权威规格；计划引用验收并安排实现及证明，核验记录证据与结论，lead 维护状态入口。没有正式规格的低风险工作以明确请求及现有事实作为依据，不为此补造文档。修正由各制品实际维护人完成，不靠切换角色越权。
+ 
+ ## 并行工作与共享变更
+ 
+@@ -77,11 +87,11 @@
+ 
+ 记录准确版本/相关文件和未提交修改、命令、cwd、退出码、完整输出/截图位置、影响结果的工具版本/配置/数据/目标环境；未知项直说，不记录秘密。文档合并引用具体章节，精确核对时用现有工具计算字节摘要，不编造值。
+ 
+-核验先绑定当前任务和权威验收；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
++核验先绑定当前任务和权威验收，明确低风险且无正式验收时逐请求要求核对，不补造 AC ID；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
+ 
+ ## 分批与上下文
+ 
+-按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。每批、变化或问题关闭更新本人索引；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
++按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。需要恢复/交接时更新本人现有索引，本次影响的既有状态和问题入口同步修正；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
+ 
+ ## 发布与授权
+ 
+--- a/skills/rnd-team-lead/SKILL.md
++++ b/skills/rnd-team-lead/SKILL.md
+@@ -13,10 +13,14 @@
+ 2. **选择必要工作。** 按目标、实际未知项、影响、恢复成本、验证依赖及分批交付需要选择职责；技术类型决定证明方式。多文件/多函数不单独触发检查点，明确、局部可逆且可一批验证的迁移/重构在现有任务授权内直接接续，无需额外连续执行声明。小修不强制完整文档链，单次审查/计划/调研止于请求范围。确需分批可靠交付或有多项重要取舍的较大任务，首次既无批次约定、也无明确连续执行偏好时，先调查、完成适用质量检查，给出首个可验收范围与检查点建议，等待有权决定者答复再进入依赖实施。已有约定及停止点优先。
+ 3. **接回阶段结果。** 接收产物位置、实际结果、未解决项、建议下一动作。下一工作仍属本人分配且已授权时，读取相应技能并继续，用过程消息说明进展；无需用户逐个调用技能。涉及他人任务或制品时交实际维护人和职责，留下本地草稿或依已有授权实际交接，不代做、不假定已接收。缺角色能力只阻塞依赖部分。
+ 4. **闭合本人问题。** 核对发现与当前版本，按责任方法修复本人受托内容，再返回审查具体复验，更新现行问题与下一动作。混合问题分开，其他维护人的真实缺陷保持开放并交接。当前原始反证确立误报时，审查记录维护人依协作约定记录版本、原因与证据，保留历史并撤销当前修复安排；争议或缺反证仍保持开放。仅审查请求只维护审查记录，不代修实现。行为/方法实质变化先由对应维护人更新依据并取得必要决定，不能放宽验收消除失败。同 Agent 自审/复验仍为非独立。
+-5. **维护当前索引。** 沿用本人任务记录；共享索引只由其现行维护人整合。保留目标/范围、源码与候选、证据、开放问题、接收人及下一动作，检查点再记建议/实际确认版本、子集、决定人和答复依据。按可验收结果分批，按需读取入口/相关材料；换会话需要时准备简短交接，不自动创建会话或发消息。
++5. **维护当前索引。** 需要恢复或交接时沿用本人任务记录，本次影响的既有状态与问题项仍需更新；共享索引只由其现行维护人整合。保留目标/范围、源码与候选、证据、开放问题、接收人及下一动作，检查点再记建议/实际确认版本、子集、决定人和答复依据。按可验收结果分批，按需读取入口/相关材料；换会话需要时准备简短交接，不自动创建会话或发消息。
+ 6. **核对停止条件。** 本人请求完成、首批约定待答、约定检查点、未决重大选择或实际权限/依赖阻断时，交付具体结果和恢复动作。普通职责切换及没有约定停止点的分组继续循环；部分确认只推进子集，其他人的同意须有该事项决定权。停止点不能靠无关工作绕过，已授权普通修复不重复询问。
+ 
+ 协调者维护确认过的分工与共享依据；集成者核对交付版本和依赖、处理实际冲突，在准确集成版本核验真实交互及受影响回归。两者也受自身分配和停止点约束。成员完成、待集成及整体核验分别报告。
++
++## 本次范围与证据
++
++明确低风险任务直接从请求及现有事实进入 build/verify，不补造前置文档或 AC 编号；已有适用计划仍执行。先读再问，信息足够即继续。调查后简化仅修改本人维护的未执行计划；共享计划交维护人。状态更新按协作约定原位修正并回读，按需维持恢复入口；人工反馈只归已绑定的运行候选轮次。
+ 
+ ## 按需定位方法
+ 
+--- a/skills/rnd-team-lead/THIRD_PARTY_NOTICES.md
++++ b/skills/rnd-team-lead/THIRD_PARTY_NOTICES.md
+@@ -16,3 +16,7 @@
+ ## Team review corrections synthesis (2026-10-06)
+ 
+ Collection synthesis clarifying evidence-based withdrawal of false review findings by the current review-record maintainer, with version/reason/counterevidence and repair-assignment removal; genuine or disputed other-owner defects remain open. Checkpoints depend on actual unknowns, impact, recovery cost, verification dependencies and batch-delivery needs; multiple files/functions alone are insufficient. Clear local reversible migrations verifiable in one batch continue under existing task authorization. Existing stops and major decisions remain effective; no new runtime or authority is added.
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-lead/references/methods.md
++++ b/skills/rnd-team-lead/references/methods.md
+@@ -17,3 +17,7 @@
+ ## 2026-10-06 终审修正（synthesis）
+ 
+ TW-REC-2（当前原始反证确立误报时，由审查记录维护人撤销并保留历史/撤销修复安排）与 TW-CKP-2（按实际未知项、影响、恢复成本及验证依赖判断检查点；明确、局部可逆且可一批验证的迁移直接接续），见 sources.json 的 review_fixes_adaptation。真实/争议缺陷及已有停止点继续有效；保留此前来源与适配记录。
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-lead/references/sources.json
++++ b/skills/rnd-team-lead/references/sources.json
+@@ -70,5 +70,15 @@
+     ],
+     "changes": "Clarify reproducible handoff: retrievable commit or baseline plus complete staged/unstaged changes, required new and binary files, retrieval location and manifest/snapshot identity; recipient reconstructs and checks in isolation before integration. No upstream bytes changed.",
+     "upstream_bytes_changed": false
++  },
++  "reliability_proportional_sync": {
++    "mode": "synthesis",
++    "date": "2026-10-10",
++    "usage": [
++      "references/workflow.md",
++      "SKILL.md"
++    ],
++    "changes": "Adapt reviewed rnd-workflow reliability and proportional-workflow rules to actual maintainers, assigned scope, complete handoffs and integrated evidence. Matt Pocock inspiration is user-provided summary, not imported or independently verified upstream text. Preserve existing team rules and fixed upstream bytes.",
++    "upstream_bytes_changed": false
+   }
+ }
+--- a/skills/rnd-team-lead/references/workflow.md
++++ b/skills/rnd-team-lead/references/workflow.md
+@@ -4,7 +4,9 @@
+ 
+ ## 按目标选择工作
+ 
+-先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确小修不强制完整 PRD/计划，文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确且低风险的本人受托工作可直接依据请求与相关现有事实实施，不为满足角色输入补造简报、规格、验收编号或计划；小 diff 不等于低风险。已有适用计划、项目强制要求、用户指定文档、授权与证据规则仍有效。文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++
++先读相关代码、文档和既有决定，只澄清会改变行为、成功标准或授权范围的未知项；信息充分即接续实施。调查消除复杂性时，由现行计划维护人在原处缩减未执行安排，保留必要决定、依赖和检查；其他成员提交具体建议，不宣称共享计划已改变。
+ 
+ ## 接手与阶段接续
+ 
+@@ -13,7 +15,7 @@
+ | 接手信息 | 需要说明什么 |
+ |---|---|
+ | 任务与负责人 | 任务 ID/范围、本人实际负责人；协调、规格和集成负责人引用当前分工 |
+-| 依据 | 当前需求/规格的版本或章节、验收 ID、相关接口 |
++| 依据 | 当前需求/规格的版本或章节、已有验收 ID（如有）、相关接口 |
+ | 工作范围 | 可改文件/模块/章节、独立分支及 checkout/工作树、共享或重叠点 |
+ | 依赖与状态 | 前置任务、合同是否确定、实际状态及阻塞原因 |
+ | 交接结果 | 接收人、可取得的准确提交或完整未提交交接包、真实检查、剩余项与下一动作 |
+@@ -32,6 +34,14 @@
+ - 确认绑定说明的任务、版本、内容与范围；部分确认仅推进子集，其余待答。Agent 提议实质改变已确认决定时再取得必要决定。用户明确调整按实际指令落实，含糊处澄清，普通排版不重批。
+ 
+ 恢复时先读本人现有任务索引，核对当前源码/候选、权威依据、授权/停止点、证据、开放问题及下一动作。涉及检查点另记待答建议及版本/范围、实际确认版本/子集、有权决定者及答复依据（消息位置或忠实简短原意）。待答仍待答，部分确认只做子集，已确认不重问；旧下一动作不构成授权。缺依据先查现有记录，仍不明再集中澄清。共享索引只由现行维护人整合；成员的本地恢复记录标明实际同步状态。
++
++## 当前状态与人工验收轮次
++
++需要恢复或交接时维护已有状态入口；本次影响的既有摘要和问题项仍须更新，不因任务小遗留过期结论。不为无需恢复的一次性小修新建索引。本人维护的唯一当前摘要/问题表原位更新；旧“当前、待答、未关闭”入口改为当前引用或明确历史，写后回读确认。共享记录由现行维护人整合，其他成员提交具体修改建议，记录仍未同步，不把本地完成当共享完成。
++
++人工验收每轮绑定任务、实际运行候选身份、应用、样本、窗口模式和动作，分别列出源码、新构建、成员/集成候选与实际运行实例。短答“成功”仅适用于已绑定轮次，不推广到新构建、其他应用或集成版本；缺绑定先核对，不猜测。待答轮次的新构建可能覆盖候选时，由有权维护该候选的人保存并核对可恢复产物及读取位置；不得擅自替换其他成员正在验收的实例。成员只能在受托范围操作，越界时交维护人，继续独立工作。
++
++完整行为和参数只保留在现行权威规格；计划引用验收并安排实现及证明，核验记录证据与结论，lead 维护状态入口。没有正式规格的低风险工作以明确请求及现有事实作为依据，不为此补造文档。修正由各制品实际维护人完成，不靠切换角色越权。
+ 
+ ## 并行工作与共享变更
+ 
+@@ -77,11 +87,11 @@
+ 
+ 记录准确版本/相关文件和未提交修改、命令、cwd、退出码、完整输出/截图位置、影响结果的工具版本/配置/数据/目标环境；未知项直说，不记录秘密。文档合并引用具体章节，精确核对时用现有工具计算字节摘要，不编造值。
+ 
+-核验先绑定当前任务和权威验收；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
++核验先绑定当前任务和权威验收，明确低风险且无正式验收时逐请求要求核对，不补造 AC ID；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
+ 
+ ## 分批与上下文
+ 
+-按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。每批、变化或问题关闭更新本人索引；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
++按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。需要恢复/交接时更新本人现有索引，本次影响的既有状态和问题入口同步修正；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
+ 
+ ## 发布与授权
+ 
+--- a/skills/rnd-team-plan/SKILL.md
++++ b/skills/rnd-team-plan/SKILL.md
+@@ -13,6 +13,14 @@
+ 
+ 调研计划组织方法、数据/样本、对照、覆盖与执行安排；脚本/配置/输出交实际执行维护人。方法问题留本角色，分析问题交分析维护人及 discover，不强行安排产品开发。修订后的受影响检查对应当前方法版本，保留原失败证据。
+ 
++## 本次范围与证据
++
++明确且低风险的受托任务无需为了进入 build 补造计划或验收编号；已有适用计划仍遵循。先读现有依据，只澄清实质未知项；信息充分即返回实施。调查消除复杂性时，现行维护人在原处缩减未执行安排，保留决定、依赖和检查，其他成员交建议而不覆盖共享计划。
++
++关键反例探针先于依赖实现、推广及大量重复稳定性测试，保留既定次数门槛。拒绝/隐藏安排触发、解除与同实例恢复检查，按需覆盖模态取消、单例/多例。原生桌面涉及普通、铺满、原生全屏、小窗口及适用多屏时，交 design 按其原生桌面参考检查用户任务能否完成；真实渲染与几何推断分开。
++
++RED 分类记录：新接口缺类型/函数的编译失败可证明接口尚不存在；旧缺陷须有行为失败或最小真实复现与修后同测，数量不能代替覆盖。计划引用验收，只写实施、依赖和证明安排，不复写完整行为参数。
++
+ ## 方法
+ 
+ 1. 沿用已有任务/Issue，在 [协作记录](references/workflow.md) 中明确任务 ID、实际负责人、验收 ID/规格依据、文件或模块范围、独立分支/工作树、前置依赖、接口与检查。没有人员分配依据时写“待分配/建议”，不能虚构已认领。协调及集成负责人引用现行分工。
+--- a/skills/rnd-team-plan/THIRD_PARTY_NOTICES.md
++++ b/skills/rnd-team-plan/THIRD_PARTY_NOTICES.md
+@@ -16,3 +16,7 @@
+ ## Team review corrections synthesis (2026-10-06)
+ 
+ Collection synthesis clarifying evidence-based withdrawal of false review findings by the current review-record maintainer, with version/reason/counterevidence and repair-assignment removal; genuine or disputed other-owner defects remain open. Checkpoints depend on actual unknowns, impact, recovery cost, verification dependencies and batch-delivery needs; multiple files/functions alone are insufficient. Clear local reversible migrations verifiable in one batch continue under existing task authorization. Existing stops and major decisions remain effective; no new runtime or authority is added.
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-plan/references/methods.md
++++ b/skills/rnd-team-plan/references/methods.md
+@@ -17,3 +17,7 @@
+ ## 2026-10-06 终审修正（synthesis）
+ 
+ TW-REC-2（当前原始反证确立误报时，由审查记录维护人撤销并保留历史/撤销修复安排）与 TW-CKP-2（按实际未知项、影响、恢复成本及验证依赖判断检查点；明确、局部可逆且可一批验证的迁移直接接续），见 sources.json 的 review_fixes_adaptation。真实/争议缺陷及已有停止点继续有效；保留此前来源与适配记录。
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-plan/references/sources.json
++++ b/skills/rnd-team-plan/references/sources.json
+@@ -70,5 +70,15 @@
+     ],
+     "changes": "Clarify reproducible handoff: retrievable commit or baseline plus complete staged/unstaged changes, required new and binary files, retrieval location and manifest/snapshot identity; recipient reconstructs and checks in isolation before integration. No upstream bytes changed.",
+     "upstream_bytes_changed": false
++  },
++  "reliability_proportional_sync": {
++    "mode": "synthesis",
++    "date": "2026-10-10",
++    "usage": [
++      "references/workflow.md",
++      "SKILL.md"
++    ],
++    "changes": "Adapt reviewed rnd-workflow reliability and proportional-workflow rules to actual maintainers, assigned scope, complete handoffs and integrated evidence. Matt Pocock inspiration is user-provided summary, not imported or independently verified upstream text. Preserve existing team rules and fixed upstream bytes.",
++    "upstream_bytes_changed": false
+   }
+ }
+--- a/skills/rnd-team-plan/references/workflow.md
++++ b/skills/rnd-team-plan/references/workflow.md
+@@ -4,7 +4,9 @@
+ 
+ ## 按目标选择工作
+ 
+-先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确小修不强制完整 PRD/计划，文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确且低风险的本人受托工作可直接依据请求与相关现有事实实施，不为满足角色输入补造简报、规格、验收编号或计划；小 diff 不等于低风险。已有适用计划、项目强制要求、用户指定文档、授权与证据规则仍有效。文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++
++先读相关代码、文档和既有决定，只澄清会改变行为、成功标准或授权范围的未知项；信息充分即接续实施。调查消除复杂性时，由现行计划维护人在原处缩减未执行安排，保留必要决定、依赖和检查；其他成员提交具体建议，不宣称共享计划已改变。
+ 
+ ## 接手与阶段接续
+ 
+@@ -13,7 +15,7 @@
+ | 接手信息 | 需要说明什么 |
+ |---|---|
+ | 任务与负责人 | 任务 ID/范围、本人实际负责人；协调、规格和集成负责人引用当前分工 |
+-| 依据 | 当前需求/规格的版本或章节、验收 ID、相关接口 |
++| 依据 | 当前需求/规格的版本或章节、已有验收 ID（如有）、相关接口 |
+ | 工作范围 | 可改文件/模块/章节、独立分支及 checkout/工作树、共享或重叠点 |
+ | 依赖与状态 | 前置任务、合同是否确定、实际状态及阻塞原因 |
+ | 交接结果 | 接收人、可取得的准确提交或完整未提交交接包、真实检查、剩余项与下一动作 |
+@@ -32,6 +34,14 @@
+ - 确认绑定说明的任务、版本、内容与范围；部分确认仅推进子集，其余待答。Agent 提议实质改变已确认决定时再取得必要决定。用户明确调整按实际指令落实，含糊处澄清，普通排版不重批。
+ 
+ 恢复时先读本人现有任务索引，核对当前源码/候选、权威依据、授权/停止点、证据、开放问题及下一动作。涉及检查点另记待答建议及版本/范围、实际确认版本/子集、有权决定者及答复依据（消息位置或忠实简短原意）。待答仍待答，部分确认只做子集，已确认不重问；旧下一动作不构成授权。缺依据先查现有记录，仍不明再集中澄清。共享索引只由现行维护人整合；成员的本地恢复记录标明实际同步状态。
++
++## 当前状态与人工验收轮次
++
++需要恢复或交接时维护已有状态入口；本次影响的既有摘要和问题项仍须更新，不因任务小遗留过期结论。不为无需恢复的一次性小修新建索引。本人维护的唯一当前摘要/问题表原位更新；旧“当前、待答、未关闭”入口改为当前引用或明确历史，写后回读确认。共享记录由现行维护人整合，其他成员提交具体修改建议，记录仍未同步，不把本地完成当共享完成。
++
++人工验收每轮绑定任务、实际运行候选身份、应用、样本、窗口模式和动作，分别列出源码、新构建、成员/集成候选与实际运行实例。短答“成功”仅适用于已绑定轮次，不推广到新构建、其他应用或集成版本；缺绑定先核对，不猜测。待答轮次的新构建可能覆盖候选时，由有权维护该候选的人保存并核对可恢复产物及读取位置；不得擅自替换其他成员正在验收的实例。成员只能在受托范围操作，越界时交维护人，继续独立工作。
++
++完整行为和参数只保留在现行权威规格；计划引用验收并安排实现及证明，核验记录证据与结论，lead 维护状态入口。没有正式规格的低风险工作以明确请求及现有事实作为依据，不为此补造文档。修正由各制品实际维护人完成，不靠切换角色越权。
+ 
+ ## 并行工作与共享变更
+ 
+@@ -77,11 +87,11 @@
+ 
+ 记录准确版本/相关文件和未提交修改、命令、cwd、退出码、完整输出/截图位置、影响结果的工具版本/配置/数据/目标环境；未知项直说，不记录秘密。文档合并引用具体章节，精确核对时用现有工具计算字节摘要，不编造值。
+ 
+-核验先绑定当前任务和权威验收；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
++核验先绑定当前任务和权威验收，明确低风险且无正式验收时逐请求要求核对，不补造 AC ID；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
+ 
+ ## 分批与上下文
+ 
+-按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。每批、变化或问题关闭更新本人索引；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
++按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。需要恢复/交接时更新本人现有索引，本次影响的既有状态和问题入口同步修正；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
+ 
+ ## 发布与授权
+ 
+--- a/skills/rnd-team-release/THIRD_PARTY_NOTICES.md
++++ b/skills/rnd-team-release/THIRD_PARTY_NOTICES.md
+@@ -23,3 +23,7 @@
+ ## Team review corrections synthesis (2026-10-06)
+ 
+ Collection synthesis clarifying evidence-based withdrawal of false review findings by the current review-record maintainer, with version/reason/counterevidence and repair-assignment removal; genuine or disputed other-owner defects remain open. Checkpoints depend on actual unknowns, impact, recovery cost, verification dependencies and batch-delivery needs; multiple files/functions alone are insufficient. Clear local reversible migrations verifiable in one batch continue under existing task authorization. Existing stops and major decisions remain effective; no new runtime or authority is added.
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-release/references/methods.md
++++ b/skills/rnd-team-release/references/methods.md
+@@ -20,3 +20,7 @@
+ ## 2026-10-06 终审修正（synthesis）
+ 
+ TW-REC-2（当前原始反证确立误报时，由审查记录维护人撤销并保留历史/撤销修复安排）与 TW-CKP-2（按实际未知项、影响、恢复成本及验证依赖判断检查点；明确、局部可逆且可一批验证的迁移直接接续），见 sources.json 的 review_fixes_adaptation。真实/争议缺陷及已有停止点继续有效；保留此前来源与适配记录。
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-release/references/sources.json
++++ b/skills/rnd-team-release/references/sources.json
+@@ -91,5 +91,14 @@
+     ],
+     "changes": "Clarify reproducible handoff: retrievable commit or baseline plus complete staged/unstaged changes, required new and binary files, retrieval location and manifest/snapshot identity; recipient reconstructs and checks in isolation before integration. No upstream bytes changed.",
+     "upstream_bytes_changed": false
++  },
++  "reliability_proportional_sync": {
++    "mode": "synthesis",
++    "date": "2026-10-10",
++    "usage": [
++      "references/workflow.md"
++    ],
++    "changes": "Adapt reviewed rnd-workflow reliability and proportional-workflow rules to actual maintainers, assigned scope, complete handoffs and integrated evidence. Matt Pocock inspiration is user-provided summary, not imported or independently verified upstream text. Preserve existing team rules and fixed upstream bytes.",
++    "upstream_bytes_changed": false
+   }
+ }
+--- a/skills/rnd-team-release/references/workflow.md
++++ b/skills/rnd-team-release/references/workflow.md
+@@ -4,7 +4,9 @@
+ 
+ ## 按目标选择工作
+ 
+-先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确小修不强制完整 PRD/计划，文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确且低风险的本人受托工作可直接依据请求与相关现有事实实施，不为满足角色输入补造简报、规格、验收编号或计划；小 diff 不等于低风险。已有适用计划、项目强制要求、用户指定文档、授权与证据规则仍有效。文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++
++先读相关代码、文档和既有决定，只澄清会改变行为、成功标准或授权范围的未知项；信息充分即接续实施。调查消除复杂性时，由现行计划维护人在原处缩减未执行安排，保留必要决定、依赖和检查；其他成员提交具体建议，不宣称共享计划已改变。
+ 
+ ## 接手与阶段接续
+ 
+@@ -13,7 +15,7 @@
+ | 接手信息 | 需要说明什么 |
+ |---|---|
+ | 任务与负责人 | 任务 ID/范围、本人实际负责人；协调、规格和集成负责人引用当前分工 |
+-| 依据 | 当前需求/规格的版本或章节、验收 ID、相关接口 |
++| 依据 | 当前需求/规格的版本或章节、已有验收 ID（如有）、相关接口 |
+ | 工作范围 | 可改文件/模块/章节、独立分支及 checkout/工作树、共享或重叠点 |
+ | 依赖与状态 | 前置任务、合同是否确定、实际状态及阻塞原因 |
+ | 交接结果 | 接收人、可取得的准确提交或完整未提交交接包、真实检查、剩余项与下一动作 |
+@@ -32,6 +34,14 @@
+ - 确认绑定说明的任务、版本、内容与范围；部分确认仅推进子集，其余待答。Agent 提议实质改变已确认决定时再取得必要决定。用户明确调整按实际指令落实，含糊处澄清，普通排版不重批。
+ 
+ 恢复时先读本人现有任务索引，核对当前源码/候选、权威依据、授权/停止点、证据、开放问题及下一动作。涉及检查点另记待答建议及版本/范围、实际确认版本/子集、有权决定者及答复依据（消息位置或忠实简短原意）。待答仍待答，部分确认只做子集，已确认不重问；旧下一动作不构成授权。缺依据先查现有记录，仍不明再集中澄清。共享索引只由现行维护人整合；成员的本地恢复记录标明实际同步状态。
++
++## 当前状态与人工验收轮次
++
++需要恢复或交接时维护已有状态入口；本次影响的既有摘要和问题项仍须更新，不因任务小遗留过期结论。不为无需恢复的一次性小修新建索引。本人维护的唯一当前摘要/问题表原位更新；旧“当前、待答、未关闭”入口改为当前引用或明确历史，写后回读确认。共享记录由现行维护人整合，其他成员提交具体修改建议，记录仍未同步，不把本地完成当共享完成。
++
++人工验收每轮绑定任务、实际运行候选身份、应用、样本、窗口模式和动作，分别列出源码、新构建、成员/集成候选与实际运行实例。短答“成功”仅适用于已绑定轮次，不推广到新构建、其他应用或集成版本；缺绑定先核对，不猜测。待答轮次的新构建可能覆盖候选时，由有权维护该候选的人保存并核对可恢复产物及读取位置；不得擅自替换其他成员正在验收的实例。成员只能在受托范围操作，越界时交维护人，继续独立工作。
++
++完整行为和参数只保留在现行权威规格；计划引用验收并安排实现及证明，核验记录证据与结论，lead 维护状态入口。没有正式规格的低风险工作以明确请求及现有事实作为依据，不为此补造文档。修正由各制品实际维护人完成，不靠切换角色越权。
+ 
+ ## 并行工作与共享变更
+ 
+@@ -77,11 +87,11 @@
+ 
+ 记录准确版本/相关文件和未提交修改、命令、cwd、退出码、完整输出/截图位置、影响结果的工具版本/配置/数据/目标环境；未知项直说，不记录秘密。文档合并引用具体章节，精确核对时用现有工具计算字节摘要，不编造值。
+ 
+-核验先绑定当前任务和权威验收；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
++核验先绑定当前任务和权威验收，明确低风险且无正式验收时逐请求要求核对，不补造 AC ID；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
+ 
+ ## 分批与上下文
+ 
+-按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。每批、变化或问题关闭更新本人索引；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
++按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。需要恢复/交接时更新本人现有索引，本次影响的既有状态和问题入口同步修正；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
+ 
+ ## 发布与授权
+ 
+--- a/skills/rnd-team-review/SKILL.md
++++ b/skills/rnd-team-review/SKILL.md
+@@ -13,6 +13,12 @@
+ 
+ [接手、分工与交接字段](references/workflow.md) 使用项目现有记录；只有本地草稿时不声称已通知或同步给其他成员。
+ 
++## 本次范围与证据
++
++核对拒绝/隐藏是否同时定义触发、解除、合法恢复与可观察结果，按范围覆盖模态取消及同实例恢复；重启成功不能替代。检查未确认设计建议是否被写成硬性验收，完整行为参数是否被复制到计划/核验。核对关键反例是否先于依赖实现及推广；新支持范围不倒推为原始遗漏。
++
++区分新接口编译 RED 与旧缺陷行为 RED/真实复现及修后复验，不以测试数量或编译通过替代覆盖。人工反馈核对实际运行轮次，不能移用到另一个候选或将成员结果提升为整体完成。
++
+ ## 方法
+ 
+ 1. 对照需求查漏项与越界，检查正确性、数据完整性、边界和错误路径、兼容性、安全、可维护性及有效测试。
+--- a/skills/rnd-team-review/THIRD_PARTY_NOTICES.md
++++ b/skills/rnd-team-review/THIRD_PARTY_NOTICES.md
+@@ -21,3 +21,7 @@
+ ## Team review corrections synthesis (2026-10-06)
+ 
+ Collection synthesis clarifying evidence-based withdrawal of false review findings by the current review-record maintainer, with version/reason/counterevidence and repair-assignment removal; genuine or disputed other-owner defects remain open. Checkpoints depend on actual unknowns, impact, recovery cost, verification dependencies and batch-delivery needs; multiple files/functions alone are insufficient. Clear local reversible migrations verifiable in one batch continue under existing task authorization. Existing stops and major decisions remain effective; no new runtime or authority is added.
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-review/references/methods.md
++++ b/skills/rnd-team-review/references/methods.md
+@@ -18,3 +18,7 @@
+ ## 2026-10-06 终审修正（synthesis）
+ 
+ TW-REC-2（当前原始反证确立误报时，由审查记录维护人撤销并保留历史/撤销修复安排）与 TW-CKP-2（按实际未知项、影响、恢复成本及验证依赖判断检查点；明确、局部可逆且可一批验证的迁移直接接续），见 sources.json 的 review_fixes_adaptation。真实/争议缺陷及已有停止点继续有效；保留此前来源与适配记录。
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-review/references/sources.json
++++ b/skills/rnd-team-review/references/sources.json
+@@ -89,5 +89,15 @@
+     ],
+     "changes": "Clarify reproducible handoff: retrievable commit or baseline plus complete staged/unstaged changes, required new and binary files, retrieval location and manifest/snapshot identity; recipient reconstructs and checks in isolation before integration. No upstream bytes changed.",
+     "upstream_bytes_changed": false
++  },
++  "reliability_proportional_sync": {
++    "mode": "synthesis",
++    "date": "2026-10-10",
++    "usage": [
++      "references/workflow.md",
++      "SKILL.md"
++    ],
++    "changes": "Adapt reviewed rnd-workflow reliability and proportional-workflow rules to actual maintainers, assigned scope, complete handoffs and integrated evidence. Matt Pocock inspiration is user-provided summary, not imported or independently verified upstream text. Preserve existing team rules and fixed upstream bytes.",
++    "upstream_bytes_changed": false
+   }
+ }
+--- a/skills/rnd-team-review/references/workflow.md
++++ b/skills/rnd-team-review/references/workflow.md
+@@ -4,7 +4,9 @@
+ 
+ ## 按目标选择工作
+ 
+-先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确小修不强制完整 PRD/计划，文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确且低风险的本人受托工作可直接依据请求与相关现有事实实施，不为满足角色输入补造简报、规格、验收编号或计划；小 diff 不等于低风险。已有适用计划、项目强制要求、用户指定文档、授权与证据规则仍有效。文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++
++先读相关代码、文档和既有决定，只澄清会改变行为、成功标准或授权范围的未知项；信息充分即接续实施。调查消除复杂性时，由现行计划维护人在原处缩减未执行安排，保留必要决定、依赖和检查；其他成员提交具体建议，不宣称共享计划已改变。
+ 
+ ## 接手与阶段接续
+ 
+@@ -13,7 +15,7 @@
+ | 接手信息 | 需要说明什么 |
+ |---|---|
+ | 任务与负责人 | 任务 ID/范围、本人实际负责人；协调、规格和集成负责人引用当前分工 |
+-| 依据 | 当前需求/规格的版本或章节、验收 ID、相关接口 |
++| 依据 | 当前需求/规格的版本或章节、已有验收 ID（如有）、相关接口 |
+ | 工作范围 | 可改文件/模块/章节、独立分支及 checkout/工作树、共享或重叠点 |
+ | 依赖与状态 | 前置任务、合同是否确定、实际状态及阻塞原因 |
+ | 交接结果 | 接收人、可取得的准确提交或完整未提交交接包、真实检查、剩余项与下一动作 |
+@@ -32,6 +34,14 @@
+ - 确认绑定说明的任务、版本、内容与范围；部分确认仅推进子集，其余待答。Agent 提议实质改变已确认决定时再取得必要决定。用户明确调整按实际指令落实，含糊处澄清，普通排版不重批。
+ 
+ 恢复时先读本人现有任务索引，核对当前源码/候选、权威依据、授权/停止点、证据、开放问题及下一动作。涉及检查点另记待答建议及版本/范围、实际确认版本/子集、有权决定者及答复依据（消息位置或忠实简短原意）。待答仍待答，部分确认只做子集，已确认不重问；旧下一动作不构成授权。缺依据先查现有记录，仍不明再集中澄清。共享索引只由现行维护人整合；成员的本地恢复记录标明实际同步状态。
++
++## 当前状态与人工验收轮次
++
++需要恢复或交接时维护已有状态入口；本次影响的既有摘要和问题项仍须更新，不因任务小遗留过期结论。不为无需恢复的一次性小修新建索引。本人维护的唯一当前摘要/问题表原位更新；旧“当前、待答、未关闭”入口改为当前引用或明确历史，写后回读确认。共享记录由现行维护人整合，其他成员提交具体修改建议，记录仍未同步，不把本地完成当共享完成。
++
++人工验收每轮绑定任务、实际运行候选身份、应用、样本、窗口模式和动作，分别列出源码、新构建、成员/集成候选与实际运行实例。短答“成功”仅适用于已绑定轮次，不推广到新构建、其他应用或集成版本；缺绑定先核对，不猜测。待答轮次的新构建可能覆盖候选时，由有权维护该候选的人保存并核对可恢复产物及读取位置；不得擅自替换其他成员正在验收的实例。成员只能在受托范围操作，越界时交维护人，继续独立工作。
++
++完整行为和参数只保留在现行权威规格；计划引用验收并安排实现及证明，核验记录证据与结论，lead 维护状态入口。没有正式规格的低风险工作以明确请求及现有事实作为依据，不为此补造文档。修正由各制品实际维护人完成，不靠切换角色越权。
+ 
+ ## 并行工作与共享变更
+ 
+@@ -77,11 +87,11 @@
+ 
+ 记录准确版本/相关文件和未提交修改、命令、cwd、退出码、完整输出/截图位置、影响结果的工具版本/配置/数据/目标环境；未知项直说，不记录秘密。文档合并引用具体章节，精确核对时用现有工具计算字节摘要，不编造值。
+ 
+-核验先绑定当前任务和权威验收；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
++核验先绑定当前任务和权威验收，明确低风险且无正式验收时逐请求要求核对，不补造 AC ID；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
+ 
+ ## 分批与上下文
+ 
+-按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。每批、变化或问题关闭更新本人索引；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
++按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。需要恢复/交接时更新本人现有索引，本次影响的既有状态和问题入口同步修正；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
+ 
+ ## 发布与授权
+ 
+--- a/skills/rnd-team-security/THIRD_PARTY_NOTICES.md
++++ b/skills/rnd-team-security/THIRD_PARTY_NOTICES.md
+@@ -16,3 +16,7 @@
+ ## Team review corrections synthesis (2026-10-06)
+ 
+ Collection synthesis clarifying evidence-based withdrawal of false review findings by the current review-record maintainer, with version/reason/counterevidence and repair-assignment removal; genuine or disputed other-owner defects remain open. Checkpoints depend on actual unknowns, impact, recovery cost, verification dependencies and batch-delivery needs; multiple files/functions alone are insufficient. Clear local reversible migrations verifiable in one batch continue under existing task authorization. Existing stops and major decisions remain effective; no new runtime or authority is added.
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-security/references/methods.md
++++ b/skills/rnd-team-security/references/methods.md
+@@ -17,3 +17,7 @@
+ ## 2026-10-06 终审修正（synthesis）
+ 
+ TW-REC-2（当前原始反证确立误报时，由审查记录维护人撤销并保留历史/撤销修复安排）与 TW-CKP-2（按实际未知项、影响、恢复成本及验证依赖判断检查点；明确、局部可逆且可一批验证的迁移直接接续），见 sources.json 的 review_fixes_adaptation。真实/争议缺陷及已有停止点继续有效；保留此前来源与适配记录。
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-security/references/sources.json
++++ b/skills/rnd-team-security/references/sources.json
+@@ -69,5 +69,14 @@
+     ],
+     "changes": "Clarify reproducible handoff: retrievable commit or baseline plus complete staged/unstaged changes, required new and binary files, retrieval location and manifest/snapshot identity; recipient reconstructs and checks in isolation before integration. No upstream bytes changed.",
+     "upstream_bytes_changed": false
++  },
++  "reliability_proportional_sync": {
++    "mode": "synthesis",
++    "date": "2026-10-10",
++    "usage": [
++      "references/workflow.md"
++    ],
++    "changes": "Adapt reviewed rnd-workflow reliability and proportional-workflow rules to actual maintainers, assigned scope, complete handoffs and integrated evidence. Matt Pocock inspiration is user-provided summary, not imported or independently verified upstream text. Preserve existing team rules and fixed upstream bytes.",
++    "upstream_bytes_changed": false
+   }
+ }
+--- a/skills/rnd-team-security/references/workflow.md
++++ b/skills/rnd-team-security/references/workflow.md
+@@ -4,7 +4,9 @@
+ 
+ ## 按目标选择工作
+ 
+-先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确小修不强制完整 PRD/计划，文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确且低风险的本人受托工作可直接依据请求与相关现有事实实施，不为满足角色输入补造简报、规格、验收编号或计划；小 diff 不等于低风险。已有适用计划、项目强制要求、用户指定文档、授权与证据规则仍有效。文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++
++先读相关代码、文档和既有决定，只澄清会改变行为、成功标准或授权范围的未知项；信息充分即接续实施。调查消除复杂性时，由现行计划维护人在原处缩减未执行安排，保留必要决定、依赖和检查；其他成员提交具体建议，不宣称共享计划已改变。
+ 
+ ## 接手与阶段接续
+ 
+@@ -13,7 +15,7 @@
+ | 接手信息 | 需要说明什么 |
+ |---|---|
+ | 任务与负责人 | 任务 ID/范围、本人实际负责人；协调、规格和集成负责人引用当前分工 |
+-| 依据 | 当前需求/规格的版本或章节、验收 ID、相关接口 |
++| 依据 | 当前需求/规格的版本或章节、已有验收 ID（如有）、相关接口 |
+ | 工作范围 | 可改文件/模块/章节、独立分支及 checkout/工作树、共享或重叠点 |
+ | 依赖与状态 | 前置任务、合同是否确定、实际状态及阻塞原因 |
+ | 交接结果 | 接收人、可取得的准确提交或完整未提交交接包、真实检查、剩余项与下一动作 |
+@@ -32,6 +34,14 @@
+ - 确认绑定说明的任务、版本、内容与范围；部分确认仅推进子集，其余待答。Agent 提议实质改变已确认决定时再取得必要决定。用户明确调整按实际指令落实，含糊处澄清，普通排版不重批。
+ 
+ 恢复时先读本人现有任务索引，核对当前源码/候选、权威依据、授权/停止点、证据、开放问题及下一动作。涉及检查点另记待答建议及版本/范围、实际确认版本/子集、有权决定者及答复依据（消息位置或忠实简短原意）。待答仍待答，部分确认只做子集，已确认不重问；旧下一动作不构成授权。缺依据先查现有记录，仍不明再集中澄清。共享索引只由现行维护人整合；成员的本地恢复记录标明实际同步状态。
++
++## 当前状态与人工验收轮次
++
++需要恢复或交接时维护已有状态入口；本次影响的既有摘要和问题项仍须更新，不因任务小遗留过期结论。不为无需恢复的一次性小修新建索引。本人维护的唯一当前摘要/问题表原位更新；旧“当前、待答、未关闭”入口改为当前引用或明确历史，写后回读确认。共享记录由现行维护人整合，其他成员提交具体修改建议，记录仍未同步，不把本地完成当共享完成。
++
++人工验收每轮绑定任务、实际运行候选身份、应用、样本、窗口模式和动作，分别列出源码、新构建、成员/集成候选与实际运行实例。短答“成功”仅适用于已绑定轮次，不推广到新构建、其他应用或集成版本；缺绑定先核对，不猜测。待答轮次的新构建可能覆盖候选时，由有权维护该候选的人保存并核对可恢复产物及读取位置；不得擅自替换其他成员正在验收的实例。成员只能在受托范围操作，越界时交维护人，继续独立工作。
++
++完整行为和参数只保留在现行权威规格；计划引用验收并安排实现及证明，核验记录证据与结论，lead 维护状态入口。没有正式规格的低风险工作以明确请求及现有事实作为依据，不为此补造文档。修正由各制品实际维护人完成，不靠切换角色越权。
+ 
+ ## 并行工作与共享变更
+ 
+@@ -77,11 +87,11 @@
+ 
+ 记录准确版本/相关文件和未提交修改、命令、cwd、退出码、完整输出/截图位置、影响结果的工具版本/配置/数据/目标环境；未知项直说，不记录秘密。文档合并引用具体章节，精确核对时用现有工具计算字节摘要，不编造值。
+ 
+-核验先绑定当前任务和权威验收；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
++核验先绑定当前任务和权威验收，明确低风险且无正式验收时逐请求要求核对，不补造 AC ID；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
+ 
+ ## 分批与上下文
+ 
+-按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。每批、变化或问题关闭更新本人索引；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
++按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。需要恢复/交接时更新本人现有索引，本次影响的既有状态和问题入口同步修正；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
+ 
+ ## 发布与授权
+ 
+--- a/skills/rnd-team-spec/SKILL.md
++++ b/skills/rnd-team-spec/SKILL.md
+@@ -17,6 +17,12 @@
+ 
+ 按当前目标写足够可判定的内容；小修可用现有任务章节，不强制新规格。保持行为的重构注明基线/兼容性；迁移以已确认的取舍为依据。实验规格维护可观察判据、样本适用范围与失败条件，不将脚本成功当假设成立。规格或重要取舍改变交有权决定者，注明版本/受影响任务，不重复询问已确认内容。
+ 
++## 本次范围与证据
++
++拒绝、隐藏或禁用规则成对写明触发条件、解除条件、允许的恢复动作及可观察结果；按实际范围覆盖单例/多例、模态取消与同实例恢复。重启正常不证明原实例能恢复。恢复行为尚未确认时明确待决，不能补成已确认验收。
++
++设计建议、推断与已确认要求分开，未确认的隐藏、关联或恢复交互不得成为硬性验收。规格维护人修改本人规格，设计正文交其实际维护人；取得必要决定前仅推进不依赖它的部分。完整行为与参数仅在权威规格保留，计划/核验引用，不能复制出多份现行正文。
++
+ ## 方法
+ 
+ 1. 识别用户动作、实体、状态转换、正常路径、错误及边界路径、约束和可观察结果。沿用既定技术约束，不凭猜测指定新技术。
+--- a/skills/rnd-team-spec/THIRD_PARTY_NOTICES.md
++++ b/skills/rnd-team-spec/THIRD_PARTY_NOTICES.md
+@@ -16,3 +16,7 @@
+ ## Team review corrections synthesis (2026-10-06)
+ 
+ Collection synthesis clarifying evidence-based withdrawal of false review findings by the current review-record maintainer, with version/reason/counterevidence and repair-assignment removal; genuine or disputed other-owner defects remain open. Checkpoints depend on actual unknowns, impact, recovery cost, verification dependencies and batch-delivery needs; multiple files/functions alone are insufficient. Clear local reversible migrations verifiable in one batch continue under existing task authorization. Existing stops and major decisions remain effective; no new runtime or authority is added.
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-spec/references/methods.md
++++ b/skills/rnd-team-spec/references/methods.md
+@@ -17,3 +17,7 @@
+ ## 2026-10-06 终审修正（synthesis）
+ 
+ TW-REC-2（当前原始反证确立误报时，由审查记录维护人撤销并保留历史/撤销修复安排）与 TW-CKP-2（按实际未知项、影响、恢复成本及验证依赖判断检查点；明确、局部可逆且可一批验证的迁移直接接续），见 sources.json 的 review_fixes_adaptation。真实/争议缺陷及已有停止点继续有效；保留此前来源与适配记录。
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-spec/references/sources.json
++++ b/skills/rnd-team-spec/references/sources.json
+@@ -69,5 +69,15 @@
+     ],
+     "changes": "Clarify reproducible handoff: retrievable commit or baseline plus complete staged/unstaged changes, required new and binary files, retrieval location and manifest/snapshot identity; recipient reconstructs and checks in isolation before integration. No upstream bytes changed.",
+     "upstream_bytes_changed": false
++  },
++  "reliability_proportional_sync": {
++    "mode": "synthesis",
++    "date": "2026-10-10",
++    "usage": [
++      "references/workflow.md",
++      "SKILL.md"
++    ],
++    "changes": "Adapt reviewed rnd-workflow reliability and proportional-workflow rules to actual maintainers, assigned scope, complete handoffs and integrated evidence. Matt Pocock inspiration is user-provided summary, not imported or independently verified upstream text. Preserve existing team rules and fixed upstream bytes.",
++    "upstream_bytes_changed": false
+   }
+ }
+--- a/skills/rnd-team-spec/references/workflow.md
++++ b/skills/rnd-team-spec/references/workflow.md
+@@ -4,7 +4,9 @@
+ 
+ ## 按目标选择工作
+ 
+-先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确小修不强制完整 PRD/计划，文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确且低风险的本人受托工作可直接依据请求与相关现有事实实施，不为满足角色输入补造简报、规格、验收编号或计划；小 diff 不等于低风险。已有适用计划、项目强制要求、用户指定文档、授权与证据规则仍有效。文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++
++先读相关代码、文档和既有决定，只澄清会改变行为、成功标准或授权范围的未知项；信息充分即接续实施。调查消除复杂性时，由现行计划维护人在原处缩减未执行安排，保留必要决定、依赖和检查；其他成员提交具体建议，不宣称共享计划已改变。
+ 
+ ## 接手与阶段接续
+ 
+@@ -13,7 +15,7 @@
+ | 接手信息 | 需要说明什么 |
+ |---|---|
+ | 任务与负责人 | 任务 ID/范围、本人实际负责人；协调、规格和集成负责人引用当前分工 |
+-| 依据 | 当前需求/规格的版本或章节、验收 ID、相关接口 |
++| 依据 | 当前需求/规格的版本或章节、已有验收 ID（如有）、相关接口 |
+ | 工作范围 | 可改文件/模块/章节、独立分支及 checkout/工作树、共享或重叠点 |
+ | 依赖与状态 | 前置任务、合同是否确定、实际状态及阻塞原因 |
+ | 交接结果 | 接收人、可取得的准确提交或完整未提交交接包、真实检查、剩余项与下一动作 |
+@@ -32,6 +34,14 @@
+ - 确认绑定说明的任务、版本、内容与范围；部分确认仅推进子集，其余待答。Agent 提议实质改变已确认决定时再取得必要决定。用户明确调整按实际指令落实，含糊处澄清，普通排版不重批。
+ 
+ 恢复时先读本人现有任务索引，核对当前源码/候选、权威依据、授权/停止点、证据、开放问题及下一动作。涉及检查点另记待答建议及版本/范围、实际确认版本/子集、有权决定者及答复依据（消息位置或忠实简短原意）。待答仍待答，部分确认只做子集，已确认不重问；旧下一动作不构成授权。缺依据先查现有记录，仍不明再集中澄清。共享索引只由现行维护人整合；成员的本地恢复记录标明实际同步状态。
++
++## 当前状态与人工验收轮次
++
++需要恢复或交接时维护已有状态入口；本次影响的既有摘要和问题项仍须更新，不因任务小遗留过期结论。不为无需恢复的一次性小修新建索引。本人维护的唯一当前摘要/问题表原位更新；旧“当前、待答、未关闭”入口改为当前引用或明确历史，写后回读确认。共享记录由现行维护人整合，其他成员提交具体修改建议，记录仍未同步，不把本地完成当共享完成。
++
++人工验收每轮绑定任务、实际运行候选身份、应用、样本、窗口模式和动作，分别列出源码、新构建、成员/集成候选与实际运行实例。短答“成功”仅适用于已绑定轮次，不推广到新构建、其他应用或集成版本；缺绑定先核对，不猜测。待答轮次的新构建可能覆盖候选时，由有权维护该候选的人保存并核对可恢复产物及读取位置；不得擅自替换其他成员正在验收的实例。成员只能在受托范围操作，越界时交维护人，继续独立工作。
++
++完整行为和参数只保留在现行权威规格；计划引用验收并安排实现及证明，核验记录证据与结论，lead 维护状态入口。没有正式规格的低风险工作以明确请求及现有事实作为依据，不为此补造文档。修正由各制品实际维护人完成，不靠切换角色越权。
+ 
+ ## 并行工作与共享变更
+ 
+@@ -77,11 +87,11 @@
+ 
+ 记录准确版本/相关文件和未提交修改、命令、cwd、退出码、完整输出/截图位置、影响结果的工具版本/配置/数据/目标环境；未知项直说，不记录秘密。文档合并引用具体章节，精确核对时用现有工具计算字节摘要，不编造值。
+ 
+-核验先绑定当前任务和权威验收；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
++核验先绑定当前任务和权威验收，明确低风险且无正式验收时逐请求要求核对，不补造 AC ID；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
+ 
+ ## 分批与上下文
+ 
+-按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。每批、变化或问题关闭更新本人索引；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
++按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。需要恢复/交接时更新本人现有索引，本次影响的既有状态和问题入口同步修正；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
+ 
+ ## 发布与授权
+ 
+--- a/skills/rnd-team-verify/SKILL.md
++++ b/skills/rnd-team-verify/SKILL.md
+@@ -17,9 +17,15 @@
+ 
+ 文档交付核对对应质量及请求范围；调研区分执行完成、证据覆盖、目标/假设是否成立与分析是否相符，负面结果不等于未做研究。只审查请求可完成发现交付，开放问题不等于产品已通过。项目技术类型决定实际证明：例如接口看真实交互，数据任务看输入与转换结果，界面看渲染/操作，实验看样本和方法；需要的领域核验沿用项目工具。
+ 
++## 本次范围与证据
++
++明确且低风险的请求没有正式验收编号时，直接逐请求要求及相关现有事实核对，不补造规格或 AC ID；已有适用计划、用户指定文档及项目要求仍有效。核验只记录依据引用、证据、结论和缺口，不复写完整行为参数。
++
++人工结果按协作约定绑定实际运行候选与轮次，分列源码、新构建、成员/集成候选及运行实例；简短成功仅覆盖该轮的应用、样本、模式与动作。拒绝/隐藏核对触发、解除及同实例合法恢复，重启不替代原地恢复。编译 RED 可证明新接口尚不存在，不证明捕获旧缺陷；旧缺陷检查行为失败/真实复现和修后同测，数量不能替代覆盖。
++
+ ## 方法
+ 
+-1. 先明确每项完成声明需要什么证明，再逐验收 ID 对照真实行为、覆盖范围、当前版本和未关闭问题。
++1. 先明确每项完成声明需要什么证明，再逐已有验收 ID 或明确请求要求对照真实行为、覆盖范围、当前版本和未关闭问题。
+ 2. 阅读实际执行的命令、cwd、退出码和完整输出，必要时只补受影响的检查。不能拼接不同尝试充当一次通过，也不能在新失败之后引用旧成功充当现行结果。
+ 3. 区分研发完成、发布就绪和上线验证。研发看当前行为与必要检查/审查；发布还看候选版本、目标环境、授权与恢复准备；上线还看真实部署及约定观测。
+ 4. 未运行、缺项、中断、未知环境分别说明，不能提升为通过。自审不称独立，模拟不称真实上线。
+--- a/skills/rnd-team-verify/THIRD_PARTY_NOTICES.md
++++ b/skills/rnd-team-verify/THIRD_PARTY_NOTICES.md
+@@ -16,3 +16,7 @@
+ ## Team review corrections synthesis (2026-10-06)
+ 
+ Collection synthesis clarifying evidence-based withdrawal of false review findings by the current review-record maintainer, with version/reason/counterevidence and repair-assignment removal; genuine or disputed other-owner defects remain open. Checkpoints depend on actual unknowns, impact, recovery cost, verification dependencies and batch-delivery needs; multiple files/functions alone are insufficient. Clear local reversible migrations verifiable in one batch continue under existing task authorization. Existing stops and major decisions remain effective; no new runtime or authority is added.
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-verify/references/methods.md
++++ b/skills/rnd-team-verify/references/methods.md
+@@ -17,3 +17,7 @@
+ ## 2026-10-06 终审修正（synthesis）
+ 
+ TW-REC-2（当前原始反证确立误报时，由审查记录维护人撤销并保留历史/撤销修复安排）与 TW-CKP-2（按实际未知项、影响、恢复成本及验证依赖判断检查点；明确、局部可逆且可一批验证的迁移直接接续），见 sources.json 的 review_fixes_adaptation。真实/争议缺陷及已有停止点继续有效；保留此前来源与适配记录。
++
++## 2026-10-10 集合综合适配
++
++同步 rnd-workflow 的状态/候选/恢复证据规则与流程轻重修正，按团队实际维护权、事项决定权、完整交接与集成核验适配。Matt Pocock 启发仅来自用户提供摘要，未导入或独立核验其上游原文。固定上游摘录、摘要及许可不变；具体使用位置见 references/sources.json。
+--- a/skills/rnd-team-verify/references/sources.json
++++ b/skills/rnd-team-verify/references/sources.json
+@@ -69,5 +69,15 @@
+     ],
+     "changes": "Clarify reproducible handoff: retrievable commit or baseline plus complete staged/unstaged changes, required new and binary files, retrieval location and manifest/snapshot identity; recipient reconstructs and checks in isolation before integration. No upstream bytes changed.",
+     "upstream_bytes_changed": false
++  },
++  "reliability_proportional_sync": {
++    "mode": "synthesis",
++    "date": "2026-10-10",
++    "usage": [
++      "references/workflow.md",
++      "SKILL.md"
++    ],
++    "changes": "Adapt reviewed rnd-workflow reliability and proportional-workflow rules to actual maintainers, assigned scope, complete handoffs and integrated evidence. Matt Pocock inspiration is user-provided summary, not imported or independently verified upstream text. Preserve existing team rules and fixed upstream bytes.",
++    "upstream_bytes_changed": false
+   }
+ }
+--- a/skills/rnd-team-verify/references/workflow.md
++++ b/skills/rnd-team-verify/references/workflow.md
+@@ -4,7 +4,9 @@
+ 
+ ## 按目标选择工作
+ 
+-先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确小修不强制完整 PRD/计划，文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++先看目标、未知项、影响、可恢复性和规模，再选必要职责；技术类型主要决定证明方式。明确且低风险的本人受托工作可直接依据请求与相关现有事实实施，不为满足角色输入补造简报、规格、验收编号或计划；小 diff 不等于低风险。已有适用计划、项目强制要求、用户指定文档、授权与证据规则仍有效。文档请求止于文档。迁移/重开发先区分旧事实与决定保留、改造、舍弃的需求，旧缺陷不自动升为新需求；保持行为的重构先明确基线和接口。调研围绕问题、方法、执行、分析组织，不预设必须成功或开发产品。使用项目已有工具、领域方法与专项技能，不宣称覆盖所有专业核验。
++
++先读相关代码、文档和既有决定，只澄清会改变行为、成功标准或授权范围的未知项；信息充分即接续实施。调查消除复杂性时，由现行计划维护人在原处缩减未执行安排，保留必要决定、依赖和检查；其他成员提交具体建议，不宣称共享计划已改变。
+ 
+ ## 接手与阶段接续
+ 
+@@ -13,7 +15,7 @@
+ | 接手信息 | 需要说明什么 |
+ |---|---|
+ | 任务与负责人 | 任务 ID/范围、本人实际负责人；协调、规格和集成负责人引用当前分工 |
+-| 依据 | 当前需求/规格的版本或章节、验收 ID、相关接口 |
++| 依据 | 当前需求/规格的版本或章节、已有验收 ID（如有）、相关接口 |
+ | 工作范围 | 可改文件/模块/章节、独立分支及 checkout/工作树、共享或重叠点 |
+ | 依赖与状态 | 前置任务、合同是否确定、实际状态及阻塞原因 |
+ | 交接结果 | 接收人、可取得的准确提交或完整未提交交接包、真实检查、剩余项与下一动作 |
+@@ -32,6 +34,14 @@
+ - 确认绑定说明的任务、版本、内容与范围；部分确认仅推进子集，其余待答。Agent 提议实质改变已确认决定时再取得必要决定。用户明确调整按实际指令落实，含糊处澄清，普通排版不重批。
+ 
+ 恢复时先读本人现有任务索引，核对当前源码/候选、权威依据、授权/停止点、证据、开放问题及下一动作。涉及检查点另记待答建议及版本/范围、实际确认版本/子集、有权决定者及答复依据（消息位置或忠实简短原意）。待答仍待答，部分确认只做子集，已确认不重问；旧下一动作不构成授权。缺依据先查现有记录，仍不明再集中澄清。共享索引只由现行维护人整合；成员的本地恢复记录标明实际同步状态。
++
++## 当前状态与人工验收轮次
++
++需要恢复或交接时维护已有状态入口；本次影响的既有摘要和问题项仍须更新，不因任务小遗留过期结论。不为无需恢复的一次性小修新建索引。本人维护的唯一当前摘要/问题表原位更新；旧“当前、待答、未关闭”入口改为当前引用或明确历史，写后回读确认。共享记录由现行维护人整合，其他成员提交具体修改建议，记录仍未同步，不把本地完成当共享完成。
++
++人工验收每轮绑定任务、实际运行候选身份、应用、样本、窗口模式和动作，分别列出源码、新构建、成员/集成候选与实际运行实例。短答“成功”仅适用于已绑定轮次，不推广到新构建、其他应用或集成版本；缺绑定先核对，不猜测。待答轮次的新构建可能覆盖候选时，由有权维护该候选的人保存并核对可恢复产物及读取位置；不得擅自替换其他成员正在验收的实例。成员只能在受托范围操作，越界时交维护人，继续独立工作。
++
++完整行为和参数只保留在现行权威规格；计划引用验收并安排实现及证明，核验记录证据与结论，lead 维护状态入口。没有正式规格的低风险工作以明确请求及现有事实作为依据，不为此补造文档。修正由各制品实际维护人完成，不靠切换角色越权。
+ 
+ ## 并行工作与共享变更
+ 
+@@ -77,11 +87,11 @@
+ 
+ 记录准确版本/相关文件和未提交修改、命令、cwd、退出码、完整输出/截图位置、影响结果的工具版本/配置/数据/目标环境；未知项直说，不记录秘密。文档合并引用具体章节，精确核对时用现有工具计算字节摘要，不编造值。
+ 
+-核验先绑定当前任务和权威验收；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
++核验先绑定当前任务和权威验收，明确低风险且无正式验收时逐请求要求核对，不补造 AC ID；提示词示例与当前项目不符时澄清，不造新验收。当前相关输入、方法与环境未变时可复用证据，注明覆盖范围；合并交互和其他受影响检查补到集成版本。缺项、中断、未运行、模拟、自审如实区分，另一会话/成员不自动保证独立。文档完整或编译成功不等于业务通过。
+ 
+ ## 分批与上下文
+ 
+-按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。每批、变化或问题关闭更新本人索引；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
++按可独立检查的功能/研究结果分批，不按技能、文件或固定任务数机械拆分。先读索引、目录、入口，再读本次相关输入；当前会话加载且未变的共同约定/来源可复用，版本变化或上下文丢失后按需恢复。完整日志留文件，只带当前结果。需要恢复/交接时更新本人现有索引，本次影响的既有状态和问题入口同步修正；跨批上下文不同、难恢复或用户希望时准备简短交接并建议换会话，不自动另开任务、不假造 token 门槛。人工检查点、职责切换与会话切换分别安排。
+ 
+ ## 发布与授权
+ 

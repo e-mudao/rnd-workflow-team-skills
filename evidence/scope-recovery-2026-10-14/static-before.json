@@ -1,0 +1,10 @@
+{
+  "scope": "Current package structure, local link targets (not anchors), shared workflow equality and bundled source digests; not runtime or historical validation",
+  "counts": {
+    "skills": 11,
+    "local_links": 120,
+    "source_digests": 32
+  },
+  "passed": true,
+  "errors": []
+}

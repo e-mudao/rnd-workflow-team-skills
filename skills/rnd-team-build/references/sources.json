@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "profile": "copyable-team-skills",
+  "sources": [
+    {
+      "project": "superpowers",
+      "commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "path": "skills/executing-plans/SKILL.md",
+      "digest": "sha256:f38e8f2ddcf079f65493adc713c1fed78421dfaf5f4dbf6b3a6b2b1d95466e71",
+      "excerpt_ref": {
+        "path": "upstream/superpowers-executing-plans.md",
+        "digest": "sha256:f38e8f2ddcf079f65493adc713c1fed78421dfaf5f4dbf6b3a6b2b1d95466e71"
+      },
+      "license": "MIT",
+      "license_ref": {
+        "path": "upstream/superpowers-LICENSE.txt",
+        "digest": "sha256:a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400"
+      },
+      "mode": "adapted",
+      "usage": "SKILL.md",
+      "changes": "Retain plan inspection, task order, evidence and deviations; use the collection lead and existing user authorization. Copyable profile: use existing project artifacts/tools; runtime metadata and automatic gates are not required.",
+      "notices": "THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "project": "superpowers",
+      "commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "path": "skills/test-driven-development/SKILL.md",
+      "digest": "sha256:64b03fce4aee5a97a93160cea8111f3ba13a17b7c001db4bd5836d67fd10705d",
+      "excerpt_ref": {
+        "path": "upstream/superpowers-test-driven-development.md",
+        "digest": "sha256:64b03fce4aee5a97a93160cea8111f3ba13a17b7c001db4bd5836d67fd10705d"
+      },
+      "license": "MIT",
+      "license_ref": {
+        "path": "upstream/superpowers-LICENSE.txt",
+        "digest": "sha256:a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400"
+      },
+      "mode": "adapted",
+      "usage": "SKILL.md",
+      "changes": "Retain behavior-based RED/GREEN and actual failed/passing runs; apply proportionate verification to low-impact documentation per user instructions. Copyable profile: use existing project artifacts/tools; runtime metadata and automatic gates are not required.",
+      "notices": "THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "project": "superpowers",
+      "commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "path": "skills/systematic-debugging/SKILL.md",
+      "digest": "sha256:808fc5717aa88ad65efff312b11c186294d3e6ee301afb584e2f86599b137787",
+      "excerpt_ref": {
+        "path": "upstream/superpowers-systematic-debugging.md",
+        "digest": "sha256:808fc5717aa88ad65efff312b11c186294d3e6ee301afb584e2f86599b137787"
+      },
+      "license": "MIT",
+      "license_ref": {
+        "path": "upstream/superpowers-LICENSE.txt",
+        "digest": "sha256:a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400"
+      },
+      "mode": "adapted",
+      "usage": "SKILL.md",
+      "changes": "Retain four phases, root-cause evidence, single hypothesis and failing regression; omit upstream skill-runtime requirements. Copyable profile: use existing project artifacts/tools; runtime metadata and automatic gates are not required.",
+      "notices": "THIRD_PARTY_NOTICES.md"
+    }
+  ],
+  "team_adaptation": {
+    "mode": "synthesis",
+    "based_on_commit": "082edfd",
+    "based_on_skill": "rnd-build",
+    "changes": "Forked from the copyable single-person collection at commit 082edfd. Retains fixed upstream method excerpts and licenses unchanged. Adds collection-synthesized team task ownership, assigned contributor scope, shared-artifact maintainers, isolated checkouts, handoff facts, integrated-version verification and designated release execution. Role names do not grant authority or exclusive task claims; existing project tools and authorizations apply.",
+    "upstream_bytes_changed": false
+  },
+  "adaptive_team_adaptation": {
+    "mode": "synthesis",
+    "date": "2026-10-06",
+    "based_on_commit": "76df6b016fe5db59686517ad38e72fe7e3a041a0",
+    "rule_ids": [
+      "TW-CONT-1",
+      "TW-CKP-1",
+      "TW-REC-1",
+      "TW-EXP-1",
+      "TW-ADAPT-1"
+    ],
+    "usage": [
+      "SKILL.md",
+      "references/workflow.md"
+    ],
+    "changes": "Collection synthesis for team-scoped automatic role continuation and repair/recheck; task/version/subset checkpoints confirmed by the person authorized for that matter; recovery of pending/partial confirmations; phase-aware document and experiment review with actual maintainer plus role routing; goal/impact/scale selection, contextual reading and integrated-version evidence. Does not grant authority over another member or add runtime, approval or synchronization services. Fixed upstream sources and prior team adaptation remain unchanged.",
+    "upstream_bytes_changed": false
+  },
+  "review_fixes_adaptation": {
+    "mode": "synthesis",
+    "date": "2026-10-06",
+    "based_on_commit": "76df6b016fe5db59686517ad38e72fe7e3a041a0",
+    "rule_ids": [
+      "TW-REC-2",
+      "TW-CKP-2"
+    ],
+    "usage": [
+      "references/workflow.md"
+    ],
+    "changes": "Collection synthesis clarifying evidence-based withdrawal of false review findings by the current review-record maintainer, with version/reason/counterevidence and repair-assignment removal; genuine or disputed other-owner defects remain open. Checkpoints depend on actual unknowns, impact, recovery cost, verification dependencies and batch-delivery needs; multiple files/functions alone are insufficient. Clear local reversible migrations verifiable in one batch continue under existing task authorization. Existing stops and major decisions remain effective; no new runtime or authority is added.",
+    "upstream_bytes_changed": false
+  },
+  "handoff_completeness_adaptation": {
+    "mode": "synthesis",
+    "date": "2026-10-08",
+    "usage": [
+      "references/workflow.md"
+    ],
+    "changes": "Clarify reproducible handoff: retrievable commit or baseline plus complete staged/unstaged changes, required new and binary files, retrieval location and manifest/snapshot identity; recipient reconstructs and checks in isolation before integration. No upstream bytes changed.",
+    "upstream_bytes_changed": false
+  },
+  "reliability_proportional_sync": {
+    "mode": "synthesis",
+    "date": "2026-10-10",
+    "usage": [
+      "references/workflow.md",
+      "SKILL.md"
+    ],
+    "changes": "Adapt reviewed rnd-workflow reliability and proportional-workflow rules to actual maintainers, assigned scope, complete handoffs and integrated evidence. Matt Pocock inspiration is user-provided summary, not imported or independently verified upstream text. Preserve existing team rules and fixed upstream bytes.",
+    "upstream_bytes_changed": false
+  }
+}

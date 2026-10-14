@@ -1,0 +1,31 @@
+{
+  "changed_existing_files": [
+    {
+      "file": "README.md",
+      "before_sha256": "02ebc9d9b6c77c60b4b2a62c6399ce930a86704011ca900dd2e11fc76b08adb2",
+      "after_sha256": "5a147b21a02767d14a7eb6a5f95faa3971e571a76462d262391ae8debd1413ea"
+    },
+    {
+      "file": "guide.md",
+      "before_sha256": "1ce49749b5740a27c8ba05c9036502dc4825b898cebfa5ba6e012ccc883fde9d",
+      "after_sha256": "5a3e2ad52605204825516253a6e8bc5ed6c113a1efd8a168724e37ce960d9b87"
+    },
+    {
+      "file": "review.md",
+      "before_sha256": "4d6a47bd183cfa213615c0c160c0af9075796616eb5c2c612fff58771d3022ee",
+      "after_sha256": "f8c8a68cdb9e0417bafbd856aea090fe17128c5264d6d1e8826f10d3dbdd574a"
+    },
+    {
+      "file": "maintenance/sync-plan.md",
+      "before_sha256": "1ce6c321992bcf20170d2fcd8eed0a5a1d50f408152a32c2284a8bb6289d89b2",
+      "after_sha256": "2a96eda6334e0674ffd2ec4d93fb97cda7ecc96908bcb0b76cfd896431df4a85"
+    }
+  ],
+  "new_maintenance_files": [
+    "maintenance/2026-10-14-team-scope-recovery.md"
+  ],
+  "deleted_original_files": [],
+  "all_other_original_files_unchanged": true,
+  "skill_snapshot_matches": 95,
+  "scope": "rnd-workflow-team only; evidence files listed separately"
+}

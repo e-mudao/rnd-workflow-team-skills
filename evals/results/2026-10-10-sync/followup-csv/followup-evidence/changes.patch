@@ -1,0 +1,76 @@
+--- /dev/null
++++ test_reports_followup.py
+@@ -0,0 +1,73 @@
++"""Follow-up coverage added after the original five-test implementation run."""
++import copy
++import csv
++import io
++from pathlib import Path
++import tempfile
++import unittest
++from unittest.mock import patch
++
++import reports
++
++
++class FollowupExportTests(unittest.TestCase):
++    def setUp(self):
++        # Reverse insertion order deliberately: CSV order must follow its contract.
++        self.rows = [
++            {"status": "处理中🌏" if n % 3 else "已关闭 café", "id": n}
++            for n in range(1, 14)
++        ]
++        self.before = copy.deepcopy(self.rows)
++        self.patcher = patch.object(reports, "REPORTS", self.rows)
++        self.patcher.start()
++        self.addCleanup(self.patcher.stop)
++
++    def export(self, status=None):
++        with tempfile.TemporaryDirectory() as directory:
++            path = Path(directory) / "中文报告.csv"
++            reports.export_reports(path, status=status)
++            self.assertTrue(path.is_file())
++            raw = path.read_bytes()
++        return raw, list(csv.reader(io.StringIO(raw.decode("utf-8", errors="strict"))))
++
++    def test_utf8_bytes_roundtrip_and_exact_field_order(self):
++        raw, parsed = self.export()
++        self.assertIn("处理中🌏".encode("utf-8"), raw)
++        self.assertIn("已关闭 café".encode("utf-8"), raw)
++        self.assertEqual(parsed[0], ["id", "status"])
++        self.assertEqual(parsed[1:], [[str(r["id"]), r["status"]] for r in self.rows])
++        self.assertTrue(all(len(row) == 2 for row in parsed))
++
++    def test_current_filter_exports_across_five_default_size_pages(self):
++        selected = [r for r in self.rows if r["id"] % 3]
++        pages = [reports.list_reports("处理中🌏", page=page) for page in range(1, 6)]
++        self.assertEqual([len(page) for page in pages], [2, 2, 2, 2, 1])
++        self.assertEqual([row for page in pages for row in page], selected)
++        _, parsed = self.export("处理中🌏")
++        self.assertEqual(parsed, [["id", "status"]] + [[str(r["id"]), "处理中🌏"] for r in selected])
++
++    def test_no_filter_exports_all_thirteen_records(self):
++        _, parsed = self.export()
++        self.assertEqual(len(parsed), 14)
++        self.assertEqual(parsed[1:], [[str(r["id"]), r["status"]] for r in self.rows])
++
++    def test_empty_match_and_empty_dataset_keep_only_header(self):
++        for data, status in [(self.rows, "不存在"), ([], None)]:
++            with self.subTest(status=status), patch.object(reports, "REPORTS", data):
++                raw, parsed = self.export(status)
++                self.assertEqual(parsed, [["id", "status"]])
++                self.assertEqual(raw.decode("utf-8").splitlines(), ["id,status"])
++
++    def test_export_preserves_source_and_original_list_pagination(self):
++        for status in [None, "处理中🌏", "不存在"]:
++            expected = [r for r in self.before if status is None or r["status"] == status]
++            self.export(status)
++            for size in [1, 2, 4]:
++                for page in [1, 2, 4, 8, 15]:
++                    with self.subTest(status=status, size=size, page=page):
++                        self.assertEqual(reports.list_reports(status, page, size), expected[(page - 1) * size:page * size])
++        self.assertEqual(self.rows, self.before)
++
++
++if __name__ == "__main__":
++    unittest.main()

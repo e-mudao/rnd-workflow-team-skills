@@ -1,0 +1,11 @@
+{
+  "release_security_bodies_unchanged": true,
+  "upstream_files_unchanged": true,
+  "upstream_file_count": 28,
+  "checker_unchanged": true,
+  "人工检查点与恢复段完整保留": true,
+  "并行工作与共享变更段完整保留": true,
+  "失败责任与闭环段完整保留": true,
+  "交接与集成段完整保留": true,
+  "发布与授权段完整保留": true
+}

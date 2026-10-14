@@ -1,0 +1,35 @@
+{
+  "task": "R06-desktop-geometry",
+  "operator": "Lin via agent",
+  "date": "2026-10-10",
+  "cwd": "/private/tmp/rnd-team-sync-20261010/work/evals/results/2026-10-10-sync/cases/R06-desktop-geometry",
+  "skills_loaded": true,
+  "workflow": "references/workflow.md (all six skill copies SHA256 identical, common instructions read once)",
+  "source_read_files": [
+    "docs/design.md",
+    "docs/geometry.json"
+  ],
+  "baseline_file_sha256": {
+    "docs/geometry.json": "7fa7f45f6fb6e3b54b263859e50d76a5146bb4f2f616eaee03b6f0ccbdb238e4",
+    "docs/design.md": "fc552565b356aa93265fc6df493c8b8151968d34a5a32292316e475571b631a4"
+  },
+  "written_files": [
+    "docs/design-review.md",
+    "response.md"
+  ],
+  "actions": [
+    "Read assigned case files and applicable SKILL.md/workflow; R06 also native-desktop.md",
+    "Write only requested local documents; preserve design.md and reviewed raw inputs",
+    "Read back generated documents; compute SHA256 complete file inventory"
+  ],
+  "not_executed": [
+    "GUI",
+    "application launch",
+    "external probe",
+    "build",
+    "test suite",
+    "external messaging",
+    "publish"
+  ],
+  "checks": "Document scope and source consistency only; complete manifest verification performed after writes."
+}

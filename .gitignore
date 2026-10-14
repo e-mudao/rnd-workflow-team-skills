@@ -1,0 +1,7 @@
+# macOS filesystem metadata
+.DS_Store
+**/.DS_Store
+
+# Python bytecode caches created by running the checker and tests
+__pycache__/
+scripts/__pycache__/

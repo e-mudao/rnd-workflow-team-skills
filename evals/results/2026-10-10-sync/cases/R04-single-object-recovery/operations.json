@@ -1,0 +1,35 @@
+{
+  "task": "R04-single-object-recovery",
+  "operator": "Lin via agent",
+  "date": "2026-10-10",
+  "cwd": "/private/tmp/rnd-team-sync-20261010/work/evals/results/2026-10-10-sync/cases/R04-single-object-recovery",
+  "skills_loaded": true,
+  "workflow": "references/workflow.md (all six skill copies SHA256 identical, common instructions read once)",
+  "source_read_files": [
+    "docs/brief.md",
+    "docs/design.md"
+  ],
+  "baseline_file_sha256": {
+    "docs/design.md": "e6064b3e14f59d1d7e1b5e66a97bf0d765f77f4e204b23405991930bf2a8345c",
+    "docs/brief.md": "d1c2f1ba7eda4e15a9d7904187c7962b9353287d5c3be9492fb24393d6d7f93a"
+  },
+  "written_files": [
+    "docs/spec.md",
+    "response.md"
+  ],
+  "actions": [
+    "Read assigned case files and applicable SKILL.md/workflow; R06 also native-desktop.md",
+    "Write only requested local documents; preserve design.md and reviewed raw inputs",
+    "Read back generated documents; compute SHA256 complete file inventory"
+  ],
+  "not_executed": [
+    "GUI",
+    "application launch",
+    "external probe",
+    "build",
+    "test suite",
+    "external messaging",
+    "publish"
+  ],
+  "checks": "Document scope and source consistency only; complete manifest verification performed after writes."
+}
