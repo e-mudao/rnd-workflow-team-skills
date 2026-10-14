@@ -1,6 +1,6 @@
 # 多人协作版研发技能使用指南
 
-本指南对应本目录 `skills/` 中的 **11 个 `rnd-team-*` 技能**，适用于多个人各自使用 Codex、DSH 或 Claude Code，共同开发同一个项目。仓库只维护 `rnd-team-*` 团队版；项目概览见 [README.zh.md](README.zh.md)，变更见 [CHANGELOG.md](CHANGELOG.md)。
+本指南对应本目录 `skills/` 中的 **11 个 `rnd-team-*` 技能**，适用于多个人各自使用 Codex、DSH 或 Claude Code，共同开发同一个项目。仓库只维护 `rnd-team-*` 团队版；项目概览见 [README.md](README.md)，变更见 [CHANGELOG.md](CHANGELOG.md)。
 
 每个成员从 `rnd-team-lead` 接手自己的任务。协调负责人维护共享分工，集成负责人接收各任务并核验最终版本；这些职责可以由同一个人兼任，不要求团队有 11 个成员。
 

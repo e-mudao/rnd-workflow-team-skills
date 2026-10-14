@@ -1,0 +1,28 @@
+{
+  "change": "README language switch: Chinese is the default file GitHub renders",
+  "previous": {
+    "default_shown_by_github": "README.md (English)",
+    "other": "README.zh.md (Chinese)"
+  },
+  "now": {
+    "README.md": "Chinese (rendered by GitHub, no switcher needed)",
+    "README.en.md": "English, reachable from the top-of-file switcher"
+  },
+  "why": "GitHub renders README.md and has no built-in multi-language README switcher, so the default file itself must be Chinese; the explicit top-of-file link is what lets a reader switch to English.",
+  "switcher_lines": {
+    "README.md": "**中文** | [English](README.en.md)",
+    "README.en.md": "[中文](README.md) | **English**"
+  },
+  "references_updated": [
+    "README.md (tree + in-text English link)",
+    "README.en.md (tree + in-text Chinese link)",
+    "guide.md line 3 link",
+    "CHANGELOG.md Added/Changed entries"
+  ],
+  "references_left_as_history": [
+    "evidence JSON records from earlier rounds still name README.zh.md as it was then",
+    "evals/results/** historical documents that link ../../../README.md (the link still resolves)"
+  ],
+  "effect_on_checked_metric": "local_links is now 147 (was 145): each readme gained one switcher link. skills, source digests and the pass verdict are unchanged.",
+  "verification": "scripts/check_delivery.py still passes with no broken local links."
+}

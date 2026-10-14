@@ -1,120 +1,122 @@
-# rnd-workflow-team-skills — Collaborative R&D Skills for Multi-Person Teams
+# rnd-workflow-team-skills — 多人协作版研发技能集合
 
-A set of R&D skills for **multiple people, each working with their own agent (Codex, DSH, Claude Code, …), developing one shared project together**. It ships **11 `rnd-team-*` skills** covering the full path from discovery to release: discover, spec, plan, build, review, verify, release, plus architecture, design and security when needed.
+**中文** | [English](README.en.md)
 
-Every member starts from the entry skill `rnd-team-lead` and picks up the task assigned to them; a coordinator maintains the shared split of work, and an integrator receives the tasks and verifies the final version. One person may hold several of these roles — the team does not need 11 people.
+一组供 **多个人各自使用 Agent（Codex、DSH、Claude Code 等）共同开发同一个项目** 的研发技能。共 **11 个 `rnd-team-*` 技能**，覆盖从需求发现到发布的全流程：发现、规格、计划、实现、审查、核验、发布，以及按需进入的架构、设计、安全。
 
-- 📖 Full team workflow, copyable prompts for all 11 skills, and a complete example: [guide.md](guide.md) (Chinese) · [README.zh.md](README.zh.md) 中文版
+每个成员从入口技能 `rnd-team-lead` 接手分配给自己的任务；协调负责人维护共享分工，集成负责人接收各任务并核验最终版本。这些职责可由同一人兼任，不要求团队真有 11 个成员。
+
+- 📖 详细团队协作步骤、11 个技能的可复制 Prompt 和完整示例：[guide.md](guide.md) · [README.en.md](README.en.md) English
 
 ---
 
-## What this is
+## 这是什么
 
-When several people each work with an agent at the same time, the usual failures are: requirements and interfaces diverge, parallel changes overwrite each other, handoffs carry too little information, and "each branch passed on its own" is mistaken for "the whole thing passed".
+团队协作里，多个人各自带 Agent 同时开发，最常见的问题是：需求与接口不统一、并行改动互相覆盖、交接信息不足、各分支“分别通过”被误当成“整体通过”。
 
-This project turns those steps into skills: each skill maps to one R&D responsibility and states explicitly **who maintains which artifact, which changes need coordination, what a handoff must carry, and what evidence a completion claim rests on**. Skills run in each member's own session and, within that member's area of trust, automatically pull in the relevant responsibilities, fix and re-verify — the user does not connect each skill by hand.
+本项目把这些环节固化成技能：每个技能对应一个研发职责，明确规定**谁维护哪份制品、哪些变化需要协调、交接要带哪些信息、完成结论依据什么证据**。技能在成员自己的会话里运行，按成员受托范围自动选择相关职责、修复和复验，用户无需逐个手动连接技能。
 
-**No package install, install script, Node/npm, or collection runtime is required.** The real business project keeps its own dependencies, tools and permissions.
+**不需要安装包、安装脚本、Node/npm 或集合运行时。** 实际业务项目仍使用自己的依赖、工具与权限。
 
-## Repository layout
+## 仓库结构
 
 ```
 rnd-workflow-team-skills/
-├── README.md                    This file: project overview and entry point
-├── README.zh.md                 Chinese version of this file
-├── guide.md                     Usage guide: workflow, copyable prompts, complete example (Chinese)
-├── CHANGELOG.md                  Notable changes
-├── CONTRIBUTING.md               Contributing guide
-├── CODE_OF_CONDUCT.md            Code of conduct
-├── CITATION.cff                  How to cite this software
-├── LICENSE                      Root MIT License (covers the whole package)
-├── .gitignore                   Excludes OS and cache files from commits
-├── skills/                      11 rnd-team-* skills (copied into a host to use)
+├── README.md                    本文件：中文版（GitHub 默认显示）
+├── README.en.md                 英文版 / English version
+├── guide.md                     使用指南：协作流程、可复制 Prompt、完整示例
+├── CHANGELOG.md                  变更日志
+├── CONTRIBUTING.md               贡献指南
+├── CODE_OF_CONDUCT.md            行为准则
+├── CITATION.cff                  引用格式
+├── LICENSE                      根 MIT 许可（覆盖整个包）
+├── .gitignore                   提交时排除系统与缓存文件
+├── skills/                      11 个 rnd-team-* 技能（复制到宿主使用）
 │   └── rnd-team-<name>/
-│       ├── SKILL.md             Skill definition and trigger notes
-│       ├── LICENSE              License for that skill
-│       ├── THIRD_PARTY_NOTICES.md   Third-party sources and licenses
+│       ├── SKILL.md             技能定义与触发说明
+│       ├── LICENSE              该技能的许可
+│       ├── THIRD_PARTY_NOTICES.md   第三方来源与许可
 │       └── references/
-│           ├── workflow.md      Team collaboration agreement (all 11 identical)
-│           ├── methods.md       Method notes
-│           ├── sources.json     Bundled upstream excerpts and license digests
-│           └── upstream/        Retained upstream text and licenses
-└── maintenance/                 Maintenance plans and disposition records
+│           ├── workflow.md      团队协作约定（11 份一致）
+│           ├── methods.md       方法说明
+│           ├── sources.json     随包上游摘录与许可摘要
+│           └── upstream/        保留的上游原文与许可
+└── maintenance/                 维护计划与处置记录
 ```
 
-## Install and quick start
+## 安装与快速开始
 
-Copy the **11 `rnd-team-*` folders** from `skills/` into your host's skills directory. Keep `SKILL.md`, `references/` and the license files intact; refresh the skill list or reopen the session after copying.
+将 `skills/` 中的 **11 个 `rnd-team-*` 文件夹**完整复制到宿主 skills 目录。保持 `SKILL.md`、`references/` 和许可文件完整；复制后刷新技能列表或重开会话。
 
-| Host | In-project path | Example member invocation |
+| 宿主 | 项目内路径 | 成员调用示例 |
 |---|---|---|
-| Codex | `<project>/.agents/skills/` | `$rnd-team-lead I am Wang Min, complete the T2 frontend task assigned to me per the shared record.` |
-| DSH | `<project>/.dsh/skills/` | `invoke skill(rnd-team-lead), I am Wang Min, taking over the assigned T2.` |
-| Claude Code | `<project>/.claude/skills/` | `/rnd-team-lead I am Wang Min, taking over the assigned T2.` |
+| Codex | `<项目>/.agents/skills/` | `$rnd-team-lead 我是王敏，按共享任务记录完成分配给我的 T2 前端功能。` |
+| DSH | `<项目>/.dsh/skills/` | `调用 skill(rnd-team-lead)，我是王敏，接手已分配的 T2。` |
+| Claude Code | `<项目>/.claude/skills/` | `/rnd-team-lead 我是王敏，接手已分配的 T2。` |
 
-You may also copy into a host's configured personal skills directory. The DSH root is the directory of the nearest ancestor `.git`, otherwise the startup cwd; its actual configuration is respected.
+也可复制到宿主已配置的个人 skills 目录。DSH 根为最近祖先 `.git` 所在目录，否则为启动 cwd，沿用其实际配置。
 
-## The 11 skills
+## 11 个技能
 
-| Skill | Responsibility |
+| 技能 | 职责 |
 |---|---|
-| `rnd-team-lead` | Multi-person R&D entry: take over, continue, coordinate; auto-selects relevant responsibilities within the area of trust |
-| `rnd-team-discover` | Discovery and requirement brief: clarify shared goals, scope, constraints and assumptions |
-| `rnd-team-spec` | Sole spec author: define current shared behavior and acceptance criteria |
-| `rnd-team-plan` | Multi-person plan: task split, shared interfaces, dependencies and integration checks |
-| `rnd-team-build` | Implement and root-cause fixing: build/debug the assigned task against current requirements or an applicable shared plan |
-| `rnd-team-review` | Review current facts: review documents, spec, plan, or an integrated candidate |
-| `rnd-team-verify` | Item-by-item completion verification: check completion claims against acceptance and real evidence |
-| `rnd-team-release` | Project release and fact collection: release preparation and authorized execution |
-| `rnd-team-architecture` | Necessary architecture decisions: shared tradeoffs on interfaces, dependencies and data models |
-| `rnd-team-design` | Product UI and interaction design: user flow, layout and accessibility |
-| `rnd-team-security` | Check security boundaries against actual risk |
+| `rnd-team-lead` | 多人研发入口：接手、续做、协调，按受托范围自动选择相关职责 |
+| `rnd-team-discover` | 发现与需求简报：澄清共享目标、范围、约束与假设 |
+| `rnd-team-spec` | 唯一规格作者：定义当前共享行为与验收标准 |
+| `rnd-team-plan` | 多人实施计划：分工、共享接口、依赖与集成检查点 |
+| `rnd-team-build` | 实现与根因修复：按当前需求或适用共享计划实现/调试受托任务 |
+| `rnd-team-review` | 审查当前事实：审文档、规格、计划或集成候选 |
+| `rnd-team-verify` | 逐项完成核验：对照验收与真实证据检查完成声明 |
+| `rnd-team-release` | 项目发布与事实采集：发布准备与授权执行 |
+| `rnd-team-architecture` | 必要架构决策：接口、依赖与数据模型的共享取舍 |
+| `rnd-team-design` | 产品界面与交互设计：用户流程、布局与可访问性 |
+| `rnd-team-security` | 按实际风险检查安全边界 |
 
-All 11 roles can be entered as needed; architecture, design and security are not required to trigger on every task.
+11 个角色可按需进入；架构、设计和安全不要求每项任务都触发。
 
-## How to use it day to day
+## 日常怎样使用
 
-A member invokes `rnd-team-lead` once; the agent, within that person's area of trust, automatically selects the relevant skills, fixes and re-verifies. Content owned by other members goes to its actual maintainer — a role switch does not grant authority to do it for them.
+成员调用一次 `rnd-team-lead`，Agent 在本人受托范围自动选择相关技能、修复和复验。其他成员的内容交实际维护人，不能靠切换角色代做。
 
-Judge checkpoints by real unknowns, impact, recovery cost and verification dependencies; multiple files/functions do not by themselves trigger one. Small migrations/refactors that are clear, locally reversible and verifiable in one batch proceed inside the task authorization. For larger tasks that genuinely need batched, reliable delivery or that hold several important tradeoffs, when there is no batch or continuous-execution agreement yet, first give a recommendation for the first acceptance scope and a checkpoint, for the person authorized on that matter to confirm. Existing agreements and stop points take precedence; open questions stay open, and a partial confirmation advances only its subset. An integrator's agreement does not automatically widen a member's scope.
+按实际未知项、影响、恢复成本和验证依赖判断检查点；多文件/多函数不单独触发。明确、局部可逆且可一批验证的小型迁移/重构直接在任务授权内接续。确需分批可靠交付或有多项重要取舍的较大任务，首次没有批次或连续执行约定时，先给首个可验收范围和检查点建议，由有权决定该事项的人确认。已有约定及停止点优先；待答保持待答，部分确认仅推进子集。集成者的同意不自动扩大成员范围。
 
-Existing-project increments, behavioral refactors, migration/redevelopment, document review and technical research are supported; necessary work is chosen by goal, size and impact, and real evidence by technical type. **Always distinguish member completion from integrated completion.**
+支持现有项目增量、行为重构、迁移/重开发、文档审查和技术调研；按目标、规模及影响选择必要工作，按技术类型选择实际证据。**始终区分成员完成与集成完成。**
 
-## What a team needs at minimum
+## 团队最少需要什么
 
-Use the team's existing documents, task table, or Issue/PR descriptions — no extra process document is required:
+使用团队现有的文档、任务表或 Issue/PR 说明即可，不要求再建一套流程文档：
 
-- The current requirement/spec basis and its actual maintainer.
-- Each task's actual owner, change scope, interfaces and prerequisites.
-- The independent branches and checkout/worktrees used for parallel development.
-- The integrator, with handed-off version, check evidence and remaining items.
+- 当前需求/规格依据及实际维护人。
+- 每项任务的实际负责人、修改范围、接口和前置依赖。
+- 并行开发使用的独立分支与 checkout/工作树。
+- 集成负责人，交接版本、检查证据和剩余项。
 
-If a split already exists, reference it directly. A local old record alone does not mean the team has accepted a claim; external messages and writes use existing authority.
+已有分工就直接引用。只有本地旧记录时不假定团队已经接受认领；外部消息和写入使用已有授权。
 
-## License
+## 许可
 
-This package and its skills are provided under the **MIT License** (see the root [LICENSE](LICENSE) and [NOTICE](NOTICE), and each `skills/rnd-team-*/LICENSE` and `THIRD_PARTY_NOTICES.md`). Retained upstream texts under `references/upstream/` are carried under their own licenses with sources noted; new team agreements are marked as collection-synthesized adaptation. Keep the relevant copyright and license notices when republishing or redistributing.
+本包及其技能按 **MIT 许可** 提供（见根目录 [LICENSE](LICENSE)、[NOTICE](NOTICE) 与各 `skills/rnd-team-*/LICENSE`、`THIRD_PARTY_NOTICES.md`）。`references/upstream/` 中保留的上游原文按其自身许可携带并注明来源；新增团队约定标记为集合综合适配。转载或再分发时请保留相应的版权与许可声明。
 
-## Sources and acknowledgements
+## 致谢与来源
 
-This project builds on and adapts prior open work. The methods below were reused with fixed upstream excerpts retained; each skill records its source, fixed commit and MIT license in `references/upstream/` and `references/sources.json`.
+本项目参考、借鉴并适配了多项既有开源工作。下列方法被重新使用，并保留固定的上游摘录；每个技能在 `references/upstream/` 与 `references/sources.json` 中记录其来源、固定提交与 MIT 许可。
 
-| Upstream source | Feeds skills | Fixed commit | License |
+| 上游来源 | 对应技能 | 固定提交 | 许可 |
 |---|---|---|---|
-| agent-skills | architecture, release | `2686b620` | MIT |
-| superpowers | build, plan, review, verify | `8ca22dba` | MIT |
+| agent-skills | architecture、release | `2686b620` | MIT |
+| superpowers | build、plan、review、verify | `8ca22dba` | MIT |
 | HumanLayer | design | `ca7c8088` | MIT |
 | pm-skills | discover | `18468a95` | MIT |
 | gsd-core | lead | `d8533f65` | MIT |
 | github-spec-kit | spec | `8d3f64cd` | MIT |
 | security-audit-skill | security | `c1c8a8c1` | MIT |
 
-Its upstream excerpts, fixed commits and licenses are retained under `references/upstream/`. The team edition's own additions - task ownership, assigned-contributor scope, shared-artifact maintainers, isolated checkouts, handoff facts and integrated-version verification - are collection synthesis, not upstream work. Full source and license digests are in each `references/sources.json` for audit.
+上游摘录、固定提交与许可保留在 `references/upstream/` 下。本团队版新增的任务归属、成员受托范围、共享制品维护人、隔离工作树、交接事实与集成版本核验，均属集合综合适配，非上游工作。完整来源与许可摘要见各 `references/sources.json`，可审计。
 
-## Contributing (see [CONTRIBUTING.md](CONTRIBUTING.md))
+## 贡献（详见 [CONTRIBUTING.md](CONTRIBUTING.md)）
 
-Issues and PRs are welcome. Please:
+欢迎提 Issue 或 PR。请：
 
-- When changing the team edition, reference **this workspace's** real problems, split of work, versions and evidence; do not derive user confirmation from assistant suggestions.
-- After changing skill bodies, source records or the shared agreement, run the repository's own checks and attach the evidence.
-- Keep upstream texts and their licenses; if adjusting sources, update the expected inventory record as well.
+- 改动团队版改进时引用**本工作区**的实际问题、分工、版本与证据；不从助手建议推导用户确认。
+- 修改技能正文、来源记录或共同约定后，运行仓库自身的校验并附带证据。
+- 保留上游原文与其许可；如需调整来源，须一并更新预期清单记录。

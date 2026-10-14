@@ -8,10 +8,11 @@ Notable changes to rnd-workflow-team-skills. Dates are date of the team-edition 
 - Root `CHANGELOG.md`, `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md` and `CITATION.cff`.
 - GitHub Actions workflow running the integrity checker and regression tests.
 - Issue and PR templates.
-- English readme `README.md` (primary) and Chinese `README.zh.md`.
+- English and Chinese readmes.
 - Sources and acknowledgements section in both readmes.
 
 ### Changed
+- Default readme is Chinese: `README.md` now holds the Chinese version, which is the file GitHub renders, and the English version moved to `README.en.md`. Each links to the other at the top.
 - Ignore file named `.gitignore` (git honors it correctly).
 - Text files normalized to world-readable `0644`.
 - One evidence log sanitized: machine-specific absolute paths replaced with `<repo-root>`.
@@ -24,7 +25,7 @@ Notable changes to rnd-workflow-team-skills. Dates are date of the team-edition 
 - The checker gained an independent expected-source inventory (rejecting a cleared source list, partial deletion, duplicate replacement and wrong collection type), plus `scripts/test_check_delivery.py` (7 tests).
 - GitHub automation now sits on the paths GitHub actually reads: `.github/workflows/check.yml`, `.github/ISSUE_TEMPLATE/*.yml` and `.github/PULL_REQUEST_TEMPLATE.md`. All four files were previously under a misspelled `.gitthub/` directory, so the workflow never ran and the templates never appeared.
 - `CITATION.cff` replaced its placeholder author and invalid `cont-act` key with the identity of the account that owns the repository (`e-mudao`) and the CFF 1.2.0 `contact` field. `cffconvert --validate` accepts it under schema 1.2.0, and the declared repository URL is confirmed publicly reachable (HTTP 200).
-- English readme proofread: a truncated word ("were reus"), a five-column separator on a four-column table, `gsd-core` feeding `leed` instead of `lead`, a missing apostrophe, and `license` written as `licensee`.
+- English readme (`README.en.md`) proofread: a truncated word ("were reus"), a five-column separator on a four-column table, `gsd-core` feeding `leed` instead of `lead`, a missing apostrophe, and `license` written as `licensee`.
 - Self-review of the release-prep commit: `.gitattributes` now uses Linguist's documented `-linguist-detectable` instead of the no-op `-linguist`; the workflow runs with `permissions: contents: read` and both actions pinned by commit; and CI covers the 3.9 floor the checker claims, not only 3.11.
 - Root `LICENSE` is now verbatim MIT, byte-identical to the 11 per-skill copies. Its explanatory "Scope of this file" paragraph moved to the new `NOTICE` file with the `relavant` typo fixed, so that GitHub can identify the license.
 

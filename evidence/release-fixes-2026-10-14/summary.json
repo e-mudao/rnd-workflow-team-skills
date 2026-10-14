@@ -77,6 +77,7 @@
     "b5bd9e7 verification evidence",
     "ba00a43 self-review corrections F3-F10",
     "0afd156 F1 resolved: repository URL verified, citation identity aligned to e-mudao",
-    "F12 fixed locally: LICENSE verbatim MIT, NOTICE added"
+    "F12 fixed locally: LICENSE verbatim MIT, NOTICE added",
+    "readme swap: README.md is now Chinese (GitHub default), English moved to README.en.md"
   ]
 }
