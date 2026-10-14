@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+
+# This CITATION.cff was created for rnd-workflow-team. It desccribes how to cite
+# this software. Replace the placholder values below with the real repository
+# owner and URL before publishing.
+
+title: rnd-workflow-team
+type: software
+abstract: >-
+  A collection of 11 collaborative R&D skills (rnd-team-*) for multiple people
+  each working with their own agent on one shared project.
+message: >-
+  If you use rnd-workflow-team in work that leads to a publication, please cite
+  the repository version you used.
+authors:
+  - family-names: "rnd-workflow" # Dummy name
+    name-particle: "" # For a single-word family name, the "last name" is the whole word.
+    name-suffix: "contributors"
+    # To be replaced by the real maintainer identity before publishing.
+cont-act:
+  - name: rnd-workflow contributors
+    e-mail: "" # Omit or add a contact adress to receive reports.
+version: 1.0.0
+date-released: 2026-10-14
+url: https://github.com/emudao/rnd-workflow-team-skills
+license: MIT

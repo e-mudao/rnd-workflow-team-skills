@@ -1,0 +1,42 @@
+{
+  "task": "R08-behavior-source",
+  "operator": "Lin via agent",
+  "date": "2026-10-10",
+  "cwd": "/private/tmp/rnd-team-sync-20261010/work/evals/results/2026-10-10-sync/cases/R08-behavior-source",
+  "skills_loaded": true,
+  "workflow": "references/workflow.md (all six skill copies SHA256 identical, common instructions read once)",
+  "source_read_files": [
+    "Package.swift",
+    "README.md",
+    "docs/plan.md",
+    "docs/spec.md",
+    "src/PanelPlacement.swift"
+  ],
+  "baseline_file_sha256": {
+    "README.md": "bf8aaa51874dbf7d24f89e9945f6c8dc9537cb49d97d7d71aedc5f9aa7fbbf0d",
+    "Package.swift": "cd21071487a7453e70f62ca20ac18b4f1909183a274ecce61bb5afc05e553560",
+    "docs/plan.md": "b5ca4c0a88f7cf4cda29ccf31a1f142d4ccdb12fbcbf7bf1eb1a18e3ef30fb3d",
+    "docs/spec.md": "f59d86e7e92491b85c9f5c9a7a49e31031e884b23630a96ecb0d4b6fffb4b1e3",
+    "src/PanelPlacement.swift": "fde01c930fb0b697d827777ef26737fa6ac52f6b95226d215e99e6aa3be59315"
+  },
+  "written_files": [
+    "README.md",
+    "docs/plan.md",
+    "response.md"
+  ],
+  "actions": [
+    "Read assigned case files and applicable SKILL.md/workflow; R06 also native-desktop.md",
+    "Write only requested local documents; preserve design.md and reviewed raw inputs",
+    "Read back generated documents; compute SHA256 complete file inventory"
+  ],
+  "not_executed": [
+    "GUI",
+    "application launch",
+    "external probe",
+    "build",
+    "test suite",
+    "external messaging",
+    "publish"
+  ],
+  "checks": "Document scope and source consistency only; complete manifest verification performed after writes."
+}

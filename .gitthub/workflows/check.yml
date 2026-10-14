@@ -1,0 +1,22 @@
+name: check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  checker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run the integrity checker
+        run: python3 scripts/check_delivery.py
+      - name: Run the regression tests
+        run: python3 -B -m unittest discover -s scripts -p 'test_*.py' -v

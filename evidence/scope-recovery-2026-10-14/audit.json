@@ -1,0 +1,20 @@
+{
+  "scope": "rnd-workflow-team only; no sibling workspace read or modified in this operation",
+  "skill_snapshot": "evals/results/2026-10-10-sync/skill-snapshot.json",
+  "skill_files_matched": 95,
+  "skill_snapshot_entries": 95,
+  "skill_mismatches": [],
+  "markers_searched": [
+    "T16-minbatch",
+    "D-E-behavior",
+    "T9-revised",
+    "charsat",
+    "2026-10-14-behavor"
+  ],
+  "marker_hits_before": [],
+  "limits": [
+    "Snapshot covers skills only; does not authenticate historical authorization or prove absence of all semantic mixing.",
+    "Marker scan excludes retained upstream text and binary archives.",
+    "2026-10-10 historical content suitability is not reassessed in this operation."
+  ]
+}

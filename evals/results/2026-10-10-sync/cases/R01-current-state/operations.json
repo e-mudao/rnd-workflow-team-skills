@@ -1,0 +1,41 @@
+{
+  "task": "R01-current-state",
+  "operator": "Lin via agent",
+  "date": "2026-10-10",
+  "cwd": "/private/tmp/rnd-team-sync-20261010/work/evals/results/2026-10-10-sync/cases/R01-current-state",
+  "skills_loaded": true,
+  "workflow": "references/workflow.md (all six skill copies SHA256 identical, common instructions read once)",
+  "source_read_files": [
+    "README.md",
+    "docs/plan.md",
+    "docs/review.md",
+    "docs/verification.md"
+  ],
+  "baseline_file_sha256": {
+    "README.md": "ab85dcf8fe4bd832577795b3c6ffb8c2c4d549b70fcd6497399db913dfc2692b",
+    "docs/verification.md": "dd58162a5f2ffeef2d363570fd1a8ac2682aa6a32f5617f9ebf5c280d4197c2e",
+    "docs/plan.md": "db1857cd8342351ba319fc6a88d924ccb49323256c4cad2bb89368d0ce501d31",
+    "docs/review.md": "fdba26a4b5f7202644703e477235d73b35e81e9208188e4aed26685b89e14ffb"
+  },
+  "written_files": [
+    "README.md",
+    "docs/plan.md",
+    "docs/review.md",
+    "response.md"
+  ],
+  "actions": [
+    "Read assigned case files and applicable SKILL.md/workflow; R06 also native-desktop.md",
+    "Write only requested local documents; preserve design.md and reviewed raw inputs",
+    "Read back generated documents; compute SHA256 complete file inventory"
+  ],
+  "not_executed": [
+    "GUI",
+    "application launch",
+    "external probe",
+    "build",
+    "test suite",
+    "external messaging",
+    "publish"
+  ],
+  "checks": "Document scope and source consistency only; complete manifest verification performed after writes."
+}

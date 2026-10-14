@@ -1,0 +1,157 @@
+[
+  {
+    "id": "R01-current-state",
+    "skill": "rnd-team-lead",
+    "request": "使用 rnd-team-lead 接续本项目。只整理实际当前状态、待答项和下一动作，到交接记录完成后停止。现有记录可以直接修改。已确认事项沿用，不用再问。",
+    "files": {
+      "README.md": "# 当前任务\n阶段 P2；源码/构建 0.2.3(12)，运行 GUI 0.2.3(12)。PPT 两轮 ×→取消已通过。Excel 恢复待测。当前摘要入口为本段。\n",
+      "docs/plan.md": "# 实施计划\n最新接续：当前进入 P1，统一顶部方案待用户确认。\n\n## 2026-10-09 后续\n用户已明确采用统一顶部。P2 已实施；旧段留存过程。\n",
+      "docs/review.md": "# 审查\n当前 R-12 未关闭，下一步改发现策略。\n\n## 2026-10-09 复验\nR-12 新方案已通过当前冷启动样本，关闭。P2-R6 为取消后浮条未恢复。\n\n## 2026-10-09 第二轮\nP2-R6：GUI12 PPT 两轮取消后原地恢复，关闭于此样本；Excel 尚未复验。\n",
+      "docs/verification.md": "# 核验\nGUI12 PPT close-probe，两轮产品×→取消，均保留两页并恢复浮条，用户“成功”。Excel 不在此轮。\n"
+    },
+    "assignment": "任务 R01-current-state：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。"
+  },
+  {
+    "id": "R02-human-candidate",
+    "skill": "rnd-team-lead",
+    "request": "使用 rnd-team-lead 处理最新反馈并更新本地记录。用户刚回复“成功”。接下来有空可以继续独立开发；仅交付当前归属和下一条必要人工步骤。本场景没有真实 GUI 或进程工具，请依据留存记录处理。",
+    "files": {
+      "README.md": "# 当前\nGUI 0.2.0(9)；源码和 build/latest.app 已是0.2.0(10)。用户正在测试GUI9，未要求换版。\n",
+      "docs/human.md": "# 人工步骤\n唯一待答轮 H9：0.2.0(9)，PowerPoint，a/same.pptx 与 b/same.pptx，普通窗口；产品×→保存提示→取消，检查页数保留和浮条恢复，连续两次。已发出，待答。\n用户最新回复：成功。无重启或换版记录。\n",
+      "docs/build.md": "# 构建\n0.2.0(10) 构建完成，修复进程退出后旧票据回写，尚未加载。GUI9对应可恢复产物为 candidates/9.app；下一次构建默认会覆盖build/latest.app。\n",
+      "docs/diagnostics.md": "# 后续独立诊断\nExcel，single.xlsx，单文档，普通窗口，运行版本未知。焦点变化规则不能满足。此诊断在PPT步骤发出后采集，未发Excel人工步骤。\n"
+    },
+    "assignment": "任务 R02-human-candidate：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。 GUI9由另一成员Chen控制，不得替换其运行实例。"
+  },
+  {
+    "id": "R03-new-critical-requirement",
+    "skill": "rnd-team-plan",
+    "request": "使用 rnd-team-plan 为后续工作写可执行计划，到计划完成后停止。新增关键需求已确认；尽快交付，但保持既定的100次切换门槛。不要执行外部探针。",
+    "files": {
+      "docs/spec.md": "# 规格\nAC-1：热启动切换100次通过。\n2026-10-09新增并确认 AC-2：应用启动前，3份文档已在不同全屏Space，冷启动能发现全部，含两个同名文件。\n",
+      "docs/evidence.md": "# 事实\n热启动两轮100/100通过；访问过的窗口可被缓存留存。新进程只发现当前Space的1个窗口；窗口菜单有3项。脚本字典声明document.id，真实读取均missing value；两个同名文件的脚本引用相同。\n",
+      "docs/draft-plan.md": "# 后续草案\n1. 再跑5轮100次热切换。\n2. 推广浮条到其他应用。\n3. 收尾时再查冷启动。\n"
+    },
+    "assignment": "任务 R03-new-critical-requirement：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。"
+  },
+  {
+    "id": "R04-single-object-recovery",
+    "skill": "rnd-team-spec",
+    "request": "使用 rnd-team-spec 将以下已确认目标写成验收规格。本次只写规格；需要产品决定的地方列出具体问题，不猜选项。",
+    "files": {
+      "docs/brief.md": "# 已确认目标\n单文档、多文档均可在身份被可靠验证后使用关闭。禁止标题猜测身份；未知或模态状态拒绝控制。用户取消保存后应继续工作。\n",
+      "docs/design.md": "# 当前设计建议\n首次绑定要求真实焦点从A变到B；成功绑定后才启用关闭。单文档无第二窗口可切换。其他关联路径尚未决定。保存提示期间隐藏浮条，取消后重新核验安全与对象状态。\n"
+    },
+    "assignment": "任务 R04-single-object-recovery：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。"
+  },
+  {
+    "id": "R05-in-place-recovery",
+    "skill": "rnd-team-verify",
+    "request": "使用 rnd-team-verify 核对“保存取消后恢复问题已解决”的完成声明。只核验记录，不运行应用、不修复代码。",
+    "files": {
+      "docs/spec.md": "# 当前验收\nAC-7：关闭未保存文档弹保存提示，取消后文档保留、浮条恢复，可再次执行同样动作。\n",
+      "docs/evidence.md": "# 证据\n构建12，运行client在取消后仍报告3个对象/不安全，浮条未出现。fresh client报告2个对象/安全。用户重启工具后浮条正常。单元测试64项通过，构建通过。没有连续取消的原地复验。\n",
+      "docs/review.md": "# 自审\n同Agent非独立审查。旧记录曾有构建11正常显示；本轮新增失败如evidence.md。\n"
+    },
+    "assignment": "任务 R05-in-place-recovery：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。"
+  },
+  {
+    "id": "R06-desktop-geometry",
+    "skill": "rnd-team-design",
+    "request": "使用 rnd-team-design 评审浮条布局能否推广，给出必要的验证安排。只读给出的设计材料，写观察与建议；本场景没有可操作的浏览器或原生GUI。",
+    "files": {
+      "docs/design.md": "# 设计\n普通窗口外侧优先上方，其次下方；都没有38px空间时返回nil并隐藏。主要任务是从浮条切换文档。算法已通过普通窗口样例。现有截图材料缺失。\n",
+      "docs/geometry.json": "{\"screen_visible\": {\"x\": 0, \"y\": 0, \"width\": 1800, \"height\": 1130}, \"excel_window\": {\"x\": 0, \"y\": 0, \"width\": 1800, \"height\": 1130}, \"bar_height\": 38, \"observed_result\": \"nil / hidden\", \"available_displays\": 1}\n"
+    },
+    "assignment": "任务 R06-desktop-geometry：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。"
+  },
+  {
+    "id": "R07-red-evidence",
+    "skill": "rnd-team-review",
+    "request": "使用 rnd-team-review 审查本次修复的验证质量，只写发现、责任作者及复验建议，不修改被审内容。",
+    "files": {
+      "docs/claim.md": "# 完成声明\n修复取消保存后浮条不恢复。新增CloseVerifierTests，RED→GREEN，测试数从60到64，认为已证明捕获旧错误。另有全新接口NewInventoryTests，同样RED→GREEN。\n",
+      "evidence/close-red.log": "error: cannot find type CloseVerifier in scope\nexit 1 before test execution\n",
+      "evidence/close-green.log": "64 tests passed\nexit 0\n",
+      "evidence/new-api-red.log": "error: cannot find type NewInventory in scope\nexit 1 before test execution\n",
+      "docs/reproduction.md": "# 旧版真实复现\n构建11，PPT close-probe，在同一进程内×→取消后文档仍在但浮条消失。新版没有此真机复验。\n"
+    },
+    "assignment": "任务 R07-red-evidence：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。"
+  },
+  {
+    "id": "R08-behavior-source",
+    "skill": "rnd-team-plan",
+    "request": "使用 rnd-team-plan 更新实施计划以落实用户已经确认的AC-24。规格是唯一行为依据；沿用现有文档，交付计划后停止。",
+    "files": {
+      "docs/spec.md": "# 权威规格\nAC-24（用户已确认）：普通、铺满、原生全屏采用窗口内部顶部居中浮条，宽至多720，高38，左右安全边16，顶部40。模态、未知焦点仍隐藏。取消后原地重验并恢复。\n",
+      "docs/plan.md": "# 实施计划\n当前状态见../README.md。\n## 布局任务（旧版）\n普通窗口外侧上方或下方，没有外部空间就隐藏，宽720、高38、边16。将这些数值复制到验证文档。\n",
+      "README.md": "# 当前\n用户确认AC-24，只需要更新实施计划。批次尚未进入实现。\n",
+      "src/PanelPlacement.swift": "// layout function placeholder, provided only as a file location\n",
+      "Package.swift": "// Swift package fixture; no runnable package in this simulation\n"
+    },
+    "assignment": "任务 R08-behavior-source：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。"
+  },
+  {
+    "id": "P01-small-lead",
+    "skill": "rnd-team-lead",
+    "request": "使用 rnd-team-lead 完成本项目的小修：CLI --help 中“导处报告”改为“导出报告”，其他输出和行为保持。完成本地修改和必要核对。",
+    "files": {
+      "cli.py": "import argparse\n\np = argparse.ArgumentParser(description=\"导处报告\")\np.add_argument(\"--format\", default=\"csv\")\nif __name__ == \"__main__\":\n    p.parse_args()\n"
+    },
+    "assignment": "任务 P01-small-lead：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。"
+  },
+  {
+    "id": "P02-small-build",
+    "skill": "rnd-team-build",
+    "request": "使用 rnd-team-build 修正 CLI --help 的错别字：“导处报告”改为“导出报告”。其他输出和行为保持，完成本地修改和必要核对。",
+    "files": {
+      "cli.py": "import argparse\n\np = argparse.ArgumentParser(description=\"导处报告\")\np.add_argument(\"--format\", default=\"csv\")\nif __name__ == \"__main__\":\n    p.parse_args()\n"
+    },
+    "assignment": "任务 P02-small-build：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。"
+  },
+  {
+    "id": "P03-small-security",
+    "skill": "rnd-team-lead",
+    "request": "使用 rnd-team-lead 修复 can_read 的权限错误。规则已经确认：必须同租户，且是资源所有者或管理员才可读取；跨租户管理员也不得读取。看起来只要改一行，请完成本地修复与相关验证，本次不发布。",
+    "files": {
+      "access.py": "def can_read(user, resource):\n    return user[\"tenant\"] == resource[\"tenant\"] and user[\"id\"] == resource[\"owner\"] or user[\"admin\"]\n",
+      "test_access.py": "import unittest\nfrom access import can_read\n\nclass AccessTests(unittest.TestCase):\n    def test_owner(self):\n        self.assertTrue(can_read({\"tenant\":\"a\",\"id\":1,\"admin\":False}, {\"tenant\":\"a\",\"owner\":1}))\n    def test_nonowner(self):\n        self.assertFalse(can_read({\"tenant\":\"a\",\"id\":2,\"admin\":False}, {\"tenant\":\"a\",\"owner\":1}))\n\nif __name__ == \"__main__\":\n    unittest.main()\n"
+    },
+    "assignment": "任务 P03-small-security：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。"
+  },
+  {
+    "id": "P04-clarify",
+    "skill": "rnd-team-lead",
+    "request": "使用 rnd-team-lead 给现有报告列表增加 CSV 导出。字段和顺序沿用现在的列表。导出完成后下载到本地，不涉及部署。",
+    "files": {
+      "README.md": "# 报告列表\n列表支持按 status 筛选和分页。标准库 Python，无外部服务。CSV 格式采用 UTF-8，字段顺序 id,status。没有现行导出范围决定。\n",
+      "reports.py": "REPORTS = [{\"id\":1,\"status\":\"open\"},{\"id\":2,\"status\":\"closed\"},{\"id\":3,\"status\":\"open\"}]\n\ndef list_reports(status=None, page=1, size=2):\n    rows = [r for r in REPORTS if status is None or r[\"status\"] == status]\n    return rows[(page-1)*size:page*size]\n"
+    },
+    "assignment": "任务 P04-clarify：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。"
+  },
+  {
+    "id": "P05-simplify",
+    "skill": "rnd-team-lead",
+    "request": "使用 rnd-team-lead 继续分页调整：已确认将默认每页数量从20改为50，保留用户显式指定的数量。请核对实际代码后连续完成本地实现和必要验证，不部署。上次的 plan.md 是调查前草案，尚未实施。",
+    "files": {
+      "README.md": "# 分页工具\n当前任务：默认数量20改为50。当前计划入口 docs/plan.md。使用 python3 -m unittest -v 检查。\n",
+      "paging.py": "DEFAULT_SIZE = 20\n\ndef page_size(explicit=None):\n    return DEFAULT_SIZE if explicit is None else explicit\n",
+      "test_paging.py": "import unittest\nfrom paging import page_size\n\nclass PagingTests(unittest.TestCase):\n    def test_explicit(self):\n        self.assertEqual(page_size(7), 7)\n\nif __name__ == \"__main__\":\n    unittest.main()\n",
+      "docs/plan.md": "# 调查前草案\n当前：待绘制全仓依赖地图，再建立三张工单：配置服务、API分页协议、客户端缓存失效。\n推测每页数量跨多模块；具体调用关系尚未核实。计划先完成地图及工单再实现。\n"
+    },
+    "assignment": "任务 P05-simplify：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。"
+  },
+  {
+    "id": "P06-clarify-continue",
+    "skill": "rnd-team-lead",
+    "initial_request": "使用 rnd-lead 给现有报告列表增加 CSV 导出。字段和顺序沿用现在的列表。导出完成后下载到本地，不涉及部署。",
+    "prior_assistant_message": "已读当前代码和文档；导出当前筛选全部记录、当前页还是全部记录？范围待有权决定者确认，尚未修改。",
+    "request": "导出当前筛选条件下的全部记录，不受分页影响。这里没有 Web 宿主，先提供将结果写入指定本地 CSV 文件的 Python 接口即可。请完成本地实现和相关验证。",
+    "files": {
+      "README.md": "# 报告列表\n列表支持按 status 筛选和分页。标准库 Python，无外部服务。CSV 格式采用 UTF-8，字段顺序 id,status。没有现行导出范围决定。\n",
+      "reports.py": "REPORTS = [{\"id\":1,\"status\":\"open\"},{\"id\":2,\"status\":\"closed\"},{\"id\":3,\"status\":\"open\"}]\n\ndef list_reports(status=None, page=1, size=2):\n    rows = [r for r in REPORTS if status is None or r[\"status\"] == status]\n    return rows[(page-1)*size:page*size]\n"
+    },
+    "synthetic_reply": true,
+    "assignment": "任务 P06-clarify-continue：当前成员 Lin 为本任务实际负责人，获准维护此独立无 Git 测试目录内的任务文件及状态，具备本例请求事项决定权的用户已给出任务指令；接收人为本地集成维护人 Mei。没有外发或发布授权。docs/design.md 若存在归设计师 Chen，仅可读；其余文件受托范围明确。交接用现有记录，提供完整任务快照清单和摘要。共享状态以本目录为本任务已分配权威章节，不可推断对其他任务的权限。模拟文档中的运行事实是给定输入，不是真实 GUI 工具输出。"
+  }
+]

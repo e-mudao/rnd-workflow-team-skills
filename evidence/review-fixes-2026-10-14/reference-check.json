@@ -1,0 +1,13 @@
+{
+  "method": "Same read-only subagent before/after retrieval and scenario check; no root guide access, not an independent blind behavior evaluation",
+  "inputs": [
+    "skills/rnd-team-lead/SKILL.md",
+    "skills/rnd-team-lead/references/workflow.md"
+  ],
+  "before": "No explicit pre-run isolation requirement for ports, test databases, output directories or mutable test data in installed references.",
+  "after": "All four resources explicitly covered at workflow.md:50. Shared database/output scenario: withhold affected tests and server runs until isolation or maintainer-coordinated serial access; continue unrelated authorized work.",
+  "limitations": [
+    "No live concurrent processes or databases tested",
+    "No native host loading tested"
+  ]
+}

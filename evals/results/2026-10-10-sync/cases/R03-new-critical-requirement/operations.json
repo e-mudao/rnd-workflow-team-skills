@@ -1,0 +1,37 @@
+{
+  "task": "R03-new-critical-requirement",
+  "operator": "Lin via agent",
+  "date": "2026-10-10",
+  "cwd": "/private/tmp/rnd-team-sync-20261010/work/evals/results/2026-10-10-sync/cases/R03-new-critical-requirement",
+  "skills_loaded": true,
+  "workflow": "references/workflow.md (all six skill copies SHA256 identical, common instructions read once)",
+  "source_read_files": [
+    "docs/draft-plan.md",
+    "docs/evidence.md",
+    "docs/spec.md"
+  ],
+  "baseline_file_sha256": {
+    "docs/evidence.md": "da56d4c7c2ac45a5708f6f8452dd57338d2f8e0009c0f738191db0521e851e6f",
+    "docs/spec.md": "526da4b3ede6f8c67f72483666aa322565ec188cc6ddbcae1cc266495a640061",
+    "docs/draft-plan.md": "24bc08242d215ea54b74cd61cfa0b04e152a07c3506c05787094b492f8a926f8"
+  },
+  "written_files": [
+    "docs/draft-plan.md",
+    "response.md"
+  ],
+  "actions": [
+    "Read assigned case files and applicable SKILL.md/workflow; R06 also native-desktop.md",
+    "Write only requested local documents; preserve design.md and reviewed raw inputs",
+    "Read back generated documents; compute SHA256 complete file inventory"
+  ],
+  "not_executed": [
+    "GUI",
+    "application launch",
+    "external probe",
+    "build",
+    "test suite",
+    "external messaging",
+    "publish"
+  ],
+  "checks": "Document scope and source consistency only; complete manifest verification performed after writes."
+}

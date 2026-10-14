@@ -1,0 +1,37 @@
+{
+  "task": "R05-in-place-recovery",
+  "operator": "Lin via agent",
+  "date": "2026-10-10",
+  "cwd": "/private/tmp/rnd-team-sync-20261010/work/evals/results/2026-10-10-sync/cases/R05-in-place-recovery",
+  "skills_loaded": true,
+  "workflow": "references/workflow.md (all six skill copies SHA256 identical, common instructions read once)",
+  "source_read_files": [
+    "docs/evidence.md",
+    "docs/review.md",
+    "docs/spec.md"
+  ],
+  "baseline_file_sha256": {
+    "docs/evidence.md": "b5273bb507fddd4e9f4ef4bfee4747d468faa8e62369d6aad0e367302da23a12",
+    "docs/spec.md": "8b4506572a734b907a7b675aa6501b3104e980046c0a055bf9398c1b9eb0dd0d",
+    "docs/review.md": "1987e45520adff383be6eee837e4a7749ff6fb1a8e01aea7e5ce1e1ebd2c4814"
+  },
+  "written_files": [
+    "docs/verification.md",
+    "response.md"
+  ],
+  "actions": [
+    "Read assigned case files and applicable SKILL.md/workflow; R06 also native-desktop.md",
+    "Write only requested local documents; preserve design.md and reviewed raw inputs",
+    "Read back generated documents; compute SHA256 complete file inventory"
+  ],
+  "not_executed": [
+    "GUI",
+    "application launch",
+    "external probe",
+    "build",
+    "test suite",
+    "external messaging",
+    "publish"
+  ],
+  "checks": "Document scope and source consistency only; complete manifest verification performed after writes."
+}

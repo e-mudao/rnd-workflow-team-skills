@@ -1,0 +1,41 @@
+{
+  "task": "R07-red-evidence",
+  "operator": "Lin via agent",
+  "date": "2026-10-10",
+  "cwd": "/private/tmp/rnd-team-sync-20261010/work/evals/results/2026-10-10-sync/cases/R07-red-evidence",
+  "skills_loaded": true,
+  "workflow": "references/workflow.md (all six skill copies SHA256 identical, common instructions read once)",
+  "source_read_files": [
+    "docs/claim.md",
+    "docs/reproduction.md",
+    "evidence/close-green.log",
+    "evidence/close-red.log",
+    "evidence/new-api-red.log"
+  ],
+  "baseline_file_sha256": {
+    "evidence/close-red.log": "a3f3106e2a06a028f02f9e878a53bb930cc0684aea296104132516a16946f279",
+    "evidence/close-green.log": "c94b976353ff6b4c29aff010feff24c36abe6f12fd8805a11a59b4ae8b3ac55a",
+    "evidence/new-api-red.log": "fc092a411928521c35238ee758eb2fb045e434c03318e45a779154e604739be1",
+    "docs/claim.md": "62d9b8054f0f3710d2dbafa5ab74c473afd1bef1f6162414a4c742e6d44b4740",
+    "docs/reproduction.md": "c9fc80829431d758dd5d40351d037c6d0389874a7e9e63e8dce078f6738dd52f"
+  },
+  "written_files": [
+    "docs/review.md",
+    "response.md"
+  ],
+  "actions": [
+    "Read assigned case files and applicable SKILL.md/workflow; R06 also native-desktop.md",
+    "Write only requested local documents; preserve design.md and reviewed raw inputs",
+    "Read back generated documents; compute SHA256 complete file inventory"
+  ],
+  "not_executed": [
+    "GUI",
+    "application launch",
+    "external probe",
+    "build",
+    "test suite",
+    "external messaging",
+    "publish"
+  ],
+  "checks": "Document scope and source consistency only; complete manifest verification performed after writes."
+}

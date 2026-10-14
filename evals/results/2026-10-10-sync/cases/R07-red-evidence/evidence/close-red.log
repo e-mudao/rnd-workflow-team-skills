@@ -1,0 +1,2 @@
+error: cannot find type CloseVerifier in scope
+exit 1 before test execution

@@ -1,0 +1,23 @@
+Follow-up run with supplemental tests; not the original run.
+UTC: 2026-10-10T09:01:39.905187+00:00
+cwd: /private/tmp/rnd-team-sync-20261010/work/evals/results/2026-10-10-sync/followup-csv
+command: ['/opt/homebrew/opt/python@3.14/bin/python3.14', '-B', '-m', 'unittest', '-v']
+Python: 3.14.0 (main, Oct  7 2025, 09:34:52) [Clang 17.0.0 (clang-1700.3.19.1)]
+platform: macOS-27.0.1-arm64-arm-64bit-Mach-O
+exit_code: 0
+
+test_all_not_paginated (test_reports.ExportTests.test_all_not_paginated) ... ok
+test_empty_has_header (test_reports.ExportTests.test_empty_has_header) ... ok
+test_existing_pagination (test_reports.ExportTests.test_existing_pagination) ... ok
+test_filtered_not_paginated (test_reports.ExportTests.test_filtered_not_paginated) ... ok
+test_invalid_destination_error (test_reports.ExportTests.test_invalid_destination_error) ... ok
+test_current_filter_exports_across_five_default_size_pages (test_reports_followup.FollowupExportTests.test_current_filter_exports_across_five_default_size_pages) ... ok
+test_empty_match_and_empty_dataset_keep_only_header (test_reports_followup.FollowupExportTests.test_empty_match_and_empty_dataset_keep_only_header) ... ok
+test_export_preserves_source_and_original_list_pagination (test_reports_followup.FollowupExportTests.test_export_preserves_source_and_original_list_pagination) ... ok
+test_no_filter_exports_all_thirteen_records (test_reports_followup.FollowupExportTests.test_no_filter_exports_all_thirteen_records) ... ok
+test_utf8_bytes_roundtrip_and_exact_field_order (test_reports_followup.FollowupExportTests.test_utf8_bytes_roundtrip_and_exact_field_order) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.004s
+
+OK

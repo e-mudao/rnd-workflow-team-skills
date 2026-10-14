@@ -1,0 +1,8 @@
+{
+  "standalone_copy": true,
+  "missing_link_detected": true,
+  "digest_change_detected": true,
+  "workflow_drift_detected": true,
+  "wrong_skill_name_detected": true,
+  "restored_copy_passes": true
+}

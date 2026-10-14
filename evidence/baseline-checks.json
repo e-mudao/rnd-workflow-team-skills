@@ -1,0 +1,31 @@
+{
+  "scope": "Current package structure, local link targets (not anchors), shared workflow equality and bundled source digests; not runtime or historical validation",
+  "counts": {
+    "skills": 11,
+    "local_links": 87,
+    "source_digests": 32
+  },
+  "passed": false,
+  "errors": [
+    "Missing or external local link: review.md -> ../docs/reviews/2026-10-06-team-skills-optimization-review.md",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills-review-fixes/assessment.md",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills-review-fixes/check_delivery.py",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills-review-fixes/checks.json",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills-review-fixes/independent-review.md",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills-review-fixes/inputs",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills-review-fixes/archive-map.json",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills-review-fixes/trial-manifest.json",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills-adaptive/assessment.md",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills-adaptive/check_delivery.py",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills-adaptive/checks.json",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills-adaptive/independent-review.md",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills-adaptive/archive-map.json",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills/scenarios.json",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills/baseline-assessment.md",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills/forward-assessment.md",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills/check_delivery.py",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills/checks.json",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills/frontmatter.json",
+    "Missing or external local link: review.md -> ../docs/evidence/team-skills/independent-review.md"
+  ]
+}

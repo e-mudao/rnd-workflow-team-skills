@@ -1,0 +1,62 @@
+test_changed_source_bytes_rejected (test_check_delivery.DeliveryTests.test_changed_source_bytes_rejected) ... ok
+test_duplicate_replacing_missing_source_rejected (test_check_delivery.DeliveryTests.test_duplicate_replacing_missing_source_rejected) ... FAIL
+test_empty_sources_rejected (test_check_delivery.DeliveryTests.test_empty_sources_rejected) ... FAIL
+test_partial_source_deletion_rejected (test_check_delivery.DeliveryTests.test_partial_source_deletion_rejected) ... FAIL
+test_reordered_sources_pass (test_check_delivery.DeliveryTests.test_reordered_sources_pass) ... ok
+test_standalone_payload_passes (test_check_delivery.DeliveryTests.test_standalone_payload_passes) ... ok
+test_wrong_source_collection_type_rejected (test_check_delivery.DeliveryTests.test_wrong_source_collection_type_rejected) ... FAIL
+
+======================================================================
+FAIL: test_duplicate_replacing_missing_source_rejected (test_check_delivery.DeliveryTests.test_duplicate_replacing_missing_source_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo-root>/scripts/test_check_delivery.py", line 44, in test_duplicate_replacing_missing_source_rejected
+    self.assert_rejected()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "<repo-root>/scripts/test_check_delivery.py", line 26, in assert_rejected
+    self.assertFalse(result["passed"], result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : {'scope': 'Current package structure, local link targets (not anchors), shared workflow equality and bundled source digests; not runtime or historical validation', 'counts': {'skills': 11, 'local_links': 64, 'source_digests': 32}, 'passed': True, 'errors': []}
+
+======================================================================
+FAIL: test_empty_sources_rejected (test_check_delivery.DeliveryTests.test_empty_sources_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo-root>/scripts/test_check_delivery.py", line 36, in test_empty_sources_rejected
+    self.assert_rejected()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "<repo-root>/scripts/test_check_delivery.py", line 26, in assert_rejected
+    self.assertFalse(result["passed"], result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : {'scope': 'Current package structure, local link targets (not anchors), shared workflow equality and bundled source digests; not runtime or historical validation', 'counts': {'skills': 11, 'local_links': 64, 'source_digests': 30}, 'passed': True, 'errors': []}
+
+======================================================================
+FAIL: test_partial_source_deletion_rejected (test_check_delivery.DeliveryTests.test_partial_source_deletion_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo-root>/scripts/test_check_delivery.py", line 40, in test_partial_source_deletion_rejected
+    self.assert_rejected()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "<repo-root>/scripts/test_check_delivery.py", line 26, in assert_rejected
+    self.assertFalse(result["passed"], result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : {'scope': 'Current package structure, local link targets (not anchors), shared workflow equality and bundled source digests; not runtime or historical validation', 'counts': {'skills': 11, 'local_links': 64, 'source_digests': 30}, 'passed': True, 'errors': []}
+
+======================================================================
+FAIL: test_wrong_source_collection_type_rejected (test_check_delivery.DeliveryTests.test_wrong_source_collection_type_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<repo-root>/scripts/test_check_delivery.py", line 48, in test_wrong_source_collection_type_rejected
+    self.assert_rejected()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "<repo-root>/scripts/test_check_delivery.py", line 26, in assert_rejected
+    self.assertFalse(result["passed"], result)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : {'scope': 'Current package structure, local link targets (not anchors), shared workflow equality and bundled source digests; not runtime or historical validation', 'counts': {'skills': 11, 'local_links': 64, 'source_digests': 30}, 'passed': True, 'errors': []}
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.272s
+
+FAILED (failures=4)
+
+exit_code=1
