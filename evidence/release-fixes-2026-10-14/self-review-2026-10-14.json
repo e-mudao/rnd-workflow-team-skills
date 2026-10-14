@@ -1,0 +1,127 @@
+{
+  "round": "Adversarial re-review of the release-prep fixes, 2026-10-14",
+  "reviewed_commits": {
+    "release_prep": "004f04fb81156bf51dd0a05b4be5fc639ade9e0a",
+    "evidence": "b5bd9e7"
+  },
+  "method": "Independent re-checks, not a restatement: git ls-files/stat for modes, ast.parse with feature_version=(3, 11) and (3, 9) for CI compatibility, curl for URL reachability, cffconvert 2.0.0 in an isolated venv for citation validity, GitHub docs and the Linguist overrides document for config semantics, and the actions/python-versions manifest for CI platform availability.",
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "release-blocking",
+      "status": "open",
+      "title": "Citation repository URL is not reachable",
+      "evidence": "GET https://github.com/emudao/rnd-workflow-team-skills -> 404 while https://github.com/emudao -> 200; the URL is anonymous-404 either because the repository does not exist or because it is private, and anonymous requests cannot distinguish the two.",
+      "why_it_matters": "The release-prep commit promoted this URL from `url:` to `repository-code:`. CFF schema validation and cffconvert both accept the file regardless, so nothing in the toolchain catches a dead citation URL.",
+      "disposition": "Open: awaiting the final repository URL from the maintainer, after which reachability will be re-checked and recorded."
+    },
+    {
+      "id": "F2",
+      "severity": "release-blocking",
+      "status": "fixed",
+      "title": "No git remote is configured",
+      "evidence": "`git remote -v` is empty.",
+      "why_it_matters": "The earlier report called the first Actions run 'the only remaining boundary'; in fact nothing has been pushed, so the P1 workflow fix has never executed anywhere.",
+      "disposition": "Fixed as reporting: boundaries corrected in summary.json and stated under CHANGELOG Notes."
+    },
+    {
+      "id": "F3",
+      "severity": "overclaim",
+      "status": "fixed",
+      "title": ".gitattributes fix did not fix behaviour",
+      "evidence": "Linguist supports only linguist-detectable, -documentation, -generated, -language and -vendored; a bare `linguist` attribute is not among them, so `-linguist` remained a no-op after the spelling fix, while the commit message claimed the no-op attributes were fixed.",
+      "disposition": "Fixed: `-linguist-detectable` on all three patterns, with a comment naming the documented attribute."
+    },
+    {
+      "id": "F4",
+      "severity": "overclaim",
+      "status": "fixed",
+      "title": "CHANGELOG overstated the citation identity",
+      "evidence": "cffconvert renders `author = {emudao}`; the filed identity is the repository's configured git handle placed in family-names, not a verified personal name.",
+      "disposition": "Fixed: reworded to 'the maintainer identity configured in this repository (emudao)', and the cffconvert result is now cited."
+    },
+    {
+      "id": "F5",
+      "severity": "hygiene",
+      "status": "fixed",
+      "title": "Evidence tooling was 0600 on disk",
+      "evidence": "stat showed -rw------- for evidence/release-fixes-2026-10-14/validate_release_config.py and evidence/final-review-2026-10-14/reprod.py, against a repository convention of 0644. Git records 100644 for both, so a clone is unaffected, but a tarball of the working tree would not be.",
+      "disposition": "Fixed: chmod 644 on both. Root cause is that agent-written files default to 0600."
+    },
+    {
+      "id": "F6",
+      "severity": "coverage-gap",
+      "status": "fixed",
+      "title": "CI never exercised the Python floor the checker claims",
+      "evidence": "The workflow ran only 3.11 while the checker claims 3.9+; Path.is_relative_to is itself a 3.9 API. All 16 .py files parse at feature_version=(3, 9) and use no 3.12+ API.",
+      "disposition": "Fixed: matrix 3.9/3.11/3.13, after confirming in the actions/python-versions manifest that each version has a linux-24.04-x64 build."
+    },
+    {
+      "id": "F7",
+      "severity": "hardening",
+      "status": "fixed",
+      "title": "Workflow had no permissions block and used tag-pinned actions",
+      "evidence": "No `permissions:` key; actions/checkout@v4 and actions/setup-python@v5 are moving tags.",
+      "disposition": "Fixed: `permissions: contents: read` and commit pins resolved from the GitHub API (checkout v4.4.0 -> 11d5960a326750d5838078e36cf38b85af677262, setup-python v5.6.0 -> a26af69be951a213d495a4c3e4e4022e16d87065; both verified 200)."
+    },
+    {
+      "id": "F8",
+      "severity": "hygiene",
+      "status": "fixed",
+      "title": "Evidence validator dependencies were undocumented",
+      "evidence": "The script needs pyyaml and jsonschema plus downloaded schema files, unlike the stdlib-only checker, and is not wired into CI.",
+      "disposition": "Fixed: the docstring now states the dependencies, the schema sources and the drift risk."
+    },
+    {
+      "id": "F9",
+      "severity": "process",
+      "status": "documented",
+      "title": "Release-prep commit bundles four concerns",
+      "evidence": "One commit carries the pending readme edits, the four blocker fixes, same-class typo fixes and review evidence, while CONTRIBUTING asks for one concern per PR.",
+      "disposition": "Documented under CHANGELOG Notes as a deliberate release-prep consolidation rather than a silent deviation."
+    },
+    {
+      "id": "F10",
+      "severity": "process",
+      "status": "documented",
+      "title": "Reviewer artifact committed verbatim with its typos",
+      "evidence": "evidence/final-review-2026-10-14/reprod.py retains link_cunts, diggest and placeHolder.",
+      "disposition": "Documented under CHANGELOG Notes as intentional, to keep the review record authentic."
+    }
+  ],
+  "excluded_after_investigation": [
+    {
+      "suspicion": "Issue Forms omit the `id` key",
+      "result": "Not a defect. GitHub's form-schema documentation marks `id` Optional (it only feeds URL query prefills)."
+    },
+    {
+      "suspicion": "The Chinese readme's repository tree is misaligned by one column",
+      "result": "Not a defect, and my own earlier hand-count was wrong. Measured with a script: both readmes place their descriptions at column 33."
+    },
+    {
+      "suspicion": "Committed logs embed machine-specific absolute paths",
+      "result": "Not machine-identifying: `git grep /Users/` is empty; the matches are the eval harness's own /private/tmp/rnd-team-sync-20261010/work/... scratch paths."
+    },
+    {
+      "suspicion": "The checker or tests use APIs newer than the CI interpreter",
+      "result": "Not observed: 16 .py files parse at feature_version=(3, 11) and (3, 9); no 3.12+ APIs found."
+    }
+  ],
+  "independent_validations": {
+    "cffconvert": {
+      "tool": "cffconvert 2.0.0",
+      "result": "Citation metadata are valid according to schema version 1.2.0."
+    },
+    "cff_bibtex_render": "@misc{..., author = {emudao}, ...} - confirms the family-names semantics noted in F4.",
+    "python_311_compatible_files": 16,
+    "python_39_compatible_files": 16
+  },
+  "verdict": "The four original blockers are genuinely closed. F1 (citation URL) and F2 (no remote) are release-blocking and cannot be closed from inside this checkout; F3-F8 are fixed in the supplemental commit; F9-F10 are documented decisions. Nothing here has been exercised against a real GitHub remote.",
+  "remediation_base": "b5bd9e7",
+  "remediation_commit_note": "These fixes are carried by the single supplemental commit that adds this file. Its SHA is reported in the round's report rather than embedded here, so that the evidence does not have to contain a digest of itself.",
+  "checks_after_remediation": {
+    "checker": "static-after.json",
+    "tests": "tests-after.txt",
+    "config_schemas": "github-config-validation.json"
+  }
+}

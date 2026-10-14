@@ -23,8 +23,13 @@ Notable changes to rnd-workflow-team-skills. Dates are date of the team-edition 
 - All 11 `references/workflow.md` agree on pre-run isolation and ownership checks for ports, test databases, output directories and muting test data.
 - The checker gained an independent expected-source inventory (rejecting a cleared source list, partial deletion, duplicate replacement and wrong collection type), plus `scripts/test_check_delivery.py` (7 tests).
 - GitHub automation now sits on the paths GitHub actually reads: `.github/workflows/check.yml`, `.github/ISSUE_TEMPLATE/*.yml` and `.github/PULL_REQUEST_TEMPLATE.md`. All four files were previously under a misspelled `.gitthub/` directory, so the workflow never ran and the templates never appeared.
-- `CITATION.cff` replaced its placeholder author and invalid `cont-act` key with the real maintainer identity and the CFF 1.2.0 `contact` field; it validates against the official 1.2.0 schema.
+- `CITATION.cff` replaced its placeholder author and invalid `cont-act` key with the maintainer identity configured in this repository (`emudao`) and the CFF 1.2.0 `contact` field. `cffconvert --validate` accepts it under schema 1.2.0. The repository URL is declared but its reachability has not been confirmed.
 - English readme proofread: a truncated word ("were reus"), a five-column separator on a four-column table, `gsd-core` feeding `leed` instead of `lead`, a missing apostrophe, and `license` written as `licensee`.
+- Self-review of the release-prep commit: `.gitattributes` now uses Linguist's documented `-linguist-detectable` instead of the no-op `-linguist`; the workflow runs with `permissions: contents: read` and both actions pinned by commit; and CI covers the 3.9 floor the checker claims, not only 3.11.
+
+### Notes
+- Stated deviations, not silent ones. The release-prep commit deliberately carries four concerns in one commit (the pending readme edits, the four blocker fixes, same-class typo fixes and review evidence) although CONTRIBUTING asks for one concern per PR; and `evidence/final-review-2026-10-14/reprod.py` is committed byte-for-byte as the reviewer produced it, typos included, so the review record stays authentic rather than edited.
+- The repository has no configured remote, so neither the workflow nor the citation URL has been exercised against a real GitHub remote.
 
 ## 2026-10-10
 

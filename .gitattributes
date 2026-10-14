@@ -1,5 +1,8 @@
-# Binaries and generated artifacts
-# Keep generated evidence binaries from language detection and from line-based diffs.
-*.zip    -diff -text
-*.patch  -diff -text
-*.pyc    -diff -text -linguist
+# Binaries and generated artifacts.
+# -diff/-text keep the bytes out of line-based diffs and EOL normalisation.
+# -linguist-detectable is the documented Linguist attribute for keeping a path
+# out of language statistics; the shorter `-linguist` is not one of Linguist's
+# attributes and would be a silent no-op.
+*.zip    -diff -text -linguist-detectable
+*.patch  -diff -text -linguist-detectable
+*.pyc    -diff -text -linguist-detectable

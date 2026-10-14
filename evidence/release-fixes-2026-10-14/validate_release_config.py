@@ -6,6 +6,11 @@ Schema, and the GitHub workflow / issue forms against SchemaStore's published
 schemas. Schema paths are passed in so nothing is fetched at run time; each
 schema's digest is recorded in the output for audit.
 
+This is evidence tooling, not part of the package. Unlike
+scripts/check_delivery.py it depends on third-party packages
+(`pip install pyyaml jsonschema`), needs the schema files downloaded first from
+the URLs in SCHEMA_SOURCES, and is not wired into CI, so it can drift.
+
 Usage:
     python3 validate_release_config.py <cff-schema.json> <workflow-schema.json> \
         <issue-forms-schema.json>

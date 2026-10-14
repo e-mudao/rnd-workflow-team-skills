@@ -62,5 +62,14 @@
     "checker_command": "python3 scripts/check_delivery.py",
     "tests_command": "python3 -B -m unittest discover -s scripts -p 'test_*.py' -v"
   },
-  "boundaries": "The schema checks are local: they prove the files conform to the published schemas, not that GitHub renders the forms or that Actions executed. The workflow first runs on the next push to main. Bundled upstream sources are checked by digest only; remote-source authenticity was not re-verified."
+  "boundaries": "The schema checks are local: they prove the files conform to the published schemas, not that GitHub renders the forms or that Actions executed. This checkout has no configured git remote, and the citation repository URL was not reachability-verified, so neither the workflow, the forms nor the URL has been exercised against a real GitHub repository; they will first be exercised after the repository is pushed to the declared path. Bundled upstream sources are checked by digest only; remote-source authenticity was not re-verified.",
+  "self_review": {
+    "evidence": "self-review-2026-10-14.json",
+    "reviewed_commits": [
+      "004f04fb81156bf51dd0a05b4be5fc639ade9e0a",
+      "b5bd9e7"
+    ],
+    "note": "Adversarial re-review of the release-prep fixes; F1 remains open pending the final repository URL.",
+    "remediation": "Fixes for F3-F8 applied in the supplemental commit; F1 remains open."
+  }
 }

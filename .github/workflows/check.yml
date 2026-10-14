@@ -6,16 +6,27 @@ on:
   pull_request:
     branches: [ main ]
 
+# The checker is read-only; grant nothing beyond reading the repository.
+permissions:
+  contents: read
+
 jobs:
   checker:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # 3.9 is the floor the checker claims; 3.11 was the original single leg.
+        python-version: [ "3.9", "3.11", "3.13" ]
     steps:
       - name: Get the repository
-        uses: actions/checkout@v4
+        # Pinned by commit: v4.4.0
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - name: Set up Python
-        uses: actions/setup-python@v5
+        # Pinned by commit: v5.6.0
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
         with:
-          python-version: "3.11"
+          python-version: ${{ matrix.python-version }}
       - name: Run the integrity checker
         run: python3 scripts/check_delivery.py
       - name: Run the regression tests
