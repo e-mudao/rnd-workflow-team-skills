@@ -9,7 +9,7 @@ Every member starts from the entry skill `rnd-team-lead` and picks up the task a
 - 🧪 Package integrity checker: [scripts/check_delivery.py](scripts/check_delivery.py)
 - 🖫 Contributing and reports: [CONTRIBUTING.md](CONTRIBUTING.md) · [SECURITY.md](SECURITY.md) · [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
-> This repository maintains only the `rnd-team-*` **team edition**. The optional neighboring single-person edition (e.g. `rnd-lead`) is maintained by its own project; this package is not an automatic sync plan for it, and another project's changes or verification results are not evidence of this package's progress or passing.
+> This repository maintains only the `rnd-team-*` **team edition**.
 
 ---
 
@@ -109,7 +109,7 @@ If a split already exists, reference it directly. A local old record alone does 
 
 ## Verification and evidence
 
-The package ships a [package integrity checker](scripts/check_delivery.py) that uses only the Python 3.9+ standard library, is read-only, and needs no neighboring single-person directory. It checks:
+The package ships a [package integrity checker](scripts/check_delivery.py) that uses only the Python 3.9+ standard library, is read-only, and needs no neighboring repository. It checks:
 
 - The 11 skill names and their required files;
 - Local link targets in maintenance documents;
@@ -123,7 +123,7 @@ Regression tests: `python3 -B -m unittest discovers -s scripts -p 'test_*.py' -v
 ## Current state (2026-10-14)
 
 - This round completed the two P2 fixes raised by the team-edition review: all 11 `workflow.md` files gained pre-run isolation and ownership-check requirements for ports, test databases, output directories and muting test data; the checker gained an independent expected-source inventory; and new regression tests were added (7 pass; 4 were expected to fail before the fix, proving they catch the original defect).
-- This workspace maintains only the `rnd-team-*` team edition; the current 95 skill files agree with the saved team-edition manifest. An earlier misattribution that treated the neighboring single-person work as this package's progress has been withdrawn, and other projects' material is not evidence for this package.
+- This workspace maintains only the `rnd-team-*` team edition; the current 95 skill files agree with the saved team-edition manifest.
 - This workspace has no Git metadata; attribution and changes are checked via digest differences, not inferred from Git commit state.
 
 Full state, per-item dispositions and historical batch notes: [review.md](review.md), [maintenance/](maintenance) and the [batch verification report](evals/results/2026-10-10-sync/report.md).

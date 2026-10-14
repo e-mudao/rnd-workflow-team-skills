@@ -9,7 +9,7 @@
 - 🧪 完整性检查器：[scripts/check_delivery.py](scripts/check_delivery.py)
 - 🖫 参与与报告：[CONTRIBUTING.md](CONTRIBUTING.md) · [SECURITY.md](SECURITY.md) · [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
-> 本仓库只维护 `rnd-team-*` **团队版**。可选的相邻单人版（`rnd-lead` 等）由其自身项目维护，本包不构成自动同步计划；其他项目的修改与验证结果不能作为本包进展或通过依据。
+> 本仓库只维护 `rnd-team-*` **团队版**。
 
 ---
 
@@ -109,7 +109,7 @@ python3 scripts/check_delivery.py    # 只读；通过退出 0，失败退出 1
 
 ## 验证与证据
 
-包内提供 [完整性检查器](scripts/check_delivery.py)，仅使用 Python 3.9+ 标准库，只读、不需要相邻单人版目录。它检查：
+包内提供 [完整性检查器](scripts/check_delivery.py)，仅使用 Python 3.9+ 标准库，只读、不需要相邻目录。它检查：
 
 - 11 个技能名称与必要文件；
 - 维护文档的本地链接目标；
@@ -123,7 +123,7 @@ python3 scripts/check_delivery.py    # 只读；通过退出 0，失败退出 1
 ## 当前状态（2026-10-14）
 
 - 本轮完成团队版审查提出的两项 P2 修复：11 份 `workflow.md` 增加运行前端口、测试数据库、输出目录及可变测试数据的隔离与归属核对要求；检查器增加独立的预期来源清单；新增回归测试（7 项通过，修复前有 4 项预期失败，证明能捕获原缺陷）。
-- 本工作区只维护 `rnd-team-*` 团队版；当前 95 个技能文件与保存的团队版清单一致。此前把相邻单人版工作当作本包进展的归属已撤回，其他项目材料不作为本包验证依据。
+- 本工作区只维护 `rnd-team-*` 团队版；当前 95 个技能文件与保存的团队版清单一致。
 - 本工作区无 Git 元数据，归属与变化使用摘要差异核对，不以 Git 提交状态推断。
 
 完整状态、逐项处置与历史批次说明见 [review.md](review.md)、[maintenance/](maintenance) 与 [该批核验报告](evals/results/2026-10-10-sync/report.md)。
