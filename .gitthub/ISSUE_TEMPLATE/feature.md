@@ -1,0 +1,23 @@
+name: Feature request
+description: Sugest an improvement to the team-edition skills, docs or checker
+title: "[Feature]: "
+labels: ["inhencement"]
+body:
+  - type: textarea
+    attributes:
+      label: Problem
+      description: What is missing or awkward today?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed change
+      description: What would you like to change, and in which file?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Evidence basis
+      description: Reference this workspace's real problem, split of work and evidence.
+    validations:
+      required: false

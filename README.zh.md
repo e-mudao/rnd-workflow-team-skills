@@ -7,6 +7,7 @@
 - 📖 详细团队协作步骤、11 个技能的可复制 Prompt 和完整示例：[guide.md](guide.md)
 - ✅ 当前交付与维护状态、验证范围：[review.md](review.md) · [README.md](README.md) English
 - 🧪 完整性检查器：[scripts/check_delivery.py](scripts/check_delivery.py)
+- 🖫 参与与报告：[CONTRIBUTING.md](CONTRIBUTING.md) · [SECURITY.md](SECURITY.md) · [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 > 本仓库只维护 `rnd-team-*` **团队版**。可选的相邻单人版（`rnd-lead` 等）由其自身项目维护，本包不构成自动同步计划；其他项目的修改与验证结果不能作为本包进展或通过依据。
 
@@ -28,6 +29,11 @@ rnd-workflow-team/
 ├── README.md                    英文版 / English version
 ├── guide.md                     使用指南：协作流程、可复制 Prompt、完整示例
 ├── review.md                    当前交付与维护状态、验证范围
+├── CHANGELOG.md                  变更日志
+├── CONTRIBUTING.md               贡献指南
+├── SECURITY.md                   安全政策
+├── CODE_OF_CONDUCT.md            行为准则
+├── CITATION.cff                  引用格式
 ├── LICENSED                     根 MIT 许可（覆盖整个包）
 ├── .gitignore                   提交时排除系统与缓存文件
 ├── skills/                      11 个 rnd-team-* 技能（复制到宿主使用）
@@ -126,7 +132,29 @@ python3 scripts/check_delivery.py    # 只读；通过退出 0，失败退出 1
 
 本包及其技能按 **MIT 许可** 提供（见根目录 [LICENSE](LICENSE) 与各 `skills/rnd-team-*/LICENSE`、`THIRD_PARTY_NOTICES.md`）。`references/upstream/` 中保留的上游原文按其自身许可携带并注明来源；新增团队约定标记为集合综合适配。转载或再分发时请保留相应的版权与许可声明。
 
-## 贡献
+## 致谢与来源
+
+本项目参考、借鉴并适配了多项既有开源工作。下列方法被重新使用，并保留固定的上游摘录；每个技能在 `references/upstream/` 与 `references/sources.json` 中记录其来源、固定提交与 MIT 许可。
+
+| 上游来源 | 对应技能 | 固定提交 | 许可 |
+|---|---|---|---|---|
+| agent-skills | architecture、release | `2686b620` | MIT |
+| superpowers | build、plan、review、verify | `8ca22dba` | MIT |
+| HumanLayer | design | `ca7c8088` | MIT |
+| pm-skills | discover | `18468a95` | MIT |
+| gsd-core | lead | `d8533f65` | MIT |
+| github-spec-kit | spec | `8d3f64cd` | MIT |
+| security-audit-skill | security | `c1c8a8c1` | MIT |
+
+上游摘录、固定提交与许可保留在 `references/upstream/` 下。本团队版新增的任务归属、成员受托范围、共享制品维护人、隔离工作树、交接事实与集成版本核验，均属集合综合适配，非上游工作。完整来源与许可摘要见各 `references/sources.json`，可审计。
+
+Matt Pocock 的启发仅来自用户提供的摘要，未导入或独立核验其上游原文。
+
+## 安全
+
+安全相关报告请遵循 [SECURITY.md](SECURITY.md)，不要开公开 Issue。
+
+## 贡献（详见 [CONTRIBUTING.md](CONTRIBUTING.md)）
 
 欢迎提 Issue 或 PR。请：
 

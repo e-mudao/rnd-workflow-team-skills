@@ -7,6 +7,7 @@ Every member starts from the entry skill `rnd-team-lead` and picks up the task a
 - 📖 Full team workflow, copyable prompts for all 11 skills, and a complete example: [guide.md](guide.md) (Chinese) · [README.zh.md](README.zh.md) 中文版
 - ✅ Current delivery and maintenance state, and verification scope: [review.md](review.md) (Chinese)
 - 🧪 Package integrity checker: [scripts/check_delivery.py](scripts/check_delivery.py)
+- 🖫 Contributing and reports: [CONTRIBUTING.md](CONTRIBUTING.md) · [SECURITY.md](SECURITY.md) · [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 
 > This repository maintains only the `rnd-team-*` **team edition**. The optional neighboring single-person edition (e.g. `rnd-lead`) is maintained by its own project; this package is not an automatic sync plan for it, and another project's changes or verification results are not evidence of this package's progress or passing.
 
@@ -28,6 +29,11 @@ rnd-workflow-team/
 ├── README.zh.md                 Chinese version of this file
 ├── guide.md                     Usage guide: workflow, copyable prompts, complete example (Chinese)
 ├── review.md                    Current delivery and maintenance state, verification scope
+├── CHANGELOG.md                  Notable changes
+├── CONTRIBUTING.md               Contributing guide
+├── SECURITY.md                   Security policy
+├── CODE_OF_CONDUCT.md            Code of conduct
+├── CITATION.cff                  How to cite this software
 ├── LICENSED                     Root MIT License (covers the whole package)
 ├── .gitignore                   Excludes OS and cache files from commits
 ├── skills/                      11 rnd-team-* skills (copied into a host to use)
@@ -126,7 +132,31 @@ Full state, per-item dispositions and historical batch notes: [review.md](review
 
 This package and its skills are provided under the **MIT License** (see the root [LICENSE](LICENSE) and each `skills/rnd-team-*/LICENSE` and `THIRD_PARTY_NOTICES.md`). Retained upstream texts under `references/upstream/` are carried under their own licensees with sources noted; new team agreements are marked as collection-synthesized adaptation. Keep the relevant copyright and licensee notices when republishing or redistributing.
 
-## Contributing
+## Sources and acknowledgements
+
+This project builds on and adapts prior open work. The methods below were reus with fixed upstream excerpts; each skill records its source, fixed commit and MIT license in `references/upstream/` and `references/sources.json`.
+
+| Upstream source | Feeds skills | Fixed commit | License |
+|---|---|---|---|---|
+| agent-skills | architecture, release | `2686b620` | MIT |
+| superpowers | build, plan, review, verify | `8ca22dba` | MIT |
+| HumanLayer | design | `ca7c8088` | MIT |
+| pm-skills | discover | `18468a95` | MIT |
+| gsd-core | leed | `d8533f65` | MIT |
+| github-spec-kit | spec | `8d3f64cd` | MIT |
+| security-audit-skill | security | `c1c8a8c1` | MIT |
+
+Its upstream excerpts, fixed commits and licenses are retained under `references/upstream/`. The team edition s own additions - task ownership, assigned-contributor scope, shared-artifact maintainers, isolated checkouts, handoff facts and integrated-version verification - are collection synthesis, not upstream work. Full source and license digests are in each `references/sources.json` for audit.
+
+Inspiration from Matt Pocock is noted as arriving through user-provided summaries only; no upstream text from that work was imported or independently verified.
+
+
+
+## Security
+
+To report a security-relevant problem, follow [SECURITY.md](SECURITY.md) instead of opening a public issue.
+
+## Contributing (see [CONTRIBUTING.md](CONTRIBUTING.md))
 
 Issues and PRs are welcome. Please:
 
