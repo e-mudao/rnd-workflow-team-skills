@@ -1,0 +1,39 @@
+{
+  "scope": "Release config only: CITATION.cff vs Citation File Format 1.2.0, the GitHub workflow and issue forms vs SchemaStore schemas. Schema files are caller-supplied, not fetched; digests recorded. Not a GitHub-side rendering or Actions execution.",
+  "yaml_loader": "GitHub Actions semantics (YAML 1.2 core: only true/false are booleans)",
+  "results": [
+    {
+      "target": "CITATION.cff",
+      "valid": true,
+      "errors": [],
+      "schema": "cff",
+      "schema_source": "https://raw.githubusercontent.com/citation-file-format/citation-file-format/1.2.0/schema.json",
+      "schema_sha256": "0b8d22140da702d766df318dcff3a91af2f39521298dcf36d76315fd99cc169b"
+    },
+    {
+      "target": ".github/workflows/check.yml",
+      "valid": true,
+      "errors": [],
+      "schema": "workflow",
+      "schema_source": "https://www.schemastore.org/github-workflow.json",
+      "schema_sha256": "d10c9f4656e1bd5bc6727e9b35080e017dc167154726fca93da33c7a6bd1c4f3"
+    },
+    {
+      "target": ".github/ISSUE_TEMPLATE/bug.yml",
+      "valid": true,
+      "errors": [],
+      "schema": "issue_forms",
+      "schema_source": "https://www.schemastore.org/github-issue-forms.json",
+      "schema_sha256": "c2722dbf00334ce4fdeffa960b8c9047caf4f1cbb8f3809663f4d604b1d3ae76"
+    },
+    {
+      "target": ".github/ISSUE_TEMPLATE/feature.yml",
+      "valid": true,
+      "errors": [],
+      "schema": "issue_forms",
+      "schema_source": "https://www.schemastore.org/github-issue-forms.json",
+      "schema_sha256": "c2722dbf00334ce4fdeffa960b8c9047caf4f1cbb8f3809663f4d604b1d3ae76"
+    }
+  ],
+  "passed": true
+}

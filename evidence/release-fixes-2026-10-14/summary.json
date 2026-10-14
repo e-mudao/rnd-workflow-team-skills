@@ -1,0 +1,66 @@
+{
+  "round": "Final-review release blockers, 2026-10-14",
+  "review_evidence": "evidence/final-review-2026-10-14/",
+  "base_commit": "cff53f5dc00fe9806e34485d85c874556999e973",
+  "release_commit": "004f04fb81156bf51dd0a05b4be5fc639ade9e0a",
+  "tracked_worktree_clean_at_check": true,
+  "findings": [
+    {
+      "id": "P1",
+      "title": "GitHub Actions workflow sat on a path GitHub does not read",
+      "before": ".gitthub/workflows/check.yml",
+      "after": ".github/workflows/check.yml",
+      "check": "valid against SchemaStore github-workflow.json; on: push/pull_request to main; 4 steps"
+    },
+    {
+      "id": "P2",
+      "title": "Issue templates were outside .github/ and were Issue-Form YAML with a .md extension",
+      "before": [
+        ".gitthub/ISSUE_TEMPLATE/bug.md",
+        ".gitthub/ISSUE_TEMPLATE/feature.md"
+      ],
+      "after": [
+        ".github/ISSUE_TEMPLATE/bug.yml",
+        ".github/ISSUE_TEMPLATE/feature.yml"
+      ],
+      "check": "both valid against SchemaStore github-issue-forms.json; label 'inhencement' corrected to 'enhancement'"
+    },
+    {
+      "id": "P2",
+      "title": "CITATION.cff carried placeholder and invalid content",
+      "before": [
+        "authors[0].family-names: \"rnd-workflow\" (dummy)",
+        "authors[0].name-suffix: \"contributors\" (misused)",
+        "top-level cont-act (not a CFF key; CFF uses contact)",
+        "authors[0].e-mail: \"\" (empty)"
+      ],
+      "after": [
+        "authors[0].family-names: emudao, alias, email, website",
+        "contact: [{family-names: emudao, email}]",
+        "date-released quoted so YAML 1.1 parsers keep it a string"
+      ],
+      "check": "valid against Citation File Format 1.2.0 schema"
+    },
+    {
+      "id": "P2",
+      "title": "README.md proofreading",
+      "before": [
+        "\"The methods below were reus with fixed upstream excerpts\" (truncated word)",
+        "sources table separator had 5 columns under a 4-column header",
+        "gsd-core row fed `leed` instead of `lead`",
+        "\"The team edition s own additions\" (missing apostrophe)",
+        "`license` written as `licensee` in 7 places"
+      ],
+      "after": "corrected in the release commit; local-link count unchanged at 143",
+      "check": "see the release commit diff for README.md"
+    }
+  ],
+  "checks": {
+    "checker": "static-after.json",
+    "tests": "tests-after.txt",
+    "config_schemas": "github-config-validation.json",
+    "checker_command": "python3 scripts/check_delivery.py",
+    "tests_command": "python3 -B -m unittest discover -s scripts -p 'test_*.py' -v"
+  },
+  "boundaries": "The schema checks are local: they prove the files conform to the published schemas, not that GitHub renders the forms or that Actions executed. The workflow first runs on the next push to main. Bundled upstream sources are checked by digest only; remote-source authenticity was not re-verified."
+}
