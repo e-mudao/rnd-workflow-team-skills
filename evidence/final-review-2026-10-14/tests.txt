@@ -1,0 +1,12 @@
+test_changed_source_bytes_rejected (test_check_delivery.DeliveryTests.test_changed_source_bytes_rejected) ... ok
+test_duplicate_replacing_missing_source_rejected (test_check_delivery.DeliveryTests.test_duplicate_replacing_missing_source_rejected) ... ok
+test_empty_sources_rejected (test_check_delivery.DeliveryTests.test_empty_sources_rejected) ... ok
+test_partial_source_deletion_rejected (test_check_delivery.DeliveryTests.test_partial_source_deletion_rejected) ... ok
+test_reordered_sources_pass (test_check_delivery.DeliveryTests.test_reordered_sources_pass) ... ok
+test_standalone_payload_passes (test_check_delivery.DeliveryTests.test_standalone_payload_passes) ... ok
+test_wrong_source_collection_type_rejected (test_check_delivery.DeliveryTests.test_wrong_source_collection_type_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.258s
+
+OK

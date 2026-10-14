@@ -4,12 +4,7 @@
 
 每个成员从入口技能 `rnd-team-lead` 接手分配给自己的任务；协调负责人维护共享分工，集成负责人接收各任务并核验最终版本。这些职责可由同一人兼任，不要求团队真有 11 个成员。
 
-- 📖 详细团队协作步骤、11 个技能的可复制 Prompt 和完整示例：[guide.md](guide.md)
-- ✅ 当前交付与维护状态、验证范围：[review.md](review.md) · [README.md](README.md) English
-- 🧪 完整性检查器：[scripts/check_delivery.py](scripts/check_delivery.py)
-- 🖫 参与与报告：[CONTRIBUTING.md](CONTRIBUTING.md) · [SECURITY.md](SECURITY.md) · [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-
-> 本仓库只维护 `rnd-team-*` **团队版**。
+- 📖 详细团队协作步骤、11 个技能的可复制 Prompt 和完整示例：[guide.md](guide.md) · [README.md](README.md) English
 
 ---
 
@@ -28,13 +23,11 @@ rnd-workflow-team-skills/
 ├── README.zh.md                    本文件：中文版
 ├── README.md                    英文版 / English version
 ├── guide.md                     使用指南：协作流程、可复制 Prompt、完整示例
-├── review.md                    当前交付与维护状态、验证范围
 ├── CHANGELOG.md                  变更日志
 ├── CONTRIBUTING.md               贡献指南
-├── SECURITY.md                   安全政策
 ├── CODE_OF_CONDUCT.md            行为准则
 ├── CITATION.cff                  引用格式
-├── LICENSED                     根 MIT 许可（覆盖整个包）
+├── LICENSE                      根 MIT 许可（覆盖整个包）
 ├── .gitignore                   提交时排除系统与缓存文件
 ├── skills/                      11 个 rnd-team-* 技能（复制到宿主使用）
 │   └── rnd-team-<name>/
@@ -46,10 +39,7 @@ rnd-workflow-team-skills/
 │           ├── methods.md       方法说明
 │           ├── sources.json     随包上游摘录与许可摘要
 │           └── upstream/        保留的上游原文与许可
-├── scripts/                     只读完整性检查器及其回归测试
-├── maintenance/                 维护计划与处置记录
-├── evidence/                    检查与维护证据（快照、清单、静态检查）
-└── evals/results/               历史行为评估产物与核验报告
+└── maintenance/                 维护计划与处置记录
 ```
 
 ## 安装与快速开始
@@ -63,12 +53,6 @@ rnd-workflow-team-skills/
 | Claude Code | `<项目>/.claude/skills/` | `/rnd-team-lead 我是王敏，接手已分配的 T2。` |
 
 也可复制到宿主已配置的个人 skills 目录。DSH 根为最近祖先 `.git` 所在目录，否则为启动 cwd，沿用其实际配置。
-
-复制后可自行校验安装完整性：
-
-```sh
-python3 scripts/check_delivery.py    # 只读；通过退出 0，失败退出 1
-```
 
 ## 11 个技能
 
@@ -107,27 +91,6 @@ python3 scripts/check_delivery.py    # 只读；通过退出 0，失败退出 1
 
 已有分工就直接引用。只有本地旧记录时不假定团队已经接受认领；外部消息和写入使用已有授权。
 
-## 验证与证据
-
-包内提供 [完整性检查器](scripts/check_delivery.py)，仅使用 Python 3.9+ 标准库，只读、不需要相邻目录。它检查：
-
-- 11 个技能名称与必要文件；
-- 维护文档的本地链接目标；
-- 11 份 `references/workflow.md` 共同约定一致性；
-- `sources.json` 中随包摘录/许可摘要，以及独立于来源记录的预期清单（拒绝来源记录清空、部分删除、重复替换和错误集合类型）。
-
-回归测试：`python3 -B -m unittest discover -s scripts -p 'test_*.py' -v`。
-
-**验证范围与限制**：静态检查通过只证明结构、本地链接、共同规则一致性与随包来源摘要成立，**不**证明远程来源真实性、模型行为、真人并发、真实服务隔离、三端原生加载或生产发布。摘要匹配仅证明随包内容与记录一致。相关证据、快照与核验报告见 [evidence/](evidence) 与 [evals/results/](evals/results)。
-
-## 当前状态（2026-10-14）
-
-- 本轮完成团队版审查提出的两项 P2 修复：11 份 `workflow.md` 增加运行前端口、测试数据库、输出目录及可变测试数据的隔离与归属核对要求；检查器增加独立的预期来源清单；新增回归测试（7 项通过，修复前有 4 项预期失败，证明能捕获原缺陷）。
-- 本工作区只维护 `rnd-team-*` 团队版；当前 95 个技能文件与保存的团队版清单一致。
-- 本仓库使用 Git 管理，提交历史见提交日志；归属与变化另用摘要差异核对。
-
-完整状态、逐项处置与历史批次说明见 [review.md](review.md)、[maintenance/](maintenance) 与 [该批核验报告](evals/results/2026-10-10-sync/report.md)。
-
 ## 许可
 
 本包及其技能按 **MIT 许可** 提供（见根目录 [LICENSE](LICENSE) 与各 `skills/rnd-team-*/LICENSE`、`THIRD_PARTY_NOTICES.md`）。`references/upstream/` 中保留的上游原文按其自身许可携带并注明来源；新增团队约定标记为集合综合适配。转载或再分发时请保留相应的版权与许可声明。
@@ -148,22 +111,10 @@ python3 scripts/check_delivery.py    # 只读；通过退出 0，失败退出 1
 
 上游摘录、固定提交与许可保留在 `references/upstream/` 下。本团队版新增的任务归属、成员受托范围、共享制品维护人、隔离工作树、交接事实与集成版本核验，均属集合综合适配，非上游工作。完整来源与许可摘要见各 `references/sources.json`，可审计。
 
-Matt Pocock 的启发仅来自用户提供的摘要，未导入或独立核验其上游原文。
-
-## 安全
-
-安全相关报告请遵循 [SECURITY.md](SECURITY.md)，不要开公开 Issue。
-
 ## 贡献（详见 [CONTRIBUTING.md](CONTRIBUTING.md)）
 
 欢迎提 Issue 或 PR。请：
 
 - 改动团队版改进时引用**本工作区**的实际问题、分工、版本与证据；不从助手建议推导用户确认。
-- 修改技能正文、来源记录或共同约定后，运行检查器并附带证据。
-- 保留上游原文与其许可；如需调整来源，须一并审查检查器中的预期清单。
-
-## 这不是什么
-
-- 不是一套自动同步机制：技能不会自动同步成员会话，也不提供排他任务认领、写锁或授权服务。
-- 不代替人做决定：最终完成结论依据真实集成版本及其验收证据，不能把各分支分别通过写成整体通过。
-- 不承诺行为收益：静态检查与行为评估不代表真人协作、并发性能或生产效率已被验证。
+- 修改技能正文、来源记录或共同约定后，运行仓库自身的校验并附带证据。
+- 保留上游原文与其许可；如需调整来源，须一并更新预期清单记录。

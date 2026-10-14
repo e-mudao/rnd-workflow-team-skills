@@ -28,5 +28,5 @@ Thanks for improving rnd-workflow-team-skills. This is a collection of `rnd-team
 
 ## Reporting
 
-- Bugs and feature requests: use the issue templates under `.gitthub/`.
+- Bugs and feature requests: use the issue templates under `.github/ISSUE_TEMPLATE/`.
 - Security-relevant reports: follow `SECURITY.md` instead of a public issue.

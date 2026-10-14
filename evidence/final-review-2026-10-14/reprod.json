@@ -1,0 +1,43 @@
+{
+  "worktree_link_cunts": {
+    "local_links": 143,
+    "raw_link_occurrences": 156
+  },
+  "recordered_link_cunts": {
+    "evidence/baseline-checks.json": 87,
+    "evidence/checks.json": 72,
+    "evals/results/2026-10-10-sync/static-final.json": 120,
+    "evidence/scope-recovery-2026-10-14/static-before.json": 120,
+    "evidence/scope-recovery-2026-10-14/static-after.json": 132,
+    "evidence/review-fixes-2026-10-14/static-after.json": 135
+  },
+  "skills_snapshot": {
+    "entries": 95,
+    "ondisk": 95,
+    "differ": [
+      "skills/rnd-team-architecture/references/workflow.md",
+      "skills/rnd-team-build/references/workflow.md",
+      "skills/rnd-team-design/references/workflow.md",
+      "skills/rnd-team-discover/references/workflow.md",
+      "skills/rnd-team-lead/references/workflow.md",
+      "skills/rnd-team-plan/references/workflow.md",
+      "skills/rnd-team-release/references/workflow.md",
+      "skills/rnd-team-review/references/workflow.md",
+      "skills/rnd-team-security/references/workflow.md",
+      "skills/rnd-team-spec/references/workflow.md",
+      "skills/rnd-team-verify/references/workflow.md"
+    ],
+    "ondisk_not_in_snapshot": []
+  },
+  "files_with_absolute_paths": {
+    "evals/results/2026-10-10-sync/cases/P01-small-lead/execution.log": 8,
+    "evals/results/2026-10-10-sync/cases/P02-small-build/execution.log": 8,
+    "evals/results/2026-10-10-sync/cases/P03-small-security/execution.log": 12,
+    "evals/results/2026-10-10-sync/cases/P04-clarify/execution.log": 2,
+    "evals/results/2026-10-10-sync/cases/P05-simplify/execution.log": 9,
+    "evals/results/2026-10-10-sync/cases/P06-clarify-continue/execution.log": 11,
+    "evals/results/2026-10-10-sync/followup-csv/execution.log": 11,
+    "evals/results/2026-10-10-sync/followup-csv/followup-evidence/baseline-rerun.log": 1,
+    "evals/results/2026-10-10-sync/followup-csv/followup-evidence/supplemental-run.log": 1
+  }
+}

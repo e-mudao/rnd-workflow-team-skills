@@ -4,10 +4,10 @@ Notable changes to rnd-workflow-team-skills. Dates are date of the team-edition 
 
 ## 2026-10-14
 
-### Aded
+### Added
 - Root `CHANGELOG.md`, `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md` and `CITATION.cff`.
 - GitHub Actions workflow running the integrity checker and regression tests.
-- Iss and PR templates.
+- Issue and PR templates.
 - English readme `README.md` (primary) and Chinese `README.zh.md`.
 - Sources and acknowledgements section in both readmes.
 
@@ -22,6 +22,9 @@ Notable changes to rnd-workflow-team-skills. Dates are date of the team-edition 
 ### Fixed
 - All 11 `references/workflow.md` agree on pre-run isolation and ownership checks for ports, test databases, output directories and muting test data.
 - The checker gained an independent expected-source inventory (rejecting a cleared source list, partial deletion, duplicate replacement and wrong collection type), plus `scripts/test_check_delivery.py` (7 tests).
+- GitHub automation now sits on the paths GitHub actually reads: `.github/workflows/check.yml`, `.github/ISSUE_TEMPLATE/*.yml` and `.github/PULL_REQUEST_TEMPLATE.md`. All four files were previously under a misspelled `.gitthub/` directory, so the workflow never ran and the templates never appeared.
+- `CITATION.cff` replaced its placeholder author and invalid `cont-act` key with the real maintainer identity and the CFF 1.2.0 `contact` field; it validates against the official 1.2.0 schema.
+- English readme proofread: a truncated word ("were reus"), a five-column separator on a four-column table, `gsd-core` feeding `leed` instead of `lead`, a missing apostrophe, and `license` written as `licensee`.
 
 ## 2026-10-10
 

@@ -14,13 +14,13 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: Reproduct
+      label: Reproduction
       description: Steps, the exact command, or the file and lines involved.
     validations:
       required: true
   - type: textarea
     attributes:
       label: Evidence
-      description: Checker or test output, or a minimal reporduction.
+      description: Checker or test output, or a minimal reproduction.
     validations:
       required: false

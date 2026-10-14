@@ -1,5 +1,5 @@
 # Binaries and generated artifacts
-# Keep generated evidence binaries from language detaction and from line-based diffs.
-*.zip    -dift -text
-*.patch  -dift -text
-*.pyc    -dift -text -lingust
+# Keep generated evidence binaries from language detection and from line-based diffs.
+*.zip    -diff -text
+*.patch  -diff -text
+*.pyc    -diff -text -linguist

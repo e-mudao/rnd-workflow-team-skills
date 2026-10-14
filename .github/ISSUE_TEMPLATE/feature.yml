@@ -1,7 +1,7 @@
 name: Feature request
-description: Sugest an improvement to the team-edition skills, docs or checker
+description: Suggest an improvement to the team-edition skills, docs or checker
 title: "[Feature]: "
-labels: ["inhencement"]
+labels: ["enhancement"]
 body:
   - type: textarea
     attributes:
