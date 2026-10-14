@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-10-14",
+  "citation_url": {
+    "declared": "https://github.com/e-mudao/rnd-workflow-team-skills",
+    "http_status": 200,
+    "account_url": "https://github.com/e-mudao",
+    "account_http_status": 200,
+    "repo_api": {
+      "full_name": "e-mudao/rnd-workflow-team-skills",
+      "private": false,
+      "visibility": "public",
+      "default_branch": "main",
+      "created_at": "2026-10-14T10:41:38Z",
+      "pushed_at": "2026-10-14T10:59:27Z",
+      "description_identifies_this_project": true
+    },
+    "method": "curl -sSL -o /dev/null -w '%{http_code} %{url_effective}'; GET /repos/{owner}/{repo}",
+    "conclusion": "The declared URL is publicly reachable and identifies this project. F1 is resolved."
+  },
+  "handle_discrepancy": {
+    "before": "authors/contact/website/email used 'emudao', taken from the local git config user.name",
+    "observed": [
+      "https://github.com/e-mudao -> 200",
+      "https://github.com/emudao -> 200, a separate account, no redirect to e-mudao",
+      "https://github.com/emudao/rnd-workflow-team-skills -> 404",
+      "https://github.com/e-mudao/rnd-workflow-team-skills -> 200"
+    ],
+    "action": "Citation identity aligned to the account that owns the repository (e-mudao); reversible if 'emudao' was intended."
+  },
+  "license_detection": {
+    "path": "LICENSE",
+    "size": 1567,
+    "detected_spdx_id": "NOASSERTION",
+    "detected_key": "other",
+    "contradicts": "README.md and CITATION.cff both claim MIT",
+    "endpoints": [
+      "GET /repos/e-mudao/rnd-workflow-team-skills -> license.spdx_id = NOASSERTION",
+      "GET /repos/e-mudao/rnd-workflow-team-skills/license -> license.spdx_id = NOASSERTION"
+    ],
+    "probable_cause": "the 'Scope of this file' paragraph appended after the MIT body; licensee was not available locally so the cause is a hypothesis, while the NOASSERTION result itself is observed twice."
+  },
+  "lineage": {
+    "local_head": "ba00a4317cb5ced45563a6400dce8e5ce0f189ba",
+    "remote_main": "9676f5d5c552ec22ea404c0b35a21313b606f016",
+    "merge_base": null,
+    "conclusion": "No common ancestor: the checkout and the published repository are two independent histories.",
+    "remote_still_carries": [
+      ".gitthub/ instead of .github/ (no .github/ in the remote tree)",
+      ".gitthub/ISSUE_TEMPLATE/*.md instead of Issue Form .yml",
+      "a CITATION.cff with the dummy author, cont-act and a <owner> placeholder",
+      "the pre-rename project name rnd-workflow-team in LICENSE and SECURITY.md"
+    ],
+    "remote_only_content_at_risk_if_force_pushed": "None identified. File-level comparison shows both trees contain the same file set (apart from this round's evidence directories); the remote is an earlier snapshot of the same project, guide.md is byte-identical, and the only content unique to the remote is the pre-rename naming in LICENSE/SECURITY.md that the local tree supersedes."
+  }
+}

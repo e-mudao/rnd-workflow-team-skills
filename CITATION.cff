@@ -8,15 +8,15 @@ abstract: >-
   A collection of 11 collaborative R&D skills (rnd-team-*) for multiple people
   each working with their own agent on one shared project.
 authors:
-  - family-names: "emudao"
-    alias: "emudao"
-    email: "emudao@users.noreply.github.com"
-    website: "https://github.com/emudao"
+  - family-names: "e-mudao"
+    alias: "e-mudao"
+    email: "e-mudao@users.noreply.github.com"
+    website: "https://github.com/e-mudao"
 contact:
-  - family-names: "emudao"
-    email: "emudao@users.noreply.github.com"
+  - family-names: "e-mudao"
+    email: "e-mudao@users.noreply.github.com"
 version: 1.0.0
 date-released: "2026-10-14"
-repository-code: "https://github.com/emudao/rnd-workflow-team-skills"
-url: "https://github.com/emudao/rnd-workflow-team-skills"
+repository-code: "https://github.com/e-mudao/rnd-workflow-team-skills"
+url: "https://github.com/e-mudao/rnd-workflow-team-skills"
 license: MIT

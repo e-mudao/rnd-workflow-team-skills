@@ -9,11 +9,11 @@
     {
       "id": "F1",
       "severity": "release-blocking",
-      "status": "open",
+      "status": "resolved",
       "title": "Citation repository URL is not reachable",
-      "evidence": "GET https://github.com/emudao/rnd-workflow-team-skills -> 404 while https://github.com/emudao -> 200; the URL is anonymous-404 either because the repository does not exist or because it is private, and anonymous requests cannot distinguish the two.",
+      "evidence": "citation-and-remote-check.json",
       "why_it_matters": "The release-prep commit promoted this URL from `url:` to `repository-code:`. CFF schema validation and cffconvert both accept the file regardless, so nothing in the toolchain catches a dead citation URL.",
-      "disposition": "Open: awaiting the final repository URL from the maintainer, after which reachability will be re-checked and recorded."
+      "disposition": "Resolved: the maintainer supplied https://github.com/e-mudao/rnd-workflow-team-skills, which returns HTTP 200 and whose API metadata identifies this project (public, default branch main). Writing that URL also exposed that the earlier identity ('emudao', from local git config) was a different GitHub account, so the citation identity was aligned to 'e-mudao'."
     },
     {
       "id": "F2",
@@ -87,6 +87,24 @@
       "title": "Reviewer artifact committed verbatim with its typos",
       "evidence": "evidence/final-review-2026-10-14/reprod.py retains link_cunts, diggest and placeHolder.",
       "disposition": "Documented under CHANGELOG Notes as intentional, to keep the review record authentic."
+    },
+    {
+      "id": "F11",
+      "severity": "release-blocking",
+      "status": "open",
+      "title": "The published repository is a separate lineage and still carries the original defects",
+      "evidence": "git merge-base HEAD FETCH_HEAD is empty. The remote main tree still has .gitthub/ (no .github/), .md issue templates, a dummy CITATION.cff with an <owner> placeholder, and the pre-rename name rnd-workflow-team.",
+      "why_it_matters": "Fixing the defects in this checkout does not fix the live repository. A plain push cannot fast-forward; publishing requires an explicit reconciliation choice (force-push, merge with --allow-unrelated-histories, or re-applying the fixes onto the remote history).",
+      "disposition": "Open: awaiting the maintainer's reconciliation decision. Nothing was pushed or force-pushed."
+    },
+    {
+      "id": "F12",
+      "severity": "claim-mismatch",
+      "status": "open",
+      "title": "Published LICENSE is detected as NOASSERTION, not MIT",
+      "evidence": "GET /repos/e-mudao/rnd-workflow-team-skills and .../license both report license.spdx_id = NOASSERTION, key 'other', for the 1567-byte root LICENSE, while README.md and CITATION.cff claim MIT.",
+      "why_it_matters": "GitHub shows the repository as 'Other' rather than MIT, so the license claim made to users is not what the platform reports. The local LICENSE has the same structure, so this persists after any push.",
+      "disposition": "Open: recommended fix is to keep LICENSE verbatim MIT and move the appended 'Scope of this file' paragraph (which also contains the typo 'relavant') into a separate notice or the readme. The cause is a hypothesis; the detection result is observed."
     }
   ],
   "excluded_after_investigation": [

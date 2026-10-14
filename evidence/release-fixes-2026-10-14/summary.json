@@ -69,7 +69,7 @@
       "004f04fb81156bf51dd0a05b4be5fc639ade9e0a",
       "b5bd9e7"
     ],
-    "note": "Adversarial re-review of the release-prep fixes; F1 remains open pending the final repository URL.",
+    "note": "Adversarial re-review of the release-prep fixes. F1 was resolved once the maintainer supplied the repository URL; F11 (divergent published history) and F12 (published LICENSE detected as NOASSERTION) were opened by that same check.",
     "remediation": "Fixes for F3-F8 applied in the supplemental commit; F1 remains open."
   }
 }
