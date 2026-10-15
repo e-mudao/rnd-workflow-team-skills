@@ -1,0 +1,80 @@
+{
+  "phase": "phase-1 (revised per 3 verdicts) — APPLIED",
+  "state": "修订草案已应用；行为验收待执行",
+  "statement": "修订已应用，静态验证通过；行为验收待执行。",
+  "applied_to_repo": true,
+  "baseline_skill_sha256": "2c6d5a4532e8bd18e0cfc70b309fc25e642e5449d9cdddc0dcee97e25b618278",
+  "revised_skill_sha256": "2fa4567f6b7db8b61913c9ac4c4f0d55c82ca35bae75b47750df259e63dba4a1",
+  "baseline_utf8_bytes": 5695,
+  "revised_utf8_bytes": 8524,
+  "delta_utf8_bytes": 2829,
+  "baseline_code_points": 2459,
+  "revised_code_points": 3648,
+  "delta_code_points": 1189,
+  "verdicts_applied": {
+    "1_B_dedup_merged": "步骤3末句改写为同时覆盖两种阻断原因，新增句已删除",
+    "2_A1_dedup_merged": "删除重复句；'复用只减免重复读取，不替代…核对'并入同句",
+    "3_A2_relocated": "A2 并入步骤3末尾，位于接回字段之后、合并阻断句之前"
+  },
+  "verification_run_on": "MODIFIED package (not baseline)",
+  "static_checks_on_modified_package": {
+    "check_delivery": {
+      "passed": true,
+      "counts": {
+        "skills": 11,
+        "local_links": 149,
+        "source_digests": 32
+      },
+      "errors": []
+    },
+    "test_check_delivery": {
+      "tests": 7,
+      "result": "OK"
+    },
+    "note": "local_links rose 147 -> 149: two added [协作约定](references/workflow.md) links; both resolve (checker reports 0 errors). It is a link count, not an error count."
+  },
+  "protected_scope_reverified": {
+    "workflow_md_all_11_identical": true,
+    "workflow_md_5_locked_sections_in_all_11": true,
+    "release_body_bytes": 2065,
+    "security_body_bytes": 2515,
+    "upstream_files": 28,
+    "upstream_bytes": 187365,
+    "all_11_descriptions_unchanged": {
+      "rnd-team-architecture": "689c250171b3",
+      "rnd-team-build": "5ed93b75e5e8",
+      "rnd-team-design": "b7b1f2580831",
+      "rnd-team-discover": "127a6495e951",
+      "rnd-team-lead": "74c75912b182",
+      "rnd-team-plan": "bb51b36a4d30",
+      "rnd-team-release": "3a9dd08dd852",
+      "rnd-team-review": "1a48399b7a63",
+      "rnd-team-security": "c8371ebf2775",
+      "rnd-team-spec": "02897c17651f",
+      "rnd-team-verify": "6ebf4e71f7d7"
+    },
+    "frontmatter_unchanged": true
+  },
+  "not_measured": [
+    {
+      "quantity": "actual load payload at runtime",
+      "status": "未测",
+      "reason": "requires execution records; file size not substituted"
+    },
+    {
+      "quantity": "actual tool output volume",
+      "status": "未测",
+      "reason": "requires execution records"
+    },
+    {
+      "quantity": "BC-1..BC-11 behaviour",
+      "status": "未执行",
+      "reason": "requires real agent execution records"
+    }
+  ],
+  "limits": [
+    "Behaviour verification has NOT been performed.",
+    "Static checks confirm package integrity and that the edit is structurally sound; they do NOT demonstrate the intended behavioural effect.",
+    "No session-level payload reduction is claimed."
+  ]
+}

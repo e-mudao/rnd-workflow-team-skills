@@ -1,0 +1,21 @@
+{
+  "note": "控制端在两轮之间实际改写权威产物；以下摘要用于证明变更真实发生且可复现",
+  "changes": {
+    "docs/spec.md": {
+      "applied_to_fixture": "/tmp/rnd-team-bc-phase2/T1/docs/spec.md",
+      "mtime": "2026-10-15 10:33:53",
+      "digest_before": "fc35b95793c533eaa9896a4debc9e8fa05aff6b97fd479582a02e0b797ace820",
+      "digest_after": "f6a76c5b4d07aa8e6aeef3e874208aaf50d0f23c0ffb614ea2c829bf130d8c4d",
+      "current_matches_after": true
+    },
+    "records/candidate.md": {
+      "applied_to_fixture": "/tmp/rnd-team-bc-phase2/T1/records/candidate.md",
+      "mtime": "2026-10-15 10:33:53",
+      "digest_before": "3d334c9656409f38bfe7c13fdd5cecfb14fc5483bf8f47384d2b146f8a45d703",
+      "digest_after": "6a810f0269d2dddffc097a92092681474ced689e98b43c2efa00a34eea9cb0a1",
+      "current_matches_after": true
+    }
+  },
+  "fixture_reset": "setup-fixtures.py 会在重建时把两项还原为 before 版本",
+  "reproducibility": "python3 setup-fixtures.py 重建；在发送续接提示词前由控制端写入 after 版本"
+}

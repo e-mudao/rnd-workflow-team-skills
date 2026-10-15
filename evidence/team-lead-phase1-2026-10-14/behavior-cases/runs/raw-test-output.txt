@@ -1,0 +1,42 @@
+控制端复跑（非执行者原始输出；执行者原始 stdout 未获得）。
+说明：unittest 把结果写到 stderr，故 4 条用例与 OK 出现在 stderr 段。
+
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 -m unittest test_access -v
+cwd=/tmp/rnd-team-bc-phase2/T1
+exit=0
+--- stdout ---
+(empty)
+--- stderr ---
+test_cross_tenant_admin (test_access.T.test_cross_tenant_admin) ... ok
+test_cross_tenant_admin_key_absent (test_access.T.test_cross_tenant_admin_key_absent) ... ok
+test_owner (test_access.T.test_owner) ... ok
+test_same_tenant_owner_admin_key_absent (test_access.T.test_same_tenant_owner_admin_key_absent) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
+
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 -m unittest discover -v
+cwd=/tmp/rnd-team-bc-phase2/T1
+exit=0
+--- stdout ---
+(empty)
+--- stderr ---
+test_cross_tenant_admin (test_access.T.test_cross_tenant_admin) ... ok
+test_cross_tenant_admin_key_absent (test_access.T.test_cross_tenant_admin_key_absent) ... ok
+test_owner (test_access.T.test_owner) ... ok
+test_same_tenant_owner_admin_key_absent (test_access.T.test_same_tenant_owner_admin_key_absent) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
+
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 -m py_compile access.py test_access.py
+cwd=/tmp/rnd-team-bc-phase2/T1
+exit=0
+--- stdout ---
+(empty)
+--- stderr ---
+(empty)

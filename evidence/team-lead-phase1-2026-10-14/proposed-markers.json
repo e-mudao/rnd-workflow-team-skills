@@ -1,0 +1,19 @@
+{
+  "state": "edit applied; this file verifies the APPLIED file, not a proposal",
+  "new_strings": {
+    "count": 6,
+    "all_present_in_applied": true,
+    "none_in_baseline": true
+  },
+  "preserved_strings": {
+    "count": 4,
+    "all_survive": true,
+    "detail": {
+      "A2_step3_auth_continuation": true,
+      "A2_step3_handoff": true,
+      "C1_read_only_needed": true,
+      "C2_release_unknown_investigate": true
+    }
+  },
+  "conclusion": "Applied file contains every new string and retains every preserved string."
+}

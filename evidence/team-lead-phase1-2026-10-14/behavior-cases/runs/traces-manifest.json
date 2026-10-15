@@ -1,0 +1,99 @@
+{
+  "note": "原始运行轨迹 **不入库**（体积 14 MB，且仓库既有 evidence 约定为紧凑记录）。本清单记录其标识以便日后核验；原始文件留在控制端本地，不入库。",
+  "excluded_by": ".gitignore 的 *.jsonl",
+  "count": 15,
+  "total_bytes": 15048615,
+  "entries": [
+    {
+      "path": "runs/attempt1-trace.jsonl",
+      "bytes": 1133016,
+      "sha256": "ce7323994e71890f1151817841ff744362d6fe56c769759a57a3d8c7d49626c7",
+      "what": "BC-1/BC-2 首次尝试（已判为盲测污染，作废，保留）"
+    },
+    {
+      "path": "runs/executor-trace-BC1-BC2.jsonl",
+      "bytes": 1834469,
+      "sha256": "821e72d96574b64b25ed8ed8e5aafd02a10f5d955e013521af48ec91f478c062",
+      "what": "BC-1/BC-2 首轮：执行者完整工具轨迹（含 38 组 call/result）"
+    },
+    {
+      "path": "runs/trace-BC-10.jsonl",
+      "bytes": 734462,
+      "sha256": "6d2f9bc19d084df2b70d50c3fed5fb054691d367a9475dca892824930e26f919",
+      "what": "BC-10 完整轨迹"
+    },
+    {
+      "path": "runs/trace-BC-11.jsonl",
+      "bytes": 829083,
+      "sha256": "ccbcb1e1e2406f5de8b478d9d4d84aa692082939bc307d1a60beae06c92fcfa0",
+      "what": "BC-11 完整轨迹"
+    },
+    {
+      "path": "runs/trace-BC-3-attempt1.jsonl",
+      "bytes": 977103,
+      "sha256": "8220893feef7a107bdff66219d1d9240dfea77e15ea412b211f675d57fd79663",
+      "what": "BC-3 首轮（两缺陷同套件；多轮未覆盖）"
+    },
+    {
+      "path": "runs/trace-BC-3-both-rounds.jsonl",
+      "bytes": 1780744,
+      "sha256": "920657a4b9688d07d454a16575508fe9fc60ded4ba14d20eeafc3234953ce705",
+      "what": "BC-3 两轮版 全两轮（判定依据）"
+    },
+    {
+      "path": "runs/trace-BC-3-round1.jsonl",
+      "bytes": 982429,
+      "sha256": "6e487dbdfec009703551c54405e21d44ce30b71981b30f5f454d037ee6ef343e",
+      "what": "BC-3 两轮版 第一轮"
+    },
+    {
+      "path": "runs/trace-BC-4-attempt1.jsonl",
+      "bytes": 1530701,
+      "sha256": "f122d37601b887bcf3464cade04a135ce9844deb03792767cd04c9a94b478362",
+      "what": "BC-4 首轮（我 fixture 有 2 处缺陷；复合案例）"
+    },
+    {
+      "path": "runs/trace-BC-4-clean-both-turns.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "what": "BC-4 修正版 两轮（判定依据）"
+    },
+    {
+      "path": "runs/trace-BC-4-clean-turn1.jsonl",
+      "bytes": 936115,
+      "sha256": "455f75e1199ea4778e393c246a801565120970f4624ccdd11d1487304f45b54f",
+      "what": "BC-4 修正版 首轮（纯外部阻断；未改代码）"
+    },
+    {
+      "path": "runs/trace-BC-5.jsonl",
+      "bytes": 771980,
+      "sha256": "d66021d1f663d80c81dbe99de602ebb38812ed2623517762c3d0ea16c5e6e41e",
+      "what": "BC-5 完整轨迹"
+    },
+    {
+      "path": "runs/trace-BC-6.jsonl",
+      "bytes": 901825,
+      "sha256": "1f65ff62d508a26664c2ce4c5cd0649c7a4ee9d850da3f349e1458a1c0398b7d",
+      "what": "BC-6 完整轨迹"
+    },
+    {
+      "path": "runs/trace-BC-7.jsonl",
+      "bytes": 985876,
+      "sha256": "5cac123a180fb2a5df0997137c50363f0dfe77578e6c1d3eca775371d878b4c2",
+      "what": "BC-7 完整轨迹"
+    },
+    {
+      "path": "runs/trace-bc8.jsonl",
+      "bytes": 818951,
+      "sha256": "6d108c97c3d668649eb26fe554e1cbb9896035ef2424813b3d6168e5b55ec04b",
+      "what": "BC-8 完整轨迹"
+    },
+    {
+      "path": "runs/trace-bc9.jsonl",
+      "bytes": 831861,
+      "sha256": "48949800520fb10ae408e4ae454bd8eebb1477c68ac2e968dc3a7284465a852b",
+      "what": "BC-9 完整轨迹"
+    }
+  ],
+  "leak_scan": "控制端对全部轨迹做过越界关键词扫描（evidence / case-plan / ANSWER_KEY / setup-fixtures）：0 命中"
+}

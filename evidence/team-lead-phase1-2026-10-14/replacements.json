@@ -1,0 +1,59 @@
+{
+  "target": "skills/rnd-team-lead/SKILL.md",
+  "applied_to_repo": true,
+  "method": "literal anchors only; each asserted to match exactly once; no regex; frontmatter untouched",
+  "baseline_sha256": "2c6d5a4532e8bd18e0cfc70b309fc25e642e5449d9cdddc0dcee97e25b618278",
+  "revised_sha256": "2fa4567f6b7db8b61913c9ac4c4f0d55c82ca35bae75b47750df259e63dba4a1",
+  "delta_utf8_bytes": 2829,
+  "delta_code_points": 1189,
+  "operations": [
+    {
+      "op": "A1",
+      "change": "执行循环第1步 · 强化已有复用规则（去重后）",
+      "marker": "复用只减免重复读取，不替代对权威规格、任务记录与当前事实的核对；",
+      "note": "删除自造的重复句『首次读取不替代…』，并入同一句；复用规则本身来自 workflow.md:96",
+      "marker_present_in_repo": true,
+      "marker_absent_in_baseline": true
+    },
+    {
+      "op": "A2",
+      "change": "执行循环第3步末尾 · 进展判定（并入第3步）",
+      "marker": "相同问题、候选与证据经多轮仍无实质进展时，先调查阻因",
+      "note": "接回结果、核对候选与证据之后判断有无进展；不设固定次数停工",
+      "marker_present_in_repo": true,
+      "marker_absent_in_baseline": true
+    },
+    {
+      "op": "B1",
+      "change": "执行循环第3步 · 接回字段",
+      "marker": "接收产物位置与准确版本",
+      "note": "未知先查证/标未知；无产物写'本次答复'",
+      "marker_present_in_repo": true,
+      "marker_absent_in_baseline": true
+    },
+    {
+      "op": "B2",
+      "change": "执行循环第3步末句 · 合并两种阻断原因（按裁决1）",
+      "marker": "缺少角色能力，或缺失信息影响候选确认、授权及下一步正确性时，只阻塞依赖部分",
+      "note": "替换原句『缺角色能力只阻塞依赖部分。』；删除自造的新增句，避免同段重复",
+      "marker_present_in_repo": true,
+      "marker_absent_in_baseline": true
+    },
+    {
+      "op": "C1",
+      "change": "按需定位方法 · 段首改为非强制提示",
+      "marker": "下表是候选定位提示，不是硬性门槛",
+      "note": "纳入 workflow.md:56 归属路由",
+      "marker_present_in_repo": true,
+      "marker_absent_in_baseline": true
+    },
+    {
+      "op": "C2",
+      "change": "按需定位方法 · 表格替换",
+      "marker": "| 可观测信号 | 候选职责 | 方法路径 |",
+      "note": "16 行；补回研究分析与实验方法路由；表后两条限定",
+      "marker_present_in_repo": true,
+      "marker_absent_in_baseline": true
+    }
+  ]
+}
